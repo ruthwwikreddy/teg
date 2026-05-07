@@ -647,8 +647,21 @@
                 <div class="hero-image-mobile relative" data-aos="fade-left" data-aos-duration="1200">
                     <!-- Cinematic Student Visual -->
                     <div class="relative z-10 float-slow">
-                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-orange-primary/20 rounded-full blur-2xl"></div>
-                        <img src="gemini/image1.png" alt="Indian Student" class="w-full max-w-[480px] aspect-[4/5] object-cover rounded-[32px] shadow-2xl border-8 border-white relative z-10 orange-glow mx-auto lg:ml-auto">
+                        <!-- ApplyBoard Style Layered Backgrounds -->
+                        <div class="absolute -top-16 -left-16 w-64 h-64 bg-orange-primary/10 rounded-[64px] rotate-12 blur-3xl"></div>
+                        <div class="absolute -bottom-16 -right-16 w-80 h-80 bg-teal/10 rounded-full blur-3xl"></div>
+                        
+                        <div class="relative">
+                            <img src="gemini/image1.png" alt="Indian Student" class="w-full max-w-[480px] aspect-[4/5] object-cover rounded-[32px] shadow-2xl border-8 border-white relative z-10 orange-glow mx-auto lg:ml-auto">
+                            
+                            <!-- Floating Trust Badges -->
+                            <div class="absolute -top-8 -right-8 glass p-4 rounded-2xl shadow-premium z-20 floating">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                                    <span class="text-[10px] font-black text-navy-900 uppercase">Live Counselling</span>
+                                </div>
+                            </div>
+                        </div>
                         
                         <!-- Abstract Decorative Element -->
                         <div class="absolute -bottom-20 -right-20 w-64 h-64 border border-black/5 rounded-full z-0 float-fast"></div>
@@ -958,10 +971,16 @@
                 </div>
                 
                 <div class="relative" data-aos="fade-left">
-                    <div class="glass-dark p-10 lg:p-16 rounded-[48px] border border-white/10 relative overflow-hidden">
-                        <img src="gemini/image2.png" alt="Professional Pathway" class="absolute inset-0 w-full h-full object-cover opacity-20">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-orange-primary/20 blur-3xl"></div>
-                        <h3 class="text-3xl font-black mb-8 text-white">Why BTEC with TEG?</h3>
+                    <div class="glass-dark p-10 lg:p-16 rounded-[48px] border border-white/10 relative overflow-hidden group">
+                        <!-- Layered Background Image -->
+                        <div class="absolute inset-0 z-0">
+                            <img src="gemini/image2.png" alt="Professional Pathway" class="w-full h-full object-cover opacity-30 group-hover:scale-110 transition-transform duration-1000">
+                            <div class="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-900/80 to-transparent"></div>
+                        </div>
+                        
+                        <div class="relative z-10">
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-orange-primary/20 blur-3xl"></div>
+                            <h3 class="text-3xl font-black mb-8 text-white">Why BTEC with TEG?</h3>
                         <ul class="space-y-6">
                             <li class="flex items-start space-x-4">
                                 <div class="w-6 h-6 bg-teal rounded-full flex items-center justify-center text-navy-900 mt-1">
