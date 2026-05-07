@@ -473,14 +473,20 @@
 
             /* Contact Mobile Refinement */
             #contact .grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
-            #contact .text-center-mobile { text-align: center !important; }
             #contact .glass { 
-                padding: 2rem 1.5rem !important; 
+                padding: 2.5rem 1.5rem !important; 
                 border-radius: 32px !important; 
                 margin: 0 !important;
+                text-align: center !important;
             }
-            #contact h2 { text-align: center !important; font-size: 2.5rem !important; }
+            #contact h2, #contact h3 { text-align: center !important; }
+            #contact h2 { font-size: 2.5rem !important; }
             #contact p { text-align: center !important; margin: 0 auto 2rem auto !important; }
+            #contact .inline-flex { margin-left: auto !important; margin-right: auto !important; display: flex !important; width: max-content !important; }
+            #contact .group.flex { flex-direction: column !important; text-align: center !important; padding: 2rem !important; }
+            #contact .group.flex .ml-6 { margin-left: 0 !important; margin-top: 1rem !important; }
+            #contact .absolute.-top-12 { top: -2rem !important; right: 1rem !important; width: 4rem !important; height: 4rem !important; }
+            #contact .absolute.-top-12 i { font-size: 1.5rem !important; }
             
             /* Footer Mobile Refinement */
             footer { text-align: center !important; padding: 4rem 1.5rem !important; }
