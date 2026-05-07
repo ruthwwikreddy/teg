@@ -397,8 +397,8 @@
         /* Mobile-First Refinements */
         @media (max-width: 768px) {
             .section-dark, .section-light {
-                padding-top: 5rem !important;
-                padding-bottom: 5rem !important;
+                padding-top: 3.5rem !important;
+                padding-bottom: 3.5rem !important;
             }
             
             h1 { font-size: 2.75rem !important; line-height: 1.1 !important; text-align: center !important; }
@@ -408,7 +408,7 @@
             .container { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
             
             /* Hero Center Layout */
-            #home { min-height: 100vh !important; padding-top: 7rem !important; text-align: center !important; }
+            #home { min-height: auto !important; padding-top: 6rem !important; padding-bottom: 3.5rem !important; text-align: center !important; }
             #home .container > div { display: flex !important; flex-direction: column !important; align-items: center !important; }
             #home p { text-align: center !important; margin-left: auto !important; margin-right: auto !important; font-size: 1rem !important; }
             #home .flex-col { flex-direction: column !important; width: 100% !important; gap: 1rem !important; }
@@ -558,7 +558,7 @@
 <body class="bg-white overflow-x-hidden">
 
     <!-- NAVIGATION -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-4">
         <div class="container mx-auto px-6">
             <div class="glass rounded-[16px] px-8 py-4 flex justify-between items-center shadow-premium">
                 <!-- Logo -->
@@ -599,7 +599,7 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <section id="home" class="relative min-h-screen flex items-center overflow-hidden pt-20">
+    <section id="home" class="relative min-h-screen flex items-center overflow-hidden pt-12">
         <!-- Background Elements -->
         <div class="hero-shape w-[600px] h-[600px] bg-orange-primary -top-20 -right-20 rounded-full"></div>
         <div class="hero-shape w-[400px] h-[400px] bg-teal -bottom-20 -left-20 rounded-full"></div>
@@ -698,7 +698,7 @@
     </section>
 
     <!-- ABOUT SECTION -->
-    <section id="about" class="py-24 lg:py-40 bg-white relative overflow-hidden">
+    <section id="about" class="py-16 lg:py-24 bg-white relative overflow-hidden">
         <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-teal/5 rounded-full blur-3xl"></div>
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto text-center mb-20" data-aos="fade-up">
@@ -740,7 +740,7 @@
     </section>
 
     <!-- CORE SERVICES SECTION -->
-    <section id="services" class="py-24 lg:py-40 section-dark relative overflow-hidden">
+    <section id="services" class="py-16 lg:py-24 section-dark relative overflow-hidden">
         <div class="absolute inset-0 map-bg opacity-10"></div>
         <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-orange-primary/5 to-transparent"></div>
         
@@ -929,7 +929,7 @@
     </section>
 
     <!-- BTEC SECTION -->
-    <section id="btec" class="py-24 lg:py-40 section-dark relative overflow-hidden">
+    <section id="btec" class="py-16 lg:py-24 section-dark relative overflow-hidden">
         <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-orange-primary/10 rounded-full blur-[120px]"></div>
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid lg:grid-cols-2 gap-20 items-center">
@@ -1000,7 +1000,7 @@
     </section>
 
     <!-- TESTIMONIALS SECTION -->
-    <section id="testimonials" class="py-24 lg:py-40 bg-white overflow-hidden">
+    <section id="testimonials" class="py-16 lg:py-24 bg-white overflow-hidden">
         <div class="container mx-auto px-6">
             <div class="text-center mb-20" data-aos="fade-up">
                 <h2 class="serif text-4xl lg:text-6xl text-navy-900 font-black mb-6">Success Stories</h2>
@@ -1035,7 +1035,7 @@
     </section>
 
     <!-- CONTACT SECTION -->
-    <section id="contact" class="py-24 lg:py-40 section-light relative overflow-hidden">
+    <section id="contact" class="py-16 lg:py-24 section-light relative overflow-hidden">
         <div class="container mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-20">
                 <div data-aos="fade-right">
