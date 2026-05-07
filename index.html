@@ -448,6 +448,36 @@
 
             /* Global Reach Stacking */
             #reach .grid-cols-2 { grid-template-columns: 1fr !important; gap: 1rem !important; }
+
+            /* Testimonials Mobile Refinement */
+            #testimonials .max-w-6xl { 
+                border-radius: 32px !important; 
+                margin-left: 0 !important; 
+                margin-right: 0 !important; 
+            }
+            #testimonials .grid { grid-template-columns: 1fr !important; }
+            #testimonials .p-10 { padding: 2.5rem 1.5rem !important; text-align: center !important; }
+            #testimonials .flex-items-center { justify-content: center !important; }
+            #testimonials .text-2xl { font-size: 1.5rem !important; line-height: 1.4 !important; }
+            #testimonials .relative.h-64 { display: none !important; } /* Hide large image on mobile to focus on story */
+            #testimonials .flex { justify-content: center !important; text-align: center !important; }
+
+            /* Contact Mobile Refinement */
+            #contact .grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+            #contact .text-center-mobile { text-align: center !important; }
+            #contact .glass { 
+                padding: 2rem 1.5rem !important; 
+                border-radius: 32px !important; 
+                margin: 0 !important;
+            }
+            #contact h2 { text-align: center !important; font-size: 2.5rem !important; }
+            #contact p { text-align: center !important; margin: 0 auto 2rem auto !important; }
+            
+            /* Footer Mobile Refinement */
+            footer { text-align: center !important; padding: 4rem 1.5rem !important; }
+            footer .flex-row { flex-direction: column !important; gap: 2rem !important; }
+            footer .flex { justify-content: center !important; align-items: center !important; }
+            footer .border-b { padding-bottom: 2rem !important; margin-bottom: 2rem !important; }
         }
 
         /* Scroll Progress Indicator */
