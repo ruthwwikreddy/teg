@@ -1344,6 +1344,51 @@
         </div>
     </footer>
 
+    <!-- Firebase Integration -->
+    <script type="module">
+        import { db, collection, addDoc, serverTimestamp } from './firebase-config.js';
+
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn.innerHTML;
+                
+                try {
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin ml-3"></i>';
+                    
+                    const formData = new FormData(contactForm);
+                    const data = Object.fromEntries(formData);
+                    
+                    // Basic validation
+                    if (!data.name || !data.phone || !data.country) {
+                        alert('Please fill in all required fields.');
+                        return;
+                    }
+
+                    // Add to Firestore
+                    await addDoc(collection(db, 'leads'), {
+                        ...data,
+                        timestamp: serverTimestamp(),
+                        source: 'Homepage'
+                    });
+
+                    alert('Thank you! Your request has been received. Our team will contact you shortly.');
+                    contactForm.reset();
+                } catch (error) {
+                    console.error('Error submitting form:', error);
+                    alert('Oops! Something went wrong. Please try again later.');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                }
+            });
+        }
+    </script>
+
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="script.js"></script>

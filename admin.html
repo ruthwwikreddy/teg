@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEG Admin Dashboard - Lead Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --navy-900: #000000;
+            --orange-primary: #FF6A00;
+        }
+        body { background-color: #f8fafc; }
+        .admin-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px -5px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Login Overlay -->
+    <div id="loginOverlay" class="fixed inset-0 z-[200] bg-black flex items-center justify-center p-6">
+        <div class="bg-white rounded-[32px] p-10 max-w-md w-full shadow-2xl">
+            <div class="text-center mb-8">
+                <img src="logo.png" alt="TEG Logo" class="h-12 mx-auto mb-6">
+                <h1 class="text-2xl font-black text-black">Admin Access</h1>
+                <p class="text-gray-500 mt-2">Please enter your password to continue</p>
+            </div>
+            <form id="loginForm" class="space-y-6">
+                <input type="password" id="adminPassword" class="w-full bg-gray-100 border-none p-4 rounded-2xl focus:ring-2 focus:ring-orange-primary outline-none transition" placeholder="••••••••" required>
+                <button type="submit" class="w-full btn-brand py-4">Unlock Dashboard</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Content (Hidden until login) -->
+    <div id="adminContent" class="hidden">
+        <nav class="bg-white border-b border-gray-200 py-4 mb-8">
+            <div class="container mx-auto px-6 flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <img src="logo.png" alt="TEG Logo" class="h-8">
+                    <span class="h-6 w-px bg-gray-300"></span>
+                    <h2 class="font-black uppercase tracking-widest text-xs">Admin Dashboard</h2>
+                </div>
+                <button onclick="localStorage.removeItem('teg_admin_auth'); location.reload();" class="text-gray-500 hover:text-orange-primary text-sm font-bold transition">Logout</button>
+            </div>
+        </nav>
+
+        <div class="container mx-auto px-6 pb-20">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <h3 class="serif text-4xl font-black text-black mb-2">Student Inquiries</h3>
+                    <p class="text-gray-500">Manage and track all study abroad leads in one place.</p>
+                </div>
+                <div class="bg-white px-6 py-3 rounded-2xl border border-gray-100 shadow-sm">
+                    <span class="text-xs font-black uppercase tracking-widest text-gray-400 mr-3">Total Leads:</span>
+                    <span id="totalLeads" class="text-xl font-black text-orange-primary">0</span>
+                </div>
+            </div>
+
+            <div class="admin-card overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50 border-b border-gray-100">
+                                <th class="px-8 py-5 text-xs font-black uppercase tracking-widest text-gray-500">Date</th>
+                                <th class="px-8 py-5 text-xs font-black uppercase tracking-widest text-gray-500">Student Name</th>
+                                <th class="px-8 py-5 text-xs font-black uppercase tracking-widest text-gray-500">Contact Info</th>
+                                <th class="px-8 py-5 text-xs font-black uppercase tracking-widest text-gray-500">Target Country</th>
+                                <th class="px-8 py-5 text-xs font-black uppercase tracking-widest text-gray-500">Message</th>
+                                <th class="px-8 py-5 text-xs font-black uppercase tracking-widest text-gray-500">Source</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leadsTableBody">
+                            <!-- Data will be injected here -->
+                            <tr>
+                                <td colspan="6" class="px-8 py-20 text-center">
+                                    <div class="flex flex-col items-center">
+                                        <i class="fas fa-spinner fa-spin text-4xl text-orange-primary mb-4"></i>
+                                        <p class="text-gray-400 font-medium">Loading submissions...</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { db, collection, getDocs, query, orderBy } from './firebase-config.js';
+
+        const loginOverlay = document.getElementById('loginOverlay');
+        const adminContent = document.getElementById('adminContent');
+        const loginForm = document.getElementById('loginForm');
+        const adminPassword = document.getElementById('adminPassword');
+
+        // Simple Password Protection (For demo purposes, in production use Firebase Auth)
+        const ADMIN_PASS = 'TEGAdmin2026';
+
+        if (localStorage.getItem('teg_admin_auth') === 'true') {
+            showDashboard();
+        }
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (adminPassword.value === ADMIN_PASS) {
+                localStorage.setItem('teg_admin_auth', 'true');
+                showDashboard();
+            } else {
+                alert('Invalid password. Please try again.');
+                adminPassword.value = '';
+            }
+        });
+
+        function showDashboard() {
+            loginOverlay.classList.add('hidden');
+            adminContent.classList.remove('hidden');
+            loadLeads();
+        }
+
+        async function loadLeads() {
+            const tableBody = document.getElementById('leadsTableBody');
+            const totalLeadsSpan = document.getElementById('totalLeads');
+            
+            try {
+                const q = query(collection(db, 'leads'), orderBy('timestamp', 'desc'));
+                const querySnapshot = await getDocs(q);
+                
+                tableBody.innerHTML = '';
+                totalLeadsSpan.innerText = querySnapshot.size;
+
+                if (querySnapshot.empty) {
+                    tableBody.innerHTML = '<tr><td colspan="6" class="px-8 py-20 text-center text-gray-400">No submissions found yet.</td></tr>';
+                    return;
+                }
+
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const date = data.timestamp ? new Date(data.timestamp.seconds * 1000).toLocaleString() : 'N/A';
+                    
+                    const row = document.createElement('tr');
+                    row.className = 'border-b border-gray-50 hover:bg-gray-50/50 transition-colors';
+                    row.innerHTML = `
+                        <td class="px-8 py-6">
+                            <p class="text-sm font-bold text-gray-900">${date}</p>
+                        </td>
+                        <td class="px-8 py-6">
+                            <p class="text-sm font-black text-black">${data.name || 'N/A'}</p>
+                        </td>
+                        <td class="px-8 py-6">
+                            <div class="space-y-1">
+                                <a href="tel:${data.phone}" class="flex items-center text-xs font-bold text-orange-primary hover:underline">
+                                    <i class="fas fa-phone mr-2"></i> ${data.phone || 'N/A'}
+                                </a>
+                                <a href="mailto:${data.email}" class="flex items-center text-xs font-bold text-gray-500 hover:text-black hover:underline">
+                                    <i class="fas fa-envelope mr-2"></i> ${data.email || 'N/A'}
+                                </a>
+                            </div>
+                        </td>
+                        <td class="px-8 py-6">
+                            <span class="px-3 py-1 bg-orange-primary/10 text-orange-primary rounded-full text-[10px] font-black uppercase tracking-widest">
+                                ${data.country || 'N/A'}
+                            </span>
+                        </td>
+                        <td class="px-8 py-6">
+                            <p class="text-sm text-gray-600 max-w-xs truncate" title="${data.message || ''}">
+                                ${data.message || 'No message'}
+                            </p>
+                        </td>
+                        <td class="px-8 py-6">
+                            <p class="text-[10px] font-black uppercase tracking-widest text-gray-400">${data.source || 'Direct'}</p>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error loading leads:', error);
+                tableBody.innerHTML = '<tr><td colspan="6" class="px-8 py-20 text-center text-red-500 font-bold">Failed to load data. Please check Firebase rules.</td></tr>';
+            }
+        }
+    </script>
+</body>
+</html>
