@@ -14,6 +14,9 @@
     <meta name="geo.position" content="17.3850;78.4867">
     <link rel="canonical" href="https://theeducationgroup.net/">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="TEG - The Education Group | Study Abroad Consultants">
@@ -83,13 +86,61 @@
     }
     </script>
     
+    <!-- FAQ Schema for GEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does TEG help students study abroad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TEG provides a 100% comprehensive end-to-end guidance system for international education. According to our 15+ year record, we have successfully placed over 5,000 students in top universities across 25+ countries. Our services include personalized university selection, expert visa documentation with a 98% success rate, and intensive IELTS/PTE training."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the requirements for international admissions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Admission requirements vary by destination, but typically include academic transcripts (min. 60% for most top-tier universities), English proficiency scores (IELTS 6.5+ or PTE 58+), a Statement of Purpose (SOP), and Letters of Recommendation (LOR). TEG consultants help optimize these documents to increase admission chances by up to 40%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which countries are best for international students in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Based on current global trends and post-study work opportunities, the top destinations for 2026 include the UK (Graduate Route visa), Canada (SDS stream), USA (STEM OPT extensions), and Australia (extended post-study work rights). TEG offers specialized guidance for all these high-growth regions."
+          }
+        }
+      ]
+    }
+    </script>
+    
     <!-- Premium Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Frameworks -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- No-JavaScript Fallback -->
+    <noscript>
+        <style>
+            [data-aos] { opacity: 1 !important; transform: none !important; }
+            .hero-badge-mobile { display: none; }
+            #mobile-menu { display: block !important; }
+            .js-only { display: none !important; }
+        </style>
+        <div style="background: #ff6a00; color: white; padding: 20px; text-align: center; font-weight: bold;">
+            ⚠️ JavaScript is required for the best experience. Please enable JavaScript in your browser settings.
+        </div>
+    </noscript>
 
     <style>
         :root {
@@ -106,7 +157,7 @@
             /* Gradient Tokens */
             --grad-orange: linear-gradient(135deg, #FF6A00 0%, #FF8C00 100%);
             --grad-navy: linear-gradient(135deg, #020617 0%, #0F172A 100%);
-            --grad-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            --grad-bg-white: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
             
             /* Shadows & Effects */
             --shadow-premium: 0 20px 40px -15px rgba(2, 6, 23, 0.2);
@@ -181,14 +232,14 @@
         }
 
         /* Glassmorphism */
-        .glass {
+        .bg-white {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        .glass-dark {
+        .bg-white-dark {
             background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -309,8 +360,10 @@
         /* Text Gradients */
         .text-gradient {
             background: var(--grad-orange);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            color: transparent;
         }
 
         /* Map Background */
@@ -338,7 +391,7 @@
         }
 
         /* Advanced Hover Effects */
-        .glass-dark:hover {
+        .bg-white-dark:hover {
             border-color: var(--orange-primary);
             box-shadow: 0 0 30px rgba(255, 106, 0, 0.15);
             transform: translateY(-5px);
@@ -438,12 +491,12 @@
             }
             
             /* Card Spacing */
-            .card-service, .glass-dark, .glass {
+            .card-service, .bg-white-dark, .bg-white {
                 padding: 1.5rem !important;
                 text-align: center !important;
             }
             
-            .card-service div, .glass-dark div { margin-left: auto !important; margin-right: auto !important; }
+            .card-service div, .bg-white-dark div { margin-left: auto !important; margin-right: auto !important; }
             
             /* Buttons */
             .btn-brand, .btn-outline {
@@ -473,7 +526,7 @@
 
             /* Contact Mobile Refinement */
             #contact .grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
-            #contact .glass { 
+            #contact .bg-white { 
                 padding: 2.5rem 1.5rem !important; 
                 border-radius: 32px !important; 
                 margin: 0 !important;
@@ -555,29 +608,30 @@
         }
     </style>
 </head>
-<body class="bg-white overflow-x-hidden">
+<body class="bg-orange-primary/5 overflow-x-hidden">
+    <div class="scroll-progress" id="progressBar"></div>
 
     <!-- NAVIGATION -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-3">
         <div class="container mx-auto px-6">
-            <div class="glass rounded-[16px] px-8 py-2.5 flex justify-between items-center shadow-premium">
+            <div class="bg-white rounded-[24px] px-8 py-3 flex justify-between items-center shadow-2xl border border-white/30">
                 <!-- Logo -->
-                <div class="flex items-center space-x-2">
-                    <img src="logo.png" alt="TEG Logo" class="h-10 w-auto">
-                </div>
+                <a href="index.html" class="flex items-center space-x-2 group">
+                    <img src="logo.png" alt="TEG Logo" class="h-10 w-auto group-hover:scale-110 transition-transform duration-500" loading="lazy" decoding="async">
+                </a>
                 
                 <!-- Desktop Navigation -->
-                <div class="hidden lg:flex items-center space-x-8">
-                    <a href="#home" class="text-navy-900 font-bold text-sm hover:text-orange-primary transition-colors">Home</a>
-                    <a href="#about" class="text-navy-900 font-bold text-sm hover:text-orange-primary transition-colors">About</a>
-                    <a href="#services" class="text-navy-900 font-bold text-sm hover:text-orange-primary transition-colors">Services</a>
-                    <a href="#testimonials" class="text-navy-900 font-bold text-sm hover:text-orange-primary transition-colors">Students</a>
-                    <a href="#partners" class="text-navy-900 font-bold text-sm hover:text-orange-primary transition-colors">Partners</a>
-                    <a href="#contact" class="btn-brand !py-3 !px-6 !text-xs">Free Counselling</a>
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="#home" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Home</a>
+                    <a href="/about.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">About</a>
+                    <a href="/services.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Services</a>
+                    <a href="/happy-students.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Students</a>
+                    <a href="/partners.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Partners</a>
+                    <a href="/contact.html" class="btn-brand !py-3 !px-8 !text-[10px] !tracking-[0.2em]">Free Counselling</a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button class="lg:hidden p-2 rounded-full hover:bg-navy-900/10 transition-colors" id="mobile-menu-button">
+                <button class="lg:hidden p-3 rounded-2xl hover:bg-black/10 transition-colors" id="mobile-menu-button">
                     <svg class="w-6 h-6 text-navy-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -585,14 +639,14 @@
             </div>
             
             <!-- Mobile Menu -->
-            <div class="hidden lg:hidden mt-4 glass rounded-3xl p-6" id="mobile-menu">
-                <div class="flex flex-col space-y-4">
-                    <a href="#home" class="text-navy-900 font-bold">Home</a>
-                    <a href="#about" class="text-navy-900 font-bold">About</a>
-                    <a href="#services" class="text-navy-900 font-bold">Services</a>
-                    <a href="#testimonials" class="text-navy-900 font-bold">Students</a>
-                    <a href="#partners" class="text-navy-900 font-bold">Partners</a>
-                    <a href="#contact" class="btn-brand w-full">Free Counselling</a>
+            <div class="hidden lg:hidden mt-4 bg-white rounded-3xl p-8 shadow-2xl border border-white/30" id="mobile-menu">
+                <div class="flex flex-col space-y-6 text-center">
+                    <a href="#home" class="text-navy-900 font-black text-lg uppercase tracking-widest">Home</a>
+                    <a href="/about.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">About</a>
+                    <a href="/services.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Services</a>
+                    <a href="/happy-students.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Students</a>
+                    <a href="/partners.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Partners</a>
+                    <a href="/contact.html" class="btn-brand w-full !py-4">Free Counselling</a>
                 </div>
             </div>
         </div>
@@ -602,18 +656,14 @@
     <section id="home" class="relative min-h-screen flex items-center overflow-hidden pt-12">
         <!-- Background Elements -->
         <div class="hero-shape w-[600px] h-[600px] bg-orange-primary -top-20 -right-20 rounded-full"></div>
-        <div class="hero-shape w-[400px] h-[400px] bg-teal -bottom-20 -left-20 rounded-full"></div>
+        <div class="hero-shape w-[400px] h-[400px] bg-orange-primary -bottom-20 -left-20 rounded-full"></div>
         <div class="absolute inset-0 map-bg opacity-5"></div>
         
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div data-aos="fade-right" data-aos-duration="1000">
-                    <div class="inline-flex items-center space-x-2 px-4 py-2 bg-navy-900/5 rounded-full mb-8">
-                        <span class="glow-dot"></span>
-                        <span class="text-navy-900 text-xs font-bold uppercase tracking-widest">Global Education Consultants</span>
-                    </div>
                     
-                    <h1 class="text-5xl lg:text-8xl font-black text-black leading-[0.9] mb-8 glow-text">
+                    <h1 class="text-5xl lg:text-8xl font-black text-orange-primary leading-[0.9] mb-8 glow-text">
                         STUDY <span class="text-gradient">ABROAD.</span><br>
                         <span class="serif italic font-normal text-4xl lg:text-7xl">Be Extra-Ordinary.</span>
                     </h1>
@@ -648,15 +698,15 @@
                     <!-- Cinematic Student Visual -->
                     <div class="relative z-10 float-slow">
                         <div class="absolute -top-10 -right-10 w-32 h-32 bg-orange-primary/20 rounded-full blur-2xl"></div>
-                        <img src="gemini/image1.png" alt="Indian Student" class="w-full max-w-[480px] aspect-[4/5] object-cover rounded-[32px] shadow-2xl border-8 border-white relative z-10 orange-glow mx-auto lg:ml-auto">
+                        <img src="gemini/image1.png" alt="Indian Student" class="w-full max-w-[480px] aspect-[4/5] object-cover rounded-[32px] shadow-2xl border-8 border-white relative z-10 orange-glow mx-auto lg:ml-auto" loading="lazy" decoding="async">
                         
                         <!-- Abstract Decorative Element -->
                         <div class="absolute -bottom-20 -right-20 w-64 h-64 border border-black/5 rounded-full z-0 float-fast"></div>
                         
                         <!-- Floating Premium Badges -->
-                        <div class="hero-badge-mobile absolute -bottom-8 -left-4 md:-left-12 glass px-4 md:px-6 py-3 md:py-4 rounded-2xl shadow-premium floating border border-teal/20 z-20" style="animation-delay: -2s">
+                        <div class="hero-badge-mobile absolute -bottom-8 -left-4 md:-left-12 bg-orange-primary/20 px-4 md:px-6 py-3 md:py-4 rounded-2xl shadow-premium floating border border-orange-primary/40 z-20" style="animation-delay: -2s">
                             <div class="flex items-center space-x-3">
-                                <div class="w-8 h-8 md:w-10 md:h-10 bg-teal/10 rounded-full flex items-center justify-center text-teal">
+                                <div class="w-8 h-8 md:w-10 md:h-10 bg-orange-primary/10 rounded-full flex items-center justify-center text-orange-primary">
                                     <i class="fas fa-check-circle text-sm md:text-base"></i>
                                 </div>
                                 <div>
@@ -666,7 +716,7 @@
                             </div>
                         </div>
                         
-                        <div class="hero-badge-mobile absolute top-12 -right-4 md:-right-12 glass px-4 md:px-6 py-3 md:py-4 rounded-2xl shadow-premium floating border border-orange-primary/20 z-20" style="animation-delay: -4s">
+                        <div class="hero-badge-mobile absolute top-12 -right-4 md:-right-12 bg-orange-primary/20 px-4 md:px-6 py-3 md:py-4 rounded-2xl shadow-premium floating border border-orange-primary/40 z-20" style="animation-delay: -4s">
                             <div class="flex items-center space-x-3">
                                 <div class="w-8 h-8 md:w-10 md:h-10 bg-orange-primary/10 rounded-full flex items-center justify-center text-orange-primary">
                                     <i class="fas fa-university text-sm md:text-base"></i>
@@ -678,12 +728,12 @@
                             </div>
                         </div>
 
-                        <div class="hero-badge-mobile absolute -top-12 left-1/2 -translate-x-1/2 glass px-6 py-3 rounded-full shadow-premium floating border border-white/50 z-20" style="animation-delay: -1s">
+                        <div class="hero-badge-mobile absolute -top-12 left-1/2 -translate-x-1/2 bg-orange-primary/20 px-6 py-3 rounded-full shadow-premium floating border border-orange-primary/40 z-20" style="animation-delay: -1s">
                             <div class="flex items-center space-x-3 whitespace-nowrap">
                                 <div class="flex -space-x-2">
-                                    <img src="https://i.pravatar.cc/30?u=1" class="w-5 h-5 md:w-6 md:h-6 rounded-full border-2 border-white" alt="Student">
-                                    <img src="https://i.pravatar.cc/30?u=2" class="w-5 h-5 md:w-6 md:h-6 rounded-full border-2 border-white" alt="Student">
-                                    <img src="https://i.pravatar.cc/30?u=3" class="w-5 h-5 md:w-6 md:h-6 rounded-full border-2 border-white" alt="Student">
+                                    <img src="https://i.pravatar.cc/30?u=1" class="w-5 h-5 md:w-6 md:h-6 rounded-full border-2 border-white" alt="Student" loading="lazy" decoding="async">
+                                    <img src="https://i.pravatar.cc/30?u=2" class="w-5 h-5 md:w-6 md:h-6 rounded-full border-2 border-white" alt="Student" loading="lazy" decoding="async">
+                                    <img src="https://i.pravatar.cc/30?u=3" class="w-5 h-5 md:w-6 md:h-6 rounded-full border-2 border-white" alt="Student" loading="lazy" decoding="async">
                                 </div>
                                 <p class="text-[10px] md:text-xs font-black text-navy-900">5,000+ Successful Students</p>
                             </div>
@@ -698,44 +748,107 @@
     </section>
 
     <!-- ABOUT SECTION -->
-    <section id="about" class="py-16 lg:py-24 bg-white relative overflow-hidden">
+    <section id="about" class="py-16 lg:py-24 bg-orange-primary/5 relative overflow-hidden">
         <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-teal/5 rounded-full blur-3xl"></div>
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center mb-20" data-aos="fade-up">
-                <h2 class="serif text-4xl lg:text-6xl text-navy-900 mb-6 font-black leading-tight">
-                    Beyond Applications, We Build <span class="text-gradient">Legacies.</span>
-                </h2>
-                <p class="text-xl text-navy-700/70 leading-relaxed">
-                    At TEG, we don't just process visas. We curate life-changing international experiences that empower you to compete on the global stage.
-                </p>
+            <div class="grid lg:grid-cols-2 gap-16 items-center mb-20" data-aos="fade-up">
+                <div class="relative order-2 lg:order-1">
+                    <div class="absolute -inset-4 bg-orange-primary/20 rounded-[40px] blur-2xl -z-10"></div>
+                    <img src="pritpal.png" alt="Dr. Pritpal Singh" class="w-full max-w-md mx-auto rounded-[32px] shadow-2xl border-8 border-white orange-glow" loading="lazy" decoding="async">
+                    <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-black/5">
+                        <p class="text-navy-900 font-black text-xl mb-1">Dr. Pritpal Singh</p>
+                        <p class="text-orange-primary font-bold uppercase text-[10px] tracking-widest">Founder & CEO, TEG</p>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h2 class="serif text-4xl lg:text-6xl text-navy-900 mb-8 font-black leading-tight">
+                        Beyond Applications, We Build <span class="text-gradient">Legacies.</span>
+                    </h2>
+                    <p class="text-xl text-navy-700/70 leading-relaxed mb-8">
+                        At TEG, we don't just process visas. We curate life-changing international experiences that empower you to compete on the global stage. Under the leadership of Dr. Pritpal Singh, we have spent 15+ years perfecting the art of international placement.
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-orange-primary/10 rounded-full flex items-center justify-center text-orange-primary">
+                            <i class="fas fa-award text-xl"></i>
+                        </div>
+                        <p class="text-navy-900 font-black text-sm uppercase tracking-widest">Industry Leading Success Rate</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Pillar 1 -->
-                <div class="p-10 glass rounded-[48px] shadow-premium hover:-translate-y-4 transition-all duration-500 border border-black/5 group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-20 h-20 bg-orange-primary/10 rounded-[28px] flex items-center justify-center text-orange-primary mb-8 group-hover:bg-orange-primary group-hover:text-white transition-all duration-500">
-                        <i class="fas fa-history text-4xl"></i>
+    </section>
+
+    <!-- NEW GUIDANCE SECTION -->
+    <section class="py-20 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="serif text-4xl lg:text-5xl font-black text-black mb-4 uppercase tracking-tight">Our Precision Guidance</h2>
+                <div class="h-1.5 w-24 bg-black mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- 1. Mission Guidance -->
+                <div class="group p-8 rounded-3xl border border-black/5 hover:border-black/20 transition-all duration-500" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-black/5 rounded-2xl flex items-center justify-center text-black mb-6 group-hover:bg-black group-hover:text-white transition-all duration-500">
+                        <i class="fas fa-bullseye text-2xl"></i>
                     </div>
-                    <h3 class="text-2xl font-black text-black mb-4">15+ Years</h3>
-                    <p class="text-black/50 leading-relaxed">A legacy of excellence and trust in international education consultancy, guiding students since 2009.</p>
+                    <h3 class="text-xl font-black text-black mb-3">Mission Guidance</h3>
+                    <p class="text-black/60 text-sm leading-relaxed mb-4 font-medium">We give special attention to your application, highlighting areas essential for a well-presented, error-free application.</p>
+                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-black/40">End-to-End</span>
                 </div>
-                <!-- Pillar 2 -->
-                <div class="p-10 glass rounded-[48px] shadow-premium hover:-translate-y-4 transition-all duration-500 border border-black/5 group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-20 h-20 bg-teal/10 rounded-[28px] flex items-center justify-center text-teal mb-8 group-hover:bg-teal group-hover:text-white transition-all duration-500">
-                        <i class="fas fa-users text-4xl"></i>
+
+                <!-- 2. Application Assistance -->
+                <div class="group p-8 rounded-3xl border border-black/5 hover:border-black/20 transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-black/5 rounded-2xl flex items-center justify-center text-black mb-6 group-hover:bg-black group-hover:text-white transition-all duration-500">
+                        <i class="fas fa-file-signature text-2xl"></i>
                     </div>
-                    <h3 class="text-2xl font-black text-black mb-4">5000+ Students</h3>
-                    <p class="text-black/50 leading-relaxed">Successfully placed in prestigious institutions across the globe with a focus on outcome-driven success.</p>
+                    <h3 class="text-xl font-black text-black mb-3">Application Assistance</h3>
+                    <p class="text-black/60 text-sm leading-relaxed mb-4 font-medium">Complete application support with document preparation and submission tracking.</p>
+                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Expert SOP</span>
                 </div>
-                <!-- Pillar 3 -->
-                <div class="p-10 glass rounded-[48px] shadow-premium hover:-translate-y-4 transition-all duration-500 border border-black/5 group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-20 h-20 bg-black/5 rounded-[28px] flex items-center justify-center text-black mb-8 group-hover:bg-black group-hover:text-white transition-all duration-500">
-                        <i class="fas fa-globe text-4xl"></i>
+
+                <!-- 3. References & SOP -->
+                <div class="group p-8 rounded-3xl border border-black/5 hover:border-black/20 transition-all duration-500" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-black/5 rounded-2xl flex items-center justify-center text-black mb-6 group-hover:bg-black group-hover:text-white transition-all duration-500">
+                        <i class="fas fa-quote-left text-2xl"></i>
                     </div>
-                    <h3 class="text-2xl font-black text-black mb-4">10+ Countries</h3>
-                    <p class="text-black/50 leading-relaxed">Wide range of destinations including UK, USA, Canada, and Europe with 100% visa guidance.</p>
+                    <h3 class="text-xl font-black text-black mb-3">References & SOP</h3>
+                    <p class="text-black/60 text-sm leading-relaxed mb-4 font-medium">Professional reference letters and Statement of Purpose guidance.</p>
+                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Confident Success</span>
+                </div>
+
+                <!-- 4. Interview Training -->
+                <div class="group p-8 rounded-3xl border border-black/5 hover:border-black/20 transition-all duration-500" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-black/5 rounded-2xl flex items-center justify-center text-black mb-6 group-hover:bg-black group-hover:text-white transition-all duration-500">
+                        <i class="fas fa-comments text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-black mb-3">Interview Training</h3>
+                    <p class="text-black/60 text-sm leading-relaxed mb-4 font-medium">Mock interviews and communication skill development for university admissions.</p>
+                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Zero Errors</span>
+                </div>
+
+                <!-- 5. Documentation Help -->
+                <div class="group p-8 rounded-3xl border border-black/5 hover:border-black/20 transition-all duration-500" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-16 h-16 bg-black/5 rounded-2xl flex items-center justify-center text-black mb-6 group-hover:bg-black group-hover:text-white transition-all duration-500">
+                        <i class="fas fa-folder-open text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-black mb-3">Documentation Help</h3>
+                    <p class="text-black/60 text-sm leading-relaxed mb-4 font-medium">Assistance with 'all-important' Statement of Purpose and essential paperwork.</p>
+                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Zero Errors</span>
+                </div>
+
+                <!-- 6. 99% Success Rate -->
+                <div class="group p-8 rounded-3xl border border-black/5 hover:border-black/20 transition-all duration-500" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-16 h-16 bg-black/5 rounded-2xl flex items-center justify-center text-black mb-6 group-hover:bg-black group-hover:text-white transition-all duration-500">
+                        <i class="fas fa-award text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-black mb-3">99% Success Rate</h3>
+                    <p class="text-black/60 text-sm leading-relaxed mb-4 font-medium">Regularly advised by consulates with updated visa requirements and success.</p>
+                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-black/40">High Approval</span>
                 </div>
             </div>
+        </div>
+    </section>
         </div>
     </section>
 
@@ -748,13 +861,13 @@
             <div class="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
                 <div data-aos="fade-right">
                     <span class="inline-flex items-center space-x-2 px-4 py-2 bg-white/10 rounded-full mb-6">
-                        <span class="glow-dot bg-teal shadow-[0_0_15px_rgba(45,212,191,0.5)]"></span>
-                        <span class="text-white text-xs font-bold uppercase tracking-widest">End-to-End Solutions</span>
+                        <span class="glow-dot bg-orange-primary shadow-[0_0_15px_rgba(255,106,0,0.5)]"></span>
+                        <span class="text-orange-primary text-xs font-bold uppercase tracking-widest">End-to-End Solutions</span>
                     </span>
                     <h2 class="serif text-4xl lg:text-6xl font-black leading-tight">Our Elite <span class="text-orange-primary">Services</span></h2>
                 </div>
                 <div class="max-w-md" data-aos="fade-left">
-                    <p class="text-white/60 text-lg leading-relaxed">
+                    <p class="text-black/60 text-lg leading-relaxed">
                         We provide high-precision consultancy for every step of your international academic journey.
                     </p>
                 </div>
@@ -762,94 +875,106 @@
             
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
-                <div class="glass-dark p-10 rounded-[32px] border border-white/10 transition-all duration-500 group relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-orange-primary/5 rounded-full blur-2xl group-hover:bg-orange-primary/20 transition-all"></div>
-                    <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-orange-primary mb-8 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-graduation-cap text-3xl"></i>
+                <div class="relative group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="p-10 lg:p-14 bg-orange-primary/10 rounded-[32px] border border-orange-primary/20 hover:border-orange-primary/40 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="w-24 h-24 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg mb-8">
+                            <i class="fas fa-graduation-cap text-4xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-black mb-4">University Selection</h4>
+                        <p class="text-orange-primary leading-relaxed mb-6">Strategic shortlisting based on profile analysis and career aspirations.</p>
+                        <div class="mt-auto pt-8 border-t border-black/5 w-full flex flex-col items-center space-y-2">
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-orange-primary">Top 100 Universities</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-orange-primary">Profile Optimization</span>
+                        </div>
                     </div>
-                    <h4 class="text-2xl font-black mb-4">University Selection</h4>
-                    <p class="text-white/50 leading-relaxed mb-8">Strategic shortlisting based on profile analysis and career aspirations.</p>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center text-sm text-white/80"><i class="fas fa-circle text-[6px] text-teal mr-4"></i> Top 100 Universities</li>
-                        <li class="flex items-center text-sm text-white/80"><i class="fas fa-circle text-[6px] text-teal mr-4"></i> Profile Optimization</li>
-                    </ul>
                 </div>
                 
                 <!-- Service 2 -->
-                <div class="glass-dark p-10 rounded-[32px] border border-white/10 transition-all duration-500 group relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-orange-primary/5 rounded-full blur-2xl group-hover:bg-orange-primary/20 transition-all"></div>
-                    <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-orange-primary mb-8 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-passport text-3xl"></i>
+                <div class="relative group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="p-10 lg:p-14 bg-orange-primary/10 rounded-[32px] border border-orange-primary/20 hover:border-orange-primary/40 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="w-24 h-24 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg mb-8">
+                            <i class="fas fa-passport text-4xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-black mb-4">Visa Mastery</h4>
+                        <p class="text-navy-900/60 leading-relaxed mb-6">Flawless documentation and mock interview sessions for highest approval rates.</p>
+                        <div class="mt-auto pt-8 border-t border-black/5 w-full flex flex-col items-center space-y-2">
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Documentation Support</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Interview Prep</span>
+                        </div>
                     </div>
-                    <h4 class="text-2xl font-black mb-4">Visa Mastery</h4>
-                    <p class="text-white/50 leading-relaxed mb-8">Flawless documentation and mock interview sessions for highest approval rates.</p>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center text-sm text-white/80"><i class="fas fa-circle text-[6px] text-teal mr-4"></i> Documentation Support</li>
-                        <li class="flex items-center text-sm text-white/80"><i class="fas fa-circle text-[6px] text-teal mr-4"></i> Interview Preparation</li>
-                    </ul>
                 </div>
                 
                 <!-- Service 3 -->
-                <div class="glass-dark p-10 rounded-[32px] border border-white/10 transition-all duration-500 group relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-orange-primary/5 rounded-full blur-2xl group-hover:bg-orange-primary/20 transition-all"></div>
-                    <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-orange-primary mb-8 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-award text-3xl"></i>
+                <div class="relative group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="p-10 lg:p-14 bg-orange-primary/10 rounded-[32px] border border-orange-primary/20 hover:border-orange-primary/40 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="w-24 h-24 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg mb-8">
+                            <i class="fas fa-award text-4xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-black mb-4">IELTS/PTE Training</h4>
+                        <p class="text-navy-900/60 leading-relaxed mb-6">Premium training programs to help you achieve elite scores in proficiency tests.</p>
+                        <div class="mt-auto pt-8 border-t border-black/5 w-full flex flex-col items-center space-y-2">
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Expert Trainers</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Mock Tests & Material</span>
+                        </div>
                     </div>
-                    <h4 class="text-2xl font-black mb-4">IELTS/PTE Training</h4>
-                    <p class="text-white/50 leading-relaxed mb-8">Premium training programs to help you achieve elite scores in proficiency tests.</p>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center text-sm text-white/80"><i class="fas fa-circle text-[6px] text-teal mr-4"></i> Expert Trainers</li>
-                        <li class="flex items-center text-sm text-white/80"><i class="fas fa-circle text-[6px] text-teal mr-4"></i> Mock Tests & Material</li>
-                    </ul>
                 </div>
 
                 <!-- Service 4 -->
-                <div class="glass-dark p-10 rounded-[32px] border border-white/10 transition-all duration-500 group relative overflow-hidden" data-aos="fade-up" data-aos-delay="400">
-                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-orange-primary/5 rounded-full blur-2xl group-hover:bg-orange-primary/20 transition-all"></div>
-                    <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-orange-primary mb-8 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-money-bill-wave text-3xl"></i>
+                <div class="relative group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="p-10 lg:p-14 bg-orange-primary/10 rounded-[32px] border border-orange-primary/20 hover:border-orange-primary/40 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="w-24 h-24 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg mb-8">
+                            <i class="fas fa-money-bill-wave text-4xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-black mb-4">Financial Aid</h4>
+                        <p class="text-navy-900/60 leading-relaxed mb-6">Scholarship assistance and educational loan guidance for hassle-free funding.</p>
+                        <div class="mt-auto pt-8 border-t border-black/5 w-full flex flex-col items-center space-y-2">
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Scholarship Search</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Loan Processing</span>
+                        </div>
                     </div>
-                    <h4 class="text-2xl font-black mb-4">Financial Aid</h4>
-                    <p class="text-white/50 leading-relaxed mb-8">Scholarship assistance and educational loan guidance for hassle-free funding.</p>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center text-sm text-white/80"><i class="fas fa-circle text-[6px] text-teal mr-4"></i> Scholarship Search</li>
-                        <li class="flex items-center text-sm text-white/80"><i class="fas fa-circle text-[6px] text-teal mr-4"></i> Loan Processing</li>
-                    </ul>
                 </div>
 
                 <!-- Service 5 -->
-                <div class="glass-dark p-10 rounded-[32px] border border-white/10 transition-all duration-500 group relative overflow-hidden" data-aos="fade-up" data-aos-delay="500">
-                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-orange-primary/5 rounded-full blur-2xl group-hover:bg-orange-primary/20 transition-all"></div>
-                    <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-orange-primary mb-8 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-briefcase text-3xl"></i>
+                <div class="relative group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="p-10 lg:p-14 bg-orange-primary/10 rounded-[32px] border border-orange-primary/20 hover:border-orange-primary/40 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="w-24 h-24 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg mb-8">
+                            <i class="fas fa-briefcase text-4xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-black mb-4">Career Roadmap</h4>
+                        <p class="text-navy-900/60 leading-relaxed mb-6">Expert guidance on course selection that aligns with future job market trends.</p>
+                        <div class="mt-auto pt-8 border-t border-black/5 w-full flex flex-col items-center space-y-2">
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Trend Analysis</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Global Opportunities</span>
+                        </div>
                     </div>
-                    <h4 class="text-2xl font-black mb-4">Career Roadmap</h4>
-                    <p class="text-white/50 leading-relaxed mb-8">Expert guidance on course selection that aligns with future job market trends.</p>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center text-sm text-white/80"><i class="fas fa-circle text-[6px] text-teal mr-4"></i> Trend Analysis</li>
-                        <li class="flex items-center text-sm text-white/80"><i class="fas fa-circle text-[6px] text-teal mr-4"></i> Global Opportunities</li>
-                    </ul>
                 </div>
 
                 <!-- Service 6 -->
-                <div class="glass-dark p-10 rounded-[32px] border border-white/10 transition-all duration-500 group relative overflow-hidden" data-aos="fade-up" data-aos-delay="600">
-                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-orange-primary/5 rounded-full blur-2xl group-hover:bg-orange-primary/20 transition-all"></div>
-                    <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-orange-primary mb-8 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-plane-arrival text-3xl"></i>
+                <div class="relative group" data-aos="fade-up" data-aos-delay="600">
+                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="p-10 lg:p-14 bg-orange-primary/10 rounded-[32px] border border-orange-primary/20 hover:border-orange-primary/40 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="w-24 h-24 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg mb-8">
+                            <i class="fas fa-plane-arrival text-4xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-black mb-4">Post-Departure</h4>
+                        <p class="text-navy-900/60 leading-relaxed mb-6">Comprehensive pre-departure briefings and on-ground support in your destination.</p>
+                        <div class="mt-auto pt-8 border-t border-black/5 w-full flex flex-col items-center space-y-2">
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Housing Assistance</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Cultural Orientation</span>
+                        </div>
                     </div>
-                    <h4 class="text-2xl font-black mb-4">Post-Departure</h4>
-                    <p class="text-white/50 leading-relaxed mb-8">Comprehensive pre-departure briefings and on-ground support in your destination.</p>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center text-sm text-white/80"><i class="fas fa-circle text-[6px] text-teal mr-4"></i> Housing Assistance</li>
-                        <li class="flex items-center text-sm text-white/80"><i class="fas fa-circle text-[6px] text-teal mr-4"></i> Cultural Orientation</li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- GLOBAL REACH & STATS SECTION -->
-    <section id="reach" class="py-16 lg:py-24 bg-white relative overflow-hidden">
+    <section id="reach" class="py-16 lg:py-24 bg-orange-primary/5 relative overflow-hidden">
         <div class="absolute inset-0 map-bg opacity-10"></div>
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid lg:grid-cols-2 gap-20 items-center mb-24">
@@ -865,12 +990,8 @@
                         Our footprint spans across continents, connecting ambitious Indian students with elite educational systems in the UK, USA, Canada, Australia, and Europe.
                     </p>
                     <div class="flex items-center space-x-6">
-                        <div class="w-16 h-16 bg-navy-900 rounded-full flex items-center justify-center text-white">
+                        <div class="w-16 h-16 bg-navy-900 rounded-full flex items-center justify-center text-black">
                             <i class="fas fa-globe text-2xl"></i>
-                        </div>
-                        <div>
-                            <p class="text-2xl font-black text-navy-900">30+ Major Cities</p>
-                            <p class="text-navy-700/60 uppercase text-xs font-bold tracking-widest">Worldwide Reach</p>
                         </div>
                     </div>
                 </div>
@@ -878,69 +999,101 @@
                 <div class="relative" data-aos="fade-left">
                     <div class="grid grid-cols-2 gap-4">
                         <div class="space-y-4 pt-12">
-                            <img src="https://images.unsplash.com/photo-1590402494682-cd3fb53b1f71?auto=format&fit=crop&q=80" alt="Indian Student London" class="w-full h-64 object-cover rounded-[32px] orange-glow shadow-xl">
-                            <img src="https://images.unsplash.com/photo-1523240715632-6f03f116aacc?auto=format&fit=crop&q=80" alt="Student Discussion" class="w-full h-48 object-cover rounded-[32px] orange-glow shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1590402494682-cd3fb53b1f71?auto=format&fit=crop&q=80" alt="Indian Student London" class="w-full h-64 object-cover rounded-[32px] orange-glow shadow-xl" loading="lazy" decoding="async">
+                            <img src="https://images.unsplash.com/photo-1523240715632-6f03f116aacc?auto=format&fit=crop&q=80" alt="Student Discussion" class="w-full h-48 object-cover rounded-[32px] orange-glow shadow-xl" loading="lazy" decoding="async">
                         </div>
                         <div class="space-y-4">
-                            <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80" alt="University Library" class="w-full h-48 object-cover rounded-[32px] orange-glow shadow-xl">
-                            <img src="https://images.unsplash.com/photo-1525921429573-056bd2469a1b?auto=format&fit=crop&q=80" alt="International Campus" class="w-full h-64 object-cover rounded-[32px] orange-glow shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80" alt="University Library" class="w-full h-48 object-cover rounded-[32px] orange-glow shadow-xl" loading="lazy" decoding="async">
+                            <img src="https://images.unsplash.com/photo-1525921429573-056bd2469a1b?auto=format&fit=crop&q=80" alt="International Campus" class="w-full h-64 object-cover rounded-[32px] orange-glow shadow-xl" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6" data-aos="fade-up">
-                    <div class="p-8 glass rounded-[32px] shadow-premium group hover:bg-black hover:text-white transition-all duration-500">
-                        <p class="text-4xl font-black mb-2 stat-number">90%</p>
-                        <p class="text-navy-700/60 group-hover:text-white/60 text-xs font-bold uppercase tracking-wider">Admission Rate</p>
-                    </div>
-                    <div class="p-8 glass rounded-[32px] shadow-premium bg-orange-primary/5 border-orange-primary/10 group hover:bg-orange-primary hover:text-white transition-all duration-500">
-                        <p class="text-4xl font-black mb-2 stat-number text-orange-primary group-hover:text-white">50+</p>
-                        <p class="text-navy-700/60 group-hover:text-white/60 text-xs font-bold uppercase tracking-wider">Partner Unis</p>
-                    </div>
-                    <div class="p-8 glass rounded-[32px] shadow-premium group hover:bg-black hover:text-white transition-all duration-500">
-                        <p class="text-4xl font-black mb-2 stat-number">100%</p>
-                        <p class="text-navy-700/60 group-hover:text-white/60 text-xs font-bold uppercase tracking-wider">Student Satisfaction</p>
-                    </div>
-                    <div class="p-8 glass rounded-[32px] shadow-premium group hover:bg-black hover:text-white transition-all duration-500">
-                        <p class="text-4xl font-black mb-2 stat-number">₹10Cr+</p>
-                        <p class="text-navy-700/60 group-hover:text-white/60 text-xs font-bold uppercase tracking-wider">Scholarships Won</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10" data-aos="fade-up">
+                <!-- Stat 1 -->
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="p-10 lg:p-14 bg-orange-primary/10 rounded-[32px] border border-orange-primary/20 hover:border-orange-primary/40 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.05] transition-colors">90</div>
+                        <div class="w-20 h-20 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-8 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg">
+                            <i class="fas fa-university text-3xl"></i>
+                        </div>
+                        <h3 class="serif text-4xl font-black text-navy-900 mb-4 stat-number">90%</h3>
+                        <p class="text-navy-900/60 font-bold uppercase tracking-widest text-xs">Admission Rate</p>
                     </div>
                 </div>
+                <!-- Stat 2 -->
+                <div class="relative group" data-aos-delay="100">
+                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="p-10 lg:p-14 bg-orange-primary/10 rounded-[32px] border border-orange-primary/20 hover:border-orange-primary/40 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.05] transition-colors">50</div>
+                        <div class="w-20 h-20 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-8 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg">
+                            <i class="fas fa-handshake text-3xl"></i>
+                        </div>
+                        <h3 class="serif text-4xl font-black text-navy-900 mb-4 stat-number">50+</h3>
+                        <p class="text-navy-900/60 font-bold uppercase tracking-widest text-xs">Partner Unis</p>
+                    </div>
+                </div>
+                <!-- Stat 3 -->
+                <div class="relative group" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="p-10 lg:p-14 bg-orange-primary/10 rounded-[32px] border border-orange-primary/20 hover:border-orange-primary/40 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.05] transition-colors">100</div>
+                        <div class="w-20 h-20 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-8 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg">
+                            <i class="fas fa-smile text-3xl"></i>
+                        </div>
+                        <h3 class="serif text-4xl font-black text-navy-900 mb-4 stat-number">100%</h3>
+                        <p class="text-navy-900/60 font-bold uppercase tracking-widest text-xs">Satisfaction</p>
+                    </div>
+                </div>
+                <!-- Stat 4 -->
+                <div class="relative group" data-aos-delay="300">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="p-10 bg-orange-primary/10 rounded-[32px] border border-orange-primary/20 hover:border-orange-primary/40 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-black/[0.05] transition-colors">10</div>
+                        <div class="w-20 h-20 bg-black/10 rounded-3xl flex items-center justify-center text-navy-900 mb-8 group-hover:bg-navy-900 group-hover:text-black transition-all duration-700 shadow-lg">
+                            <i class="fas fa-graduation-cap text-3xl"></i>
+                        </div>
+                        <h3 class="serif text-4xl font-black text-navy-900 mb-4 stat-number">₹10Cr+</h3>
+                        <p class="text-navy-900/60 font-bold uppercase tracking-widest text-xs">Scholarships</p>
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     </section>
 
     <section id="partners" class="py-20 bg-black overflow-hidden">
         <div class="text-center mb-12">
-            <p class="text-white uppercase text-xs font-bold tracking-[0.3em] mb-4">Strategic Global Partnerships</p>
-            <h4 class="text-white/40 text-sm font-bold uppercase tracking-widest">Our Top-Tier University Network</h4>
+            <p class="text-black uppercase text-xs font-bold tracking-[0.3em] mb-4">Strategic Global Partnerships</p>
+            <h4 class="text-black/40 text-sm font-bold uppercase tracking-widest">Our Top-Tier University Network</h4>
         </div>
-        <div class="marquee-wrapper relative py-10 bg-white/5 border-y border-white/10">
+        <div class="marquee-wrapper relative py-10 bg-white/5 border-y border-black/10">
             <div class="logo-track">
                 <!-- Set 1 -->
                 <div class="flex items-center space-x-24 px-12 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
-                    <img src="uni/lpu.png" alt="LPU" class="h-10 md:h-14 w-auto">
-                    <img src="uni/bschool.png" alt="B School" class="h-10 md:h-14 w-auto">
-                    <img src="uni/dibs.png" alt="DIBS" class="h-10 md:h-14 w-auto">
-                    <img src="uni/christ.png" alt="Christ" class="h-10 md:h-14 w-auto">
-                    <img src="uni/lnct.png" alt="LNCT" class="h-10 md:h-14 w-auto">
+                    <img src="uni/lpu.png" alt="LPU" class="h-10 md:h-14 w-auto" loading="lazy" decoding="async">
+                    <img src="uni/bschool.png" alt="B School" class="h-10 md:h-14 w-auto" loading="lazy" decoding="async">
+                    <img src="uni/dibs.png" alt="DIBS" class="h-10 md:h-14 w-auto" loading="lazy" decoding="async">
+                    <img src="uni/christ.png" alt="Christ" class="h-10 md:h-14 w-auto" loading="lazy" decoding="async">
+                    <img src="uni/lnct.png" alt="LNCT" class="h-10 md:h-14 w-auto" loading="lazy" decoding="async">
                 </div>
                 <!-- Set 2 -->
                 <div class="flex items-center space-x-24 px-12 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
-                    <img src="uni/lpu.png" alt="LPU" class="h-10 md:h-14 w-auto">
-                    <img src="uni/bschool.png" alt="B School" class="h-10 md:h-14 w-auto">
-                    <img src="uni/dibs.png" alt="DIBS" class="h-10 md:h-14 w-auto">
-                    <img src="uni/christ.png" alt="Christ" class="h-10 md:h-14 w-auto">
-                    <img src="uni/lnct.png" alt="LNCT" class="h-10 md:h-14 w-auto">
+                    <img src="uni/lpu.png" alt="LPU" class="h-10 md:h-14 w-auto" loading="lazy" decoding="async">
+                    <img src="uni/bschool.png" alt="B School" class="h-10 md:h-14 w-auto" loading="lazy" decoding="async">
+                    <img src="uni/dibs.png" alt="DIBS" class="h-10 md:h-14 w-auto" loading="lazy" decoding="async">
+                    <img src="uni/christ.png" alt="Christ" class="h-10 md:h-14 w-auto" loading="lazy" decoding="async">
+                    <img src="uni/lnct.png" alt="LNCT" class="h-10 md:h-14 w-auto" loading="lazy" decoding="async">
                 </div>
                 <!-- Set 3 -->
                 <div class="flex items-center space-x-24 px-12 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
-                    <img src="uni/lpu.png" alt="LPU" class="h-10 md:h-14 w-auto">
-                    <img src="uni/bschool.png" alt="B School" class="h-10 md:h-14 w-auto">
-                    <img src="uni/dibs.png" alt="DIBS" class="h-10 md:h-14 w-auto">
-                    <img src="uni/christ.png" alt="Christ" class="h-10 md:h-14 w-auto">
-                    <img src="uni/lnct.png" alt="LNCT" class="h-10 md:h-14 w-auto">
+                    <img src="uni/lpu.png" alt="LPU" class="h-10 md:h-14 w-auto" loading="lazy" decoding="async">
+                    <img src="uni/bschool.png" alt="B School" class="h-10 md:h-14 w-auto" loading="lazy" decoding="async">
+                    <img src="uni/dibs.png" alt="DIBS" class="h-10 md:h-14 w-auto" loading="lazy" decoding="async">
+                    <img src="uni/christ.png" alt="Christ" class="h-10 md:h-14 w-auto" loading="lazy" decoding="async">
+                    <img src="uni/lnct.png" alt="LNCT" class="h-10 md:h-14 w-auto" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -957,18 +1110,18 @@
                         <span class="text-white text-xs font-bold uppercase tracking-widest">Global Pathways</span>
                     </span>
                     <h3 class="serif text-4xl lg:text-6xl font-black mb-8 leading-tight text-white">Your Fast-Track to <span class="text-orange-primary">UK Degrees.</span></h3>
-                    <p class="text-xl text-white/60 leading-relaxed mb-10">
+                    <p class="text-xl text-white/80 leading-relaxed mb-10">
                         BTEC qualifications are your direct gateway to prestigious UK universities. Save time and costs while gaining practical, industry-recognized skills.
                     </p>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
-                        <div class="p-8 glass-dark rounded-3xl border border-white/10 hover:border-orange-primary/30 transition-all">
+                        <div class="p-8 bg-white/10 rounded-3xl border border-white/10 hover:border-orange-primary/30 transition-all">
                             <h5 class="text-2xl font-black text-orange-primary mb-2">Level 5 HND</h5>
-                            <p class="text-white/50 text-sm">Equivalent to 1st & 2nd year of a British Degree.</p>
+                            <p class="text-white/70 text-sm">Equivalent to 1st & 2nd year of a British Degree.</p>
                         </div>
-                        <div class="p-8 glass-dark rounded-3xl border border-white/10 hover:border-orange-primary/30 transition-all">
+                        <div class="p-8 bg-white/10 rounded-3xl border border-white/10 hover:border-orange-primary/30 transition-all">
                             <h5 class="text-2xl font-black text-orange-primary mb-2">Level 7 Diploma</h5>
-                            <p class="text-white/50 text-sm">Advanced professional path for global careers.</p>
+                            <p class="text-white/70 text-sm">Advanced professional path for global careers.</p>
                         </div>
                     </div>
                     
@@ -976,35 +1129,35 @@
                 </div>
                 
                 <div class="relative" data-aos="fade-left">
-                    <div class="glass-dark p-10 lg:p-16 rounded-[48px] border border-white/10 relative overflow-hidden">
-                        <img src="gemini/image2.png" alt="Professional Pathway" class="absolute inset-0 w-full h-full object-cover opacity-20">
+                    <div class="bg-white/5 p-10 lg:p-16 rounded-[32px] border border-white/10 relative overflow-hidden">
+                        <img src="gemini/image2.png" alt="Professional Pathway" class="absolute inset-0 w-full h-full object-cover opacity-20" loading="lazy" decoding="async">
                         <div class="absolute top-0 right-0 w-32 h-32 bg-orange-primary/20 blur-3xl"></div>
                         <h3 class="text-3xl font-black mb-8 text-white">Why BTEC with TEG?</h3>
                         <ul class="space-y-6">
                             <li class="flex items-start space-x-4">
-                                <div class="w-6 h-6 bg-teal rounded-full flex items-center justify-center text-navy-900 mt-1">
+                                <div class="w-6 h-6 bg-orange-primary rounded-full flex items-center justify-center text-navy-900 mt-1">
                                     <i class="fas fa-check text-[10px]"></i>
                                 </div>
                                 <span class="text-white/80 text-lg">Direct entry to UK University top-ups</span>
                             </li>
                             <li class="flex items-start space-x-4">
-                                <div class="w-6 h-6 bg-teal rounded-full flex items-center justify-center text-navy-900 mt-1">
+                                <div class="w-6 h-6 bg-orange-primary rounded-full flex items-center justify-center text-navy-900 mt-1">
                                     <i class="fas fa-check text-[10px]"></i>
                                 </div>
                                 <span class="text-white/80 text-lg">Work-related, practical learning approach</span>
                             </li>
                             <li class="flex items-start space-x-4">
-                                <div class="w-6 h-6 bg-teal rounded-full flex items-center justify-center text-navy-900 mt-1">
+                                <div class="w-6 h-6 bg-orange-primary rounded-full flex items-center justify-center text-navy-900 mt-1">
                                     <i class="fas fa-check text-[10px]"></i>
                                 </div>
                                 <span class="text-white/80 text-lg">Recognized by 100+ Global Institutions</span>
                             </li>
                         </ul>
                         
-                        <div class="mt-12 pt-12 border-t border-white/10 flex items-center justify-between">
+                        <div class="mt-12 pt-12 border-t border-black/10 flex items-center justify-between">
                             <div>
                                 <p class="text-orange-primary uppercase text-[10px] font-black tracking-[0.2em] mb-2">Accredited Center</p>
-                                <img src="logo.png" alt="TEG Logo" class="h-10 brightness-0 invert opacity-100">
+                                <img src="logo.png" alt="TEG Logo" class="h-10 brightness-0 invert opacity-100" loading="lazy" decoding="async">
                             </div>
                             <div class="w-20 h-20 border-2 border-orange-primary/30 rounded-full flex items-center justify-center relative">
                                 <div class="absolute inset-0 bg-orange-primary/10 rounded-full blur-xl"></div>
@@ -1018,14 +1171,14 @@
     </section>
 
     <!-- TESTIMONIALS SECTION -->
-    <section id="testimonials" class="py-16 lg:py-24 bg-white overflow-hidden">
+    <section id="testimonials" class="py-16 lg:py-24 bg-orange-primary/5 overflow-hidden">
         <div class="container mx-auto px-6">
             <div class="text-center mb-20" data-aos="fade-up">
                 <h2 class="serif text-4xl lg:text-6xl text-navy-900 font-black mb-6">Success Stories</h2>
                 <div class="h-1.5 w-24 bg-grad-orange mx-auto rounded-full"></div>
             </div>
             
-            <div class="max-w-6xl mx-auto glass rounded-[48px] overflow-hidden shadow-premium grid lg:grid-cols-2 border-2 border-orange-primary/20 hover:border-orange-primary transition-all duration-500">
+            <div class="max-w-6xl mx-auto bg-orange-primary/10 rounded-[32px] overflow-hidden shadow-premium grid lg:grid-cols-2 border-2 border-orange-primary/30 hover:border-orange-primary transition-all duration-500">
                 <div class="p-10 lg:p-20 flex flex-col justify-center">
                     <div class="flex items-center space-x-2 text-orange-primary mb-8">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -1035,7 +1188,7 @@
                     </p>
                     <div class="flex items-center space-x-6">
                         <div class="w-20 h-20 rounded-full border-4 border-orange-primary/20 p-1">
-                            <img src="image.png" alt="Aakash Sharma" class="w-full h-full rounded-full object-cover">
+                            <img src="image.png" alt="Aakash Sharma" class="w-full h-full rounded-full object-cover" loading="lazy" decoding="async">
                         </div>
                         <div>
                             <p class="text-xl font-black text-navy-900">Aakash Sharma</p>
@@ -1044,7 +1197,7 @@
                     </div>
                 </div>
                 <div class="relative h-64 lg:h-auto overflow-hidden rounded-[32px]">
-                    <img src="gemini/image3.png" alt="Student Life" class="absolute inset-0 w-full h-full object-cover orange-glow">
+                    <img src="gemini/image3.png" alt="Student Life" class="absolute inset-0 w-full h-full object-cover orange-glow" loading="lazy" decoding="async">
                     <div class="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent"></div>
                 </div>
                 </div>
@@ -1063,18 +1216,18 @@
                     </p>
                     
                     <div class="grid sm:grid-cols-2 lg:grid-cols-1 gap-6">
-                        <a href="tel:+919700500087" class="group flex items-center p-6 bg-black rounded-[32px] border border-white/10 hover:border-orange-primary/50 transition-all duration-500 shadow-premium">
+                        <a href="tel:+919700500087" class="group flex items-center p-6 bg-black rounded-[32px] border border-black/10 hover:border-orange-primary/50 transition-all duration-500 shadow-premium">
                             <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-white shrink-0 group-hover:bg-orange-primary group-hover:scale-110 transition-all">
                                 <i class="fas fa-phone-alt text-2xl"></i>
                             </div>
                             <div class="ml-6">
-                                <p class="text-[10px] font-black text-white/50 uppercase tracking-[0.2em] mb-1">Direct Line</p>
+                                <p class="text-[10px] font-black text-white uppercase tracking-[0.2em] mb-1">Direct Line</p>
                                 <p class="text-xl font-black text-white">+91 97005 00087</p>
                             </div>
                         </a>
 
-                        <a href="mailto:pritpal@theeducationgroup.net" class="group flex items-center p-6 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/50 transition-all duration-500 shadow-premium">
-                            <div class="w-16 h-16 bg-orange-primary/10 rounded-2xl flex items-center justify-center text-orange-primary shrink-0 group-hover:bg-orange-primary group-hover:text-white group-hover:scale-110 transition-all">
+                        <a href="mailto:pritpal@theeducationgroup.net" class="group flex items-center p-6 bg-orange-primary/10 rounded-[32px] border border-orange-primary/20 hover:border-orange-primary/50 transition-all duration-500 shadow-premium">
+                            <div class="w-16 h-16 bg-orange-primary/10 rounded-2xl flex items-center justify-center text-orange-primary shrink-0 group-hover:bg-orange-primary group-hover:text-black group-hover:scale-110 transition-all">
                                 <i class="fas fa-envelope-open text-2xl"></i>
                             </div>
                             <div class="ml-6">
@@ -1086,8 +1239,8 @@
                 </div>
                 
                 <div data-aos="fade-left">
-                    <div class="glass p-10 lg:p-16 rounded-[48px] shadow-premium relative group">
-                        <div class="absolute -top-12 -right-12 w-24 h-24 bg-grad-orange rounded-full flex items-center justify-center text-white shadow-orange floating z-20 group-hover:scale-110 transition-transform">
+                    <div class="bg-orange-primary/10 p-10 lg:p-16 rounded-[32px] shadow-premium relative group">
+                        <div class="absolute -top-12 -right-12 w-24 h-24 bg-grad-orange rounded-full flex items-center justify-center text-black shadow-orange floating z-20 group-hover:scale-110 transition-transform">
                             <i class="fab fa-whatsapp text-4xl"></i>
                         </div>
                         <div class="inline-flex items-center space-x-2 px-4 py-2 bg-orange-primary/10 rounded-full mb-8">
@@ -1095,28 +1248,29 @@
                             <span class="text-orange-primary text-xs font-bold uppercase tracking-widest">Instant Booking</span>
                         </div>
                         <h3 class="text-3xl font-black text-black mb-10">Book Free Counselling</h3>
-                        <form action="#" class="space-y-6">
+                        <form id="contact-form" class="space-y-6">
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div>
                                     <label class="block text-xs font-bold text-navy-900 uppercase tracking-widest mb-3">Name</label>
-                                    <input type="text" class="w-full bg-navy-900/5 border-none p-4 rounded-2xl focus:ring-2 focus:ring-orange-primary outline-none transition" placeholder="John Doe">
+                                    <input type="text" name="name" class="w-full bg-black/5 border-none p-4 rounded-2xl focus:ring-2 focus:ring-orange-primary outline-none transition" placeholder="John Doe" required>
                                 </div>
                                 <div>
                                     <label class="block text-xs font-bold text-navy-900 uppercase tracking-widest mb-3">Phone</label>
-                                    <input type="tel" class="w-full bg-navy-900/5 border-none p-4 rounded-2xl focus:ring-2 focus:ring-orange-primary outline-none transition" placeholder="+91 XXX XXX XXXX">
+                                    <input type="tel" name="phone" class="w-full bg-black/5 border-none p-4 rounded-2xl focus:ring-2 focus:ring-orange-primary outline-none transition" placeholder="+91 XXX XXX XXXX" required>
                                 </div>
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-navy-900 uppercase tracking-widest mb-3">Target Country</label>
-                                <select class="w-full bg-navy-900/5 border-none p-4 rounded-2xl focus:ring-2 focus:ring-orange-primary outline-none transition">
-                                    <option>Select Country</option>
-                                    <option>United Kingdom</option>
-                                    <option>USA</option>
-                                    <option>Canada</option>
-                                    <option>Europe</option>
+                                <select name="country" class="w-full bg-black/5 border-none p-4 rounded-2xl focus:ring-2 focus:ring-orange-primary outline-none transition" required>
+                                    <option value="">Select Country</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="USA">USA</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="Europe">Europe</option>
                                 </select>
                             </div>
-                            <button class="w-full btn-brand py-5 text-lg">Send Request <i class="fas fa-paper-plane ml-3"></i></button>
+                            <input type="hidden" name="email" value="inquiry@theeducationgroup.net">
+                            <button type="submit" class="w-full btn-brand py-5 text-lg">Send Request <i class="fas fa-paper-plane ml-3"></i></button>
                         </form>
                     </div>
                 </div>
@@ -1124,89 +1278,74 @@
         </div>
     </section>
 
+    <!-- FINAL CTA SECTION -->
+    <section class="py-24 bg-navy-900 relative overflow-hidden">
+        <div class="absolute inset-0 map-bg opacity-10"></div>
+        <div class="container mx-auto px-6 text-center relative z-10" data-aos="zoom-in">
+            <h2 class="serif text-4xl lg:text-7xl font-black text-black mb-8 leading-tight">Ready to Transform <br><span class="text-orange-primary">Your Future?</span></h2>
+            <p class="text-xl lg:text-2xl text-black max-w-3xl mx-auto mb-16 font-light leading-relaxed">
+                Take the first step towards your international education journey with our expert guidance.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-8">
+                <a href="/contact.html" class="btn-brand text-lg px-12 py-5">Start Now <i class="fas fa-rocket ml-3"></i></a>
+                <a href="/about.html" class="text-black font-black uppercase tracking-widest hover:text-orange-primary transition-all flex items-center group">
+                    Why TEG <i class="fas fa-chevron-right ml-4 group-hover:translate-x-2 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
-    <footer class="py-20 bg-black text-white relative overflow-hidden">
+    <footer class="py-20 bg-orange-primary/5 text-navy-900 border-t border-orange-primary/20 relative overflow-hidden">
         <div id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
             <i class="fas fa-chevron-up"></i>
         </div>
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center border-b border-white/10 pb-12 mb-12 gap-8">
-                <img src="logo.png" alt="TEG Logo" class="h-12">
-                <div class="flex space-x-8">
-                    <a href="#" class="hover:text-orange-primary transition-colors text-sm font-bold uppercase tracking-widest">Privacy</a>
-                    <a href="#" class="hover:text-orange-primary transition-colors text-sm font-bold uppercase tracking-widest">Terms</a>
-                    <a href="#" class="hover:text-orange-primary transition-colors text-sm font-bold uppercase tracking-widest">Contact</a>
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <img src="logo.png" alt="TEG Logo" class="h-12 mb-8" loading="lazy" decoding="async">
+                    <p class="text-navy-700/60 max-w-sm leading-relaxed mb-8">
+                        Premier overseas education consultancy with 15+ years of excellence. Empowering students to achieve their global academic dreams.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/theeducationgroup" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/the-education-group" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="text-sm font-black uppercase tracking-widest mb-8">Quick Links</h5>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Home</a></li>
+                        <li><a href="about.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">About Us</a></li>
+                        <li><a href="services.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Our Services</a></li>
+                        <li><a href="universities.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Universities</a></li>
+                        <li><a href="index.html#partners" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Our Partners</a></li>
+                        <li><a href="testimonials.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-sm font-black uppercase tracking-widest mb-8">Resources</h5>
+                    <ul class="space-y-4">
+                        <li><a href="happy-students.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Happy Students</a></li>
+                        <li><a href="btec.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">BTEC Programs</a></li>
+                        <li><a href="study-abroad.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Study Abroad</a></li>
+                        <li><a href="contact.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Free Counselling</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row justify-between items-center text-white/30 text-xs font-bold uppercase tracking-[0.2em]">
+            <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-black/5 text-navy-700/30 text-xs font-bold uppercase tracking-[0.2em]">
                 <p>&copy; 2024 The Education Group. All Rights Reserved.</p>
-                <p>Global Education Brand of Excellence</p>
+                <div class="flex space-x-8 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-orange-primary transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-orange-primary transition-colors">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            once: true,
-            duration: 1000
-        });
-
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (navbar) {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('nav-scrolled');
-                    navbar.classList.remove('py-6');
-                    navbar.classList.add('py-2');
-                } else {
-                    navbar.classList.remove('nav-scrolled');
-                    navbar.classList.add('py-6');
-                    navbar.classList.remove('py-2');
-                }
-            }
-        });
-
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    
-                    // Close mobile menu if open
-                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-        // Scroll Top Visibility
-        window.addEventListener('scroll', () => {
-            const scrollTop = document.getElementById('scroll-top');
-            if (scrollTop) {
-                if (window.scrollY > 500) {
-                    scrollTop.classList.add('visible');
-                } else {
-                    scrollTop.classList.remove('visible');
-                }
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

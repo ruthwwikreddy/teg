@@ -1,0 +1,29 @@
+# robots.txt for TEG - The Education Group
+
+User-agent: *
+Allow: /
+
+# Explicitly allow AI bots for GEO (Generative Engine Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap
+Sitemap: https://theeducationgroup.net/sitemap.xml

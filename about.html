@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About TEG - The Education Group | Our Story & Mission</title>
+    <meta name="description" content="Learn about TEG - The Education Group's 15+ year legacy in overseas education consultancy. Meet our expert team and discover our mission to transform student futures globally.">
+    <meta name="keywords" content="about TEG, education consultancy team, study abroad mission, overseas education experts, TEG story">
+    <link rel="canonical" href="https://theeducationgroup.net/about.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About TEG - The Education Group | Our Story & Mission">
+    <meta property="og:description" content="Learn about TEG - The Education Group's 15+ year legacy in overseas education consultancy. Meet our expert team and discover our mission to transform student futures globally.">
+    <meta property="og:url" content="https://theeducationgroup.net/about.html">
+    <meta property="og:site_name" content="TEG - The Education Group">
+    <meta property="og:image" content="https://theeducationgroup.net/logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="TEG - The Education Group Logo">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About TEG - The Education Group | Our Story & Mission">
+    <meta name="twitter:description" content="Learn about TEG - The Education Group's 15+ year legacy in overseas education consultancy.">
+    <meta name="twitter:image" content="https://theeducationgroup.net/logo.png">
+    <meta name="twitter:image:alt" content="TEG - The Education Group Logo">
+    <meta name="twitter:site" content="@TEGEducation">
+    <meta name="twitter:creator" content="@TEGEducation">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- Performance: DNS Prefetch & Preconnect -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//unpkg.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    
+    <!-- Performance: Font Optimization -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+    
+    <!-- Frameworks -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="preload" href="https://unpkg.com/aos@next/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"></noscript>
+    
+    <!-- No-JavaScript Fallback -->
+    <noscript>
+        <style>
+            [data-aos] { opacity: 1 !important; transform: none !important; }
+            #mobile-menu { display: block !important; }
+            .js-only { display: none !important; }
+        </style>
+        <div style="background: #ff6a00; color: white; padding: 20px; text-align: center; font-weight: bold;">
+            ⚠️ JavaScript is required for the best experience. Please enable JavaScript in your browser settings.
+        </div>
+    </noscript>
+</head>
+<body class="bg-white overflow-x-hidden">
+    <div class="scroll-progress" id="progressBar"></div>
+
+    <!-- NAVIGATION -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-3">
+        <div class="container mx-auto px-6">
+            <div class="bg-white rounded-[24px] px-8 py-3 flex justify-between items-center shadow-2xl border border-black/40">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2 group">
+                    <img src="logo.png" alt="TEG Logo" class="h-10 w-auto group-hover:scale-110 transition-transform duration-500" loading="lazy" decoding="async">
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="index.html#home" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Home</a>
+                    <a href="about.html" class="text-orange-primary font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">About</a>
+                    <a href="services.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Services</a>
+                    <a href="testimonials.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Students</a>
+                    <a href="index.html#partners" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Partners</a>
+                    <a href="contact.html" class="btn-brand !py-3 !px-8 !text-[10px] !tracking-[0.2em]">Free Counselling</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden p-3 rounded-2xl hover:bg-black/10 transition-colors" id="mobile-menu-button">
+                    <svg class="w-6 h-6 text-navy-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="hidden lg:hidden mt-4 bg-white rounded-3xl p-8 shadow-2xl border border-black/40" id="mobile-menu">
+                <div class="flex flex-col space-y-6 text-center">
+                    <a href="index.html#home" class="text-navy-900 font-black text-lg uppercase tracking-widest">Home</a>
+                    <a href="about.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">About</a>
+                    <a href="services.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Services</a>
+                    <a href="testimonials.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Students</a>
+                    <a href="index.html#partners" class="text-navy-900 font-black text-lg uppercase tracking-widest">Partners</a>
+                    <a href="contact.html" class="btn-brand w-full !py-4">Free Counselling</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero relative min-h-screen flex items-center overflow-hidden pt-12">
+        <!-- Background Elements -->
+        <div class="hero-shape w-[600px] h-[600px] bg-orange-primary -top-20 -right-20 rounded-full"></div>
+        <div class="hero-shape w-[400px] h-[400px] bg-teal -bottom-20 -left-20 rounded-full"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 mobile-center">
+            <div class="text-center" data-aos="fade-up" data-aos-duration="1000">
+                <div class="inline-flex items-center space-x-2 px-4 py-2 bg-black/5 rounded-full mb-8">
+                    <span class="glow-dot"></span>
+                    <span class="text-navy-900 text-xs font-bold uppercase tracking-widest">About TEG</span>
+                </div>
+                
+                <h1 class="text-5xl lg:text-8xl font-black text-black leading-[0.9] mb-8">
+                    About <span class="text-gradient">TEG</span><br>
+                    <span class="serif italic font-normal text-4xl lg:text-7xl">Global Learning Institute</span>
+                </h1>
+                
+                <p class="text-xl text-navy-700/80 mb-10 max-w-3xl mx-auto leading-relaxed">
+                    TEG – Global Learning Institute has established itself as a prominent leader in overseas education services since its foundation in 2014. TEG offers expert guidance to students seeking higher education abroad, partnering with top universities worldwide.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="#mission" class="btn-brand text-lg">Explore Our Story <i class="fas fa-arrow-right ml-3"></i></a>
+                    <a href="contact.html" class="btn-outline text-lg">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION SECTION -->
+    <section id="mission" class="py-16 lg:py-24 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="serif text-4xl lg:text-6xl text-navy-900 font-black mb-6">Our <span class="text-gradient">Mission</span></h2>
+                <p class="text-xl text-navy-700/70 leading-relaxed max-w-3xl mx-auto">
+                    To transform ambitious students into global professionals through expert guidance and personalized support, ensuring their success in international education.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- Pillar 1 -->
+                <div class="relative group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="p-10 lg:p-14 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.05] transition-colors">15</div>
+                        <div class="w-24 h-24 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg">
+                            <i class="fas fa-history text-4xl"></i>
+                        </div>
+                        <h3 class="serif text-5xl font-black text-navy-900 mb-4 stat-number">15+</h3>
+                        <p class="text-navy-900/60 font-bold uppercase tracking-widest text-xs">Years Experience</p>
+                        <p class="text-navy-900/60 leading-relaxed font-medium mt-4">A legacy of excellence and trust in international education consultancy, guiding students since 2009.</p>
+                    </div>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="relative group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="p-10 lg:p-14 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.05] transition-colors">5K</div>
+                        <div class="w-24 h-24 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg">
+                            <i class="fas fa-users text-4xl"></i>
+                        </div>
+                        <h3 class="serif text-5xl font-black text-navy-900 mb-4 stat-number">5000+</h3>
+                        <p class="text-navy-900/60 font-bold uppercase tracking-widest text-xs">Students Placed</p>
+                        <p class="text-navy-900/60 leading-relaxed font-medium mt-4">Successfully placed in prestigious institutions across the globe with a focus on outcome-driven success.</p>
+                    </div>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="relative group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="p-10 lg:p-14 bg-white rounded-[32px] border border-black/5 hover:border-navy-900/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-black/[0.05] transition-colors">10</div>
+                        <div class="w-24 h-24 bg-black/10 rounded-3xl flex items-center justify-center text-navy-900 mb-10 group-hover:bg-navy-900 group-hover:text-black transition-all duration-700 shadow-lg">
+                            <i class="fas fa-globe text-4xl"></i>
+                        </div>
+                        <h3 class="serif text-5xl font-black text-navy-900 mb-4 stat-number">10+</h3>
+                        <p class="text-navy-900/60 font-bold uppercase tracking-widest text-xs">Countries Reached</p>
+                        <p class="text-navy-900/60 leading-relaxed font-medium mt-4">Wide range of destinations including UK, USA, Canada, and Europe with 100% visa guidance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="py-16 lg:py-24 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="serif text-4xl lg:text-6xl text-navy-900 font-black mb-6">Numbers That <span class="text-gradient">Matter</span></h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10" data-aos="fade-up">
+                <!-- Stat 1 -->
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="p-10 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.05] transition-colors">15</div>
+                        <div class="w-20 h-20 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-8 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg">
+                            <i class="fas fa-history text-3xl"></i>
+                        </div>
+                        <h3 class="serif text-4xl font-black text-navy-900 mb-4 stat-number">15+</h3>
+                        <p class="text-navy-900/60 font-bold uppercase tracking-widest text-xs">Years Experience</p>
+                    </div>
+                </div>
+                <!-- Stat 2 -->
+                <div class="relative group" data-aos-delay="100">
+                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="p-10 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.05] transition-colors">5K</div>
+                        <div class="w-20 h-20 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-8 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg">
+                            <i class="fas fa-users text-3xl"></i>
+                        </div>
+                        <h3 class="serif text-4xl font-black text-navy-900 mb-4 stat-number">5000+</h3>
+                        <p class="text-navy-900/60 font-bold uppercase tracking-widest text-xs">Students Guided</p>
+                    </div>
+                </div>
+                <!-- Stat 3 -->
+                <div class="relative group" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="p-10 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.05] transition-colors">98</div>
+                        <div class="w-20 h-20 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-8 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg">
+                            <i class="fas fa-check-circle text-3xl"></i>
+                        </div>
+                        <h3 class="serif text-4xl font-black text-navy-900 mb-4 stat-number">98%</h3>
+                        <p class="text-navy-900/60 font-bold uppercase tracking-widest text-xs">Visa Success</p>
+                    </div>
+                </div>
+                <!-- Stat 4 -->
+                <div class="relative group" data-aos-delay="300">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="p-10 bg-white rounded-[32px] border border-black/5 hover:border-navy-900/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-black/[0.05] transition-colors">10</div>
+                        <div class="w-20 h-20 bg-black/10 rounded-3xl flex items-center justify-center text-navy-900 mb-8 group-hover:bg-navy-900 group-hover:text-black transition-all duration-700 shadow-lg">
+                            <i class="fas fa-globe text-3xl"></i>
+                        </div>
+                        <h3 class="serif text-4xl font-black text-navy-900 mb-4 stat-number">10+</h3>
+                        <p class="text-navy-900/60 font-bold uppercase tracking-widest text-xs">Countries</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIRECTOR'S MESSAGE SECTION -->
+    <section class="py-16 lg:py-24 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto" data-aos="fade-up">
+                <h2 class="serif text-4xl lg:text-6xl text-navy-900 mb-6 font-black leading-tight">
+                    Message From Our <span class="text-gradient">Director</span>
+                </h2>
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-12">
+                    <div>
+                        <img src="website3_edited.jpg" alt="Dr. Pritpal Singh" class="w-full max-w-sm rounded-2xl shadow-premium mx-auto lg:mx-0">
+                    </div>
+                    <div>
+                        <p class="text-lg font-bold text-navy-900 mb-4">Dr. Pritpal Singh Bagga, BDS, MPH (UK)</p>
+                        <p class="text-navy-700/70 leading-relaxed mb-6">
+                            Having studied in the UK and working across different cultures, I have been fascinated by the world of opportunities that lie on foreign shores for higher education. The systems are flexible, the courses are par excellence and the tuition fees are very affordable. Added to that are the numerous internship opportunities that provide students with cutting-edge hands-on training, making them super suitable for a great future ahead.
+                        </p>
+                    </div>
+                </div>
+                <p class="text-navy-700/70 leading-relaxed mb-8">
+                    In the due course of my work life in this industry, I have served the University of Buckingham, the UK as their Regional Manager and also The University of Huddersfield, the UK as their South Asia Representative and thus understand the intricacies of the overseas education industry from the deepest roots. My teams, share my experience vision, goal and commitment and we assure nothing but the best.
+                </p>
+                <p class="text-navy-700/70 leading-relaxed mb-8">
+                    Our teams of IELTS certified trainers across several branches, working under my guidance make sure that our students are well equipped and clear the needed language examinations with cutting edge competence.
+                </p>
+                <p class="text-navy-700/70 leading-relaxed mb-8">
+                    Understanding the importance of guided mentoring, I have dedicated myself and my teams in this field to ensure that the Indian students get the right direction and pursue the right course for a dream future ahead.
+                </p>
+                <p class="text-navy-700/70 leading-relaxed mb-8">
+                    I am committed to doling out my years of knowledge in the industry and have mentored my teams to give in their best, so that students aspiring to study abroad, get placed in the right institutions according to their aptitude and budget.
+                </p>
+                <!-- Student Testimonial -->
+                <div class="bg-white p-8 rounded-2xl border border-orange-primary/20">
+                    <p class="text-navy-700/70 leading-relaxed italic mb-4">
+                        "After desperately searching for colleges in India and realizing that all my efforts are in vain, I decided to pursue education abroad. My parents came across Dr. Pritpal and he truly saved me from all the hassles and scams of the Indian colleges which we know are prevalent in India. He told us about Debrecen Medical University in Hungary, which is one of the most reputed universities in central europe and guided us right from the start about what the course entails and everything we must know about the University and the city of Debrecen. I am now a 2nd year Medical student here and am grateful I had Dr Pritpal's guidance, he know's what he is doing and my parents and I highly recommend him"
+                    </p>
+                    <div class="flex items-center space-x-4 mt-6">
+                        <div>
+                            <p class="text-xl font-black text-navy-900">- Aakash Sharma and family</p>
+                            <p class="text-orange-primary font-bold uppercase text-xs tracking-widest">HYDERABAD</p>
+                        </div>
+                        <div class="w-20 h-20 rounded-full border-4 border-orange-primary/20 p-1">
+                            <img src="image.png" alt="Aakash Sharma" class="w-full h-full rounded-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRANCH LOCATIONS SECTION -->
+    <section class="py-16 lg:py-24 section-light relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="serif text-4xl lg:text-6xl font-black leading-tight text-navy-900 mb-6">Find Us <span class="text-orange-primary">Near You</span></h2>
+                <p class="text-navy-700/60 text-lg leading-relaxed max-w-3xl mx-auto">
+                    Visit our branches across India for personalized counseling
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Hyderabad -->
+                <div class="relative group bg-white p-10 rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 shadow-premium" data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="text-3xl font-black mb-6 text-navy-900 group-hover:text-orange-primary transition-colors duration-500">Head Office</h4>
+                    <p class="text-navy-700/70 leading-relaxed mb-8 text-lg font-medium">3rd Floor, Road No 14 Banjara Hills, Above SBI Bank</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-orange-primary/10 flex items-center justify-center text-orange-primary">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span class="text-navy-900 font-bold">Hyderabad, Telangana 500034</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-orange-primary/10 flex items-center justify-center text-orange-primary">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span class="text-navy-900 font-bold">+91-9700500087</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nagpur -->
+                <div class="relative group bg-white p-10 rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 shadow-premium" data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="text-3xl font-black mb-6 text-navy-900 group-hover:text-orange-primary transition-colors duration-500">Nagpur</h4>
+                    <p class="text-navy-700/70 leading-relaxed mb-8 text-lg font-medium">Shop No 4, Plot No 69, Suraj Palace, Next to Old Dande Hospital</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-orange-primary/10 flex items-center justify-center text-orange-primary">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span class="text-navy-900 font-bold">Ravi Nagar, Nagpur - 440010</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-orange-primary/10 flex items-center justify-center text-orange-primary">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span class="text-navy-900 font-bold">+91-9700500087</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolkota -->
+                <div class="relative group bg-white p-10 rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 shadow-premium" data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="text-3xl font-black mb-6 text-navy-900 group-hover:text-orange-primary transition-colors duration-500">Kolkata</h4>
+                    <p class="text-navy-700/70 leading-relaxed mb-8 text-lg font-medium">Martin Burn House, Block No. 51, 4th Floor, 1. R.N. Mukherjee Road - 700001</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-orange-primary/10 flex items-center justify-center text-orange-primary">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span class="text-navy-900 font-bold">Kolkata, West Bengal</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-orange-primary/10 flex items-center justify-center text-orange-primary">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span class="text-navy-900 font-bold">+91-9700500087</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bhilai -->
+                <div class="relative group bg-white p-10 rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 shadow-premium" data-aos="fade-up" data-aos-delay="400">
+                    <h4 class="text-3xl font-black mb-6 text-navy-900 group-hover:text-orange-primary transition-colors duration-500">Bhilai</h4>
+                    <p class="text-navy-700/70 leading-relaxed mb-8 text-lg font-medium">RTPC Centre for language studies, Panachavila, Anchal P.O, Kollam 691306</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-orange-primary/10 flex items-center justify-center text-orange-primary">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span class="text-navy-900 font-bold">Kollam, Kerala</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-orange-primary/10 flex items-center justify-center text-orange-primary">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span class="text-navy-900 font-bold">+91-9700500087</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sri Lanka -->
+                <div class="relative group bg-white p-10 rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 shadow-premium" data-aos="fade-up" data-aos-delay="500">
+                    <h4 class="text-3xl font-black mb-6 text-navy-900 group-hover:text-orange-primary transition-colors duration-500">Sri Lanka</h4>
+                    <p class="text-navy-700/70 leading-relaxed mb-8 text-lg font-medium">93, Thimbirigasyaya Road, Colombo 5, Sri Lanka</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-orange-primary/10 flex items-center justify-center text-orange-primary">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span class="text-navy-900 font-bold">Colombo</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-orange-primary/10 flex items-center justify-center text-orange-primary">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span class="text-navy-900 font-bold">+94-777123456</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Melbourne -->
+                <div class="relative group bg-white p-10 rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 shadow-premium" data-aos="fade-up" data-aos-delay="600">
+                    <h4 class="text-3xl font-black mb-6 text-navy-900 group-hover:text-orange-primary transition-colors duration-500">Melbourne</h4>
+                    <p class="text-navy-700/70 leading-relaxed mb-8 text-lg font-medium">C/O lotasol Pty Ltd, Level 7, 575 Bourke Street, Melbourne VIC 3000</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-orange-primary/10 flex items-center justify-center text-orange-primary">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span class="text-navy-900 font-bold">Melbourne, Australia</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-orange-primary/10 flex items-center justify-center text-orange-primary">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span class="text-navy-900 font-bold">+61-345678901</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manchester -->
+                <div class="relative group bg-white p-10 rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 shadow-premium" data-aos="fade-up" data-aos-delay="700">
+                    <h4 class="text-3xl font-black mb-6 text-navy-900 group-hover:text-orange-primary transition-colors duration-500">Manchester</h4>
+                    <p class="text-navy-700/70 leading-relaxed mb-8 text-lg font-medium">7 Mildred Street, Salford M7 2HG</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-orange-primary/10 flex items-center justify-center text-orange-primary">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span class="text-navy-900 font-bold">Manchester, UK</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-orange-primary/10 flex items-center justify-center text-orange-primary">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span class="text-navy-900 font-bold">+44-161234567</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bulgaria -->
+                <div class="relative group bg-navy-900 p-10 rounded-[32px] border border-white/10 hover:border-orange-primary/30 transition-all duration-500 shadow-premium" data-aos="fade-up" data-aos-delay="800">
+                    <h4 class="text-3xl font-black mb-6 text-white group-hover:text-orange-primary transition-colors duration-500">Bulgaria</h4>
+                    <p class="text-white/70 leading-relaxed mb-8 text-lg font-medium">Bulgaria, town Varna 9000, Marin Drinov 45, UIC: 204552222,Charalampos Onisiforou</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-orange-primary/10 flex items-center justify-center text-orange-primary">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span class="text-white font-bold">Varna, Bulgaria</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-orange-primary/10 flex items-center justify-center text-orange-primary">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span class="text-white font-bold">+359-888123456</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="py-16 lg:py-24 section-dark relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center" data-aos="fade-up">
+                <h2 class="serif text-4xl lg:text-6xl font-black leading-tight text-white mb-8">
+                    Ready to Start Your <span class="text-orange-primary">Global Journey?</span>
+                </h2>
+                <p class="text-white/60 text-lg leading-relaxed max-w-3xl mx-auto mb-12">
+                    Join thousands of successful students who transformed their careers with TEG's expert guidance
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="contact.html" class="btn-brand text-lg">Get Started <i class="fas fa-arrow-right ml-3"></i></a>
+                    <a href="services.html" class="btn-outline text-lg text-white border-white hover:bg-white hover:text-black">Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-20 bg-white text-navy-900 border-t border-black/5 relative overflow-hidden">
+        <div id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <img src="logo.png" alt="TEG Logo" class="h-12 mb-8">
+                    <p class="text-navy-700/60 max-w-sm leading-relaxed mb-8">
+                        Premier overseas education consultancy with 15+ years of excellence. Empowering students to achieve their global academic dreams.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/theeducationgroup" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/the-education-group" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="text-sm font-black uppercase tracking-widest mb-8">Quick Links</h5>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Home</a></li>
+                        <li><a href="about.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">About Us</a></li>
+                        <li><a href="services.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Our Services</a></li>
+                        <li><a href="universities.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Universities</a></li>
+                        <li><a href="index.html#partners" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Our Partners</a></li>
+                        <li><a href="testimonials.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-sm font-black uppercase tracking-widest mb-8">Resources</h5>
+                    <ul class="space-y-4">
+                        <li><a href="happy-students.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Happy Students</a></li>
+                        <li><a href="btec.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">BTEC Programs</a></li>
+                        <li><a href="study-abroad.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Study Abroad</a></li>
+                        <li><a href="contact.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Free Counselling</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-black/5 text-navy-700/30 text-xs font-bold uppercase tracking-[0.2em]">
+                <p>&copy; 2024 The Education Group. All Rights Reserved.</p>
+                <div class="flex space-x-8 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-orange-primary transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-orange-primary transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

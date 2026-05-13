@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Students - TEG | Student Success Stories & Experiences</title>
+    <meta name="description" content="Explore inspiring success stories from TEG students. See how studying abroad transforms lives through real experiences, adventures, and achievements.">
+    <meta name="keywords" content="happy students, student success, study abroad experiences, TEG testimonials, international students">
+    <link rel="canonical" href="https://theeducationgroup.net/happy-students.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Happy Students - TEG | Student Success Stories & Experiences">
+    <meta property="og:description" content="Explore inspiring success stories from TEG students. See how studying abroad transforms lives through real experiences, adventures, and achievements.">
+    <meta property="og:url" content="https://theeducationgroup.net/happy-students.html">
+    <meta property="og:site_name" content="TEG - The Education Group">
+    <meta property="og:image" content="https://theeducationgroup.net/logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="TEG - The Education Group Logo">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Happy Students - TEG | Student Success Stories & Experiences">
+    <meta name="twitter:description" content="Explore inspiring success stories from TEG students. See how studying abroad transforms lives.">
+    <meta name="twitter:image" content="https://theeducationgroup.net/logo.png">
+    <meta name="twitter:image:alt" content="TEG - The Education Group Logo">
+    <meta name="twitter:site" content="@TEGEducation">
+    <meta name="twitter:creator" content="@TEGEducation">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- Performance: DNS Prefetch & Preconnect -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//unpkg.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    
+    <!-- Performance: Font Optimization -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+    
+    <!-- Frameworks -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="preload" href="https://unpkg.com/aos@next/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"></noscript>
+    
+    <!-- No-JavaScript Fallback -->
+    <noscript>
+        <style>
+            [data-aos] { opacity: 1 !important; transform: none !important; }
+            #mobile-menu { display: block !important; }
+            .js-only { display: none !important; }
+        </style>
+        <div style="background: #ff6a00; color: white; padding: 20px; text-align: center; font-weight: bold;">
+            ⚠️ JavaScript is required for the best experience. Please enable JavaScript in your browser settings.
+        </div>
+    </noscript>
+</head>
+<body class="bg-white overflow-x-hidden">
+    <div class="scroll-progress" id="progressBar"></div>
+
+    <!-- NAVIGATION -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-3">
+        <div class="container mx-auto px-6">
+            <div class="bg-white rounded-[24px] px-8 py-3 flex justify-between items-center shadow-2xl border border-black/40">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2 group">
+                    <img src="logo.png" alt="TEG Logo" class="h-10 w-auto group-hover:scale-110 transition-transform duration-500" loading="lazy" decoding="async">
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="index.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Home</a>
+                    <a href="about.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">About</a>
+                    <a href="services.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Services</a>
+                    <a href="universities.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Universities</a>
+                    <a href="testimonials.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Students</a>
+                    <a href="contact.html" class="btn-brand !py-3 !px-8 !text-[10px] !tracking-[0.2em]">Free Counselling</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden p-3 rounded-2xl hover:bg-black/10 transition-colors" id="mobile-menu-button">
+                    <svg class="w-6 h-6 text-navy-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="hidden lg:hidden mt-4 bg-white rounded-3xl p-8 shadow-2xl border border-black/40" id="mobile-menu">
+                <div class="flex flex-col space-y-6 text-center">
+                    <a href="index.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Home</a>
+                    <a href="about.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">About</a>
+                    <a href="services.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Services</a>
+                    <a href="universities.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Universities</a>
+                    <a href="testimonials.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Students</a>
+                    <a href="contact.html" class="btn-brand w-full !py-4">Free Counselling</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero relative min-h-screen flex items-center overflow-hidden pt-12">
+        <!-- Background Elements -->
+        <div class="hero-shape w-[600px] h-[600px] bg-orange-primary -top-20 -right-20 rounded-full"></div>
+        <div class="hero-shape w-[400px] h-[400px] bg-orange-secondary/20 -bottom-20 -left-20 rounded-full"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center" data-aos="fade-up" data-aos-duration="1000">
+                <div class="inline-flex items-center space-x-2 px-4 py-2 bg-black/5 rounded-full mb-8">
+                    <span class="glow-dot"></span>
+                    <span class="text-navy-900 text-xs font-bold uppercase tracking-widest">Student Success</span>
+                </div>
+                
+                <h1 class="text-5xl lg:text-8xl font-black text-black leading-[0.9] mb-8">
+                    Happy <span class="text-gradient">Students</span><br>
+                    <span class="serif italic font-normal text-4xl lg:text-7xl">Building Better Futures</span>
+                </h1>
+                
+                <p class="text-xl text-navy-700/80 mb-10 max-w-3xl mx-auto leading-relaxed">
+                    Studying abroad is an experience that transforms you long after you have returned home. We help students develop newfound skills and continue their adventures through life.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="#stories" class="btn-brand text-lg">Explore Stories <i class="fas fa-book-open ml-3"></i></a>
+                    <a href="contact.html" class="btn-outline text-lg">Share Your Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED STORIES SECTION -->
+    <section id="stories" class="py-16 lg:py-24 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="serif text-4xl lg:text-6xl text-navy-900 font-black mb-6">Featured <span class="text-gradient">Success Stories</span></h2>
+                <div class="h-1.5 w-24 bg-grad-orange mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 mb-16">
+                <!-- Featured Story 2 -->
+                <div class="relative group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="p-10 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col relative overflow-hidden">
+                        <div class="flex items-center space-x-2 text-orange-primary mb-8 justify-center">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <div class="text-center mb-8">
+                            <img src="students/Screenshot%202026-05-13%20at%2016.25.30.png" alt="Happy Student" class="w-32 h-32 rounded-full border-4 border-orange-primary/20 p-1 mx-auto mb-6 orange-glow preview-image">
+                        </div>
+                        <h3 class="serif text-3xl font-black text-navy-900 mb-4 text-center">Rahul Verma</h3>
+                        <p class="text-orange-primary font-black uppercase text-xs tracking-[0.2em] mb-4 text-center">Engineering • University of Toronto, Canada</p>
+                        <p class="text-navy-900/60 leading-relaxed mb-8 text-center font-medium text-lg italic">
+                            "Canada's education system is amazing! The practical approach and post-graduation work opportunities helped me gain real-world experience while studying."
+                        </p>
+                        <div class="flex flex-wrap gap-3 mb-8 justify-center">
+                            <span class="px-4 py-1.5 bg-orange-primary/10 text-orange-primary rounded-full text-[10px] font-black uppercase tracking-widest">Practical Learning</span>
+                            <span class="px-4 py-1.5 bg-orange-primary/5 text-navy-900/60 rounded-full text-[10px] font-black uppercase tracking-widest">Work Opportunities</span>
+                            <span class="px-4 py-1.5 bg-orange-primary/5 text-navy-900/60 rounded-full text-[10px] font-black uppercase tracking-widest">Quality Education</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT MAKES STUDENTS HAPPY SECTION -->
+    <section class="py-16 lg:py-24 section-dark relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="serif text-4xl lg:text-6xl font-black leading-tight text-white mb-6">What Makes Our <span class="text-orange-primary">Students Happy?</span></h2>
+                <p class="text-white/60 text-lg leading-relaxed max-w-3xl mx-auto">
+                    The comprehensive support and experiences that create lasting memories and successful careers
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Support 1 -->
+                <div class="relative group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="bg-white-dark p-10 rounded-[32px] border border-black/10 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-orange-primary mb-8 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-headset text-3xl"></i>
+                        </div>
+                        <h4 class="serif text-2xl font-black mb-4 text-white">Expert Guidance</h4>
+                        <p class="text-white/50 leading-relaxed font-medium">Personalized counseling from application to graduation ensures students make informed decisions and achieve their goals.</p>
+                    </div>
+                </div>
+
+                <!-- Support 2 -->
+                <div class="relative group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="bg-white-dark p-10 rounded-[32px] border border-black/10 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="w-16 h-16 bg-orange-primary/10 rounded-2xl flex items-center justify-center text-orange-primary mb-8 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-users text-3xl"></i>
+                        </div>
+                        <h4 class="serif text-2xl font-black mb-4 text-white">Community Building</h4>
+                        <p class="text-white/50 leading-relaxed font-medium">Strong alumni network and student communities that provide support, friendship, and professional connections.</p>
+                    </div>
+                </div>
+
+                <!-- Support 3 -->
+                <div class="relative group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="bg-white-dark p-10 rounded-[32px] border border-black/10 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="w-16 h-16 bg-orange-primary/10 rounded-2xl flex items-center justify-center text-orange-primary mb-8 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-globe text-3xl"></i>
+                        </div>
+                        <h4 class="serif text-2xl font-black mb-4 text-white">Cultural Immersion</h4>
+                        <p class="text-white/50 leading-relaxed font-medium">Opportunities to experience diverse cultures, traditions, and perspectives while building global citizenship.</p>
+                    </div>
+                </div>
+
+                <!-- Support 4 -->
+                <div class="relative group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="bg-white-dark p-10 rounded-[32px] border border-black/10 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-orange-primary mb-8 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-award text-3xl"></i>
+                        </div>
+                        <h4 class="serif text-2xl font-black mb-4 text-white">Career Development</h4>
+                        <p class="text-white/50 leading-relaxed font-medium">Internships, workshops, and career services that prepare students for global job markets.</p>
+                    </div>
+                </div>
+
+
+                <!-- Support 6 -->
+                <div class="relative group" data-aos="fade-up" data-aos-delay="600">
+                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
+                    <div class="bg-white-dark p-10 rounded-[32px] border border-black/10 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="w-16 h-16 bg-orange-primary/10 rounded-2xl flex items-center justify-center text-orange-primary mb-8 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-home text-3xl"></i>
+                        </div>
+                        <h4 class="serif text-2xl font-black mb-4 text-white">Safe Environment</h4>
+                        <p class="text-white/50 leading-relaxed font-medium">Secure housing, safe cities, and comprehensive support systems for student well-being.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STUDENT GALLERY SECTION -->
+    <section class="py-16 lg:py-24 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="serif text-4xl lg:text-6xl text-navy-900 font-black mb-6">Student <span class="text-gradient">Moments</span></h2>
+                <p class="text-navy-700/70 text-lg leading-relaxed max-w-3xl mx-auto">
+                    Real moments and experiences from our students around the world
+                </p>
+            </div>
+
+                        <!-- Image Gallery -->
+            <div class="image-grid grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6" data-aos="fade-up" data-aos-delay="200">
+                <img src="students/Screenshot%202026-05-13%20at%2016.23.45.png" alt="TEG Student celebrating university admission success" title="Successful Student Admission" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot%202026-05-13%20at%2016.24.01.png" alt="International student graduation moment with TEG" title="Student Graduation" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot%202026-05-13%20at%2016.24.06.png" alt="Student exploring international campus life" title="Campus Life Experience" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot%202026-05-13%20at%2016.24.11.png" alt="TEG student testimonial about study abroad journey" title="Success Story Sharing" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot%202026-05-13%20at%2016.24.14.png" alt="Student receiving visa approval for overseas education" title="Visa Success Moment" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot%202026-05-13%20at%2016.24.21.png" alt="International student community gathering" title="Global Student Community" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot%202026-05-13%20at%2016.24.28.png" alt="TEG student academic achievements abroad" title="Academic Excellence" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot%202026-05-13%20at%2016.24.31.png" alt="Student experience in European university" title="Study in Europe" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot%202026-05-13%20at%2016.24.35.png" alt="TEG student culture immersion abroad" title="Cultural Experience" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot%202026-05-13%20at%2016.24.38.png" alt="Student success in Canadian university" title="Study in Canada Success" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot%202026-05-13%20at%2016.24.40.png" alt="Student lifestyle and travel during study abroad" title="Global Adventure" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot%202026-05-13%20at%2016.24.42.png" alt="TEG alumni network meeting abroad" title="Alumni Network" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot%202026-05-13%20at%2016.24.47.png" alt="Student group success story at TEG" title="Happy Students Group" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot%202026-05-13%20at%2016.24.51.png" alt="TEG student receiving academic award" title="Student Achievement" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot%202026-05-13%20at%2016.24.56.png" alt="International student campus exploration" title="Campus Exploration" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot%202026-05-13%20at%2016.24.59.png" alt="TEG student success in UK university" title="Study in UK Experience" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot%202026-05-13%20at%2016.25.04.png" alt="Student group enjoying international education" title="Student Community" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot%202026-05-13%20at%2016.25.25.png" alt="TEG student visa grant celebration" title="Visa Success" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot%202026-05-13%20at%2016.25.27.png" alt="Student success story in Australian university" title="Study in Australia Success" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot%202026-05-13%20at%2016.25.29.png" alt="International student career progression" title="Career Success" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot%202026-05-13%20at%2016.25.30.png" alt="TEG student transforming life through global education" title="Life Transformation" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- JOIN COMMUNITY SECTION -->
+    <section class="py-16 lg:py-24 section-dark relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="serif text-4xl lg:text-6xl font-black leading-tight text-white mb-6">Join Our <span class="text-orange-primary">Community</span></h2>
+                <p class="text-white text-lg leading-relaxed max-w-3xl mx-auto mb-12 font-medium">
+                    Become part of our thriving student community and share your journey with others
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="contact.html" class="btn-brand text-lg">Start Your Journey <i class="fas fa-rocket ml-3"></i></a>
+                    <a href="tel:+919700500087" class="btn-outline text-lg text-white border-white hover:bg-black hover:text-white">Call Us <i class="fas fa-phone ml-3"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-20 bg-white text-navy-900 border-t border-black/5 relative overflow-hidden">
+        <div id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <img src="logo.png" alt="TEG Logo" class="h-12 mb-8">
+                    <p class="text-navy-700/60 max-w-sm leading-relaxed mb-8 font-medium">
+                        Premier overseas education consultancy with 15+ years of excellence. Empowering students to achieve their global academic dreams.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/theeducationgroup" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/the-education-group" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="text-sm font-black uppercase tracking-widest mb-8">Quick Links</h5>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Home</a></li>
+                        <li><a href="about.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">About Us</a></li>
+                        <li><a href="services.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Our Services</a></li>
+                        <li><a href="universities.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Universities</a></li>
+                        <li><a href="testimonials.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-sm font-black uppercase tracking-widest mb-8">Resources</h5>
+                    <ul class="space-y-4">
+                        <li><a href="happy-students.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Happy Students</a></li>
+                        <li><a href="btec.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">BTEC Programs</a></li>
+                        <li><a href="study-abroad.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Study Abroad</a></li>
+                        <li><a href="contact.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Free Counselling</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-black/5 text-navy-700/30 text-xs font-bold uppercase tracking-[0.2em]">
+                <p>&copy; 2024 The Education Group. All Rights Reserved.</p>
+                <div class="flex space-x-8 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-orange-primary transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-orange-primary transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="imageLightbox" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 lg:p-12 transition-all duration-500 opacity-0">
+        <button id="closeLightbox" class="absolute top-8 right-8 text-white/50 hover:text-white transition-colors p-4 z-[110]">
+            <i class="fas fa-times text-4xl"></i>
+        </button>
+        <div class="relative max-w-5xl w-full h-full flex items-center justify-center">
+            <img id="lightboxImg" src="" alt="Student Experience Preview" class="max-w-full max-h-full object-contain rounded-2xl shadow-2xl scale-90 transition-transform duration-500">
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
