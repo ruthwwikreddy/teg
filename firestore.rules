@@ -1,0 +1,14 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /leads/{document=**} {
+      // Allow public to submit leads
+      allow create: if true;
+      
+      // For a truly secure admin dashboard, Firebase Auth should be implemented.
+      // For this simplified version, we allow read/update/delete for the admin logic.
+      allow read, update, delete: if true;
+    }
+  }
+}
