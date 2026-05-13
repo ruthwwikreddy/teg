@@ -1,0 +1,10 @@
+{
+  "name": "teg-website",
+  "version": "1.0.0",
+  "description": "The Education Group Website",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

@@ -2,13 +2,13 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/fireba
 import { getFirestore, collection, addDoc, getDocs, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyB9ON9fnJM38ua-F73ZDfqbHyyRbJzj74Q",
-    authDomain: "theeducationgroup-teg.firebaseapp.com",
-    projectId: "theeducationgroup-teg",
-    storageBucket: "theeducationgroup-teg.firebasestorage.app",
-    messagingSenderId: "950244679447",
-    appId: "1:950244679447:web:74034128ed41211097a152",
-    measurementId: "G-TJJS84ZD43"
+    apiKey: "VITE_FIREBASE_API_KEY",
+    authDomain: "VITE_FIREBASE_AUTH_DOMAIN",
+    projectId: "VITE_FIREBASE_PROJECT_ID",
+    storageBucket: "VITE_FIREBASE_STORAGE_BUCKET",
+    messagingSenderId: "VITE_FIREBASE_MESSAGING_SENDER_ID",
+    appId: "VITE_FIREBASE_APP_ID",
+    measurementId: "VITE_FIREBASE_MEASUREMENT_ID"
 };
 
 const app = initializeApp(firebaseConfig);
