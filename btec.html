@@ -94,21 +94,21 @@
     <div class="scroll-progress" id="progressBar"></div>
 
     <!-- NAVIGATION -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-3">
+    <nav id="navbar" class="sticky top-0 w-full z-50 transition-all duration-300 py-4">
         <div class="container mx-auto px-6">
-            <div class="bg-white rounded-[24px] px-8 py-3 flex justify-between items-center shadow-2xl border border-black/40">
+            <div class="bg-white/80 backdrop-blur-md rounded-[24px] px-8 py-4 flex justify-between items-center border border-white/20 shadow-[0_8px_30px_rgba(0,0,0,0.05)]">
                 <!-- Logo -->
                 <a href="index.html" class="flex items-center space-x-2 group">
-                    <img src="logo.png" alt="TEG Logo" class="h-10 w-auto group-hover:scale-110 transition-transform duration-500" loading="lazy" decoding="async">
+                    <img src="logo.png" alt="TEG Logo" class="h-14 w-auto group-hover:scale-110 transition-transform duration-500" loading="lazy" decoding="async">
                 </a>
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden lg:flex items-center space-x-10">
-                    <a href="index.html#home" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Home</a>
+                    <a href="#home" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Home</a>
                     <a href="about.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">About</a>
                     <a href="services.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Services</a>
-                    <a href="testimonials.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Students</a>
-                    <a href="index.html#partners" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Partners</a>
+                    <a href="happy-students.html#testimonials" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Students</a>
+                    <a href="study-abroad.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Study Abroad</a>
                     <a href="contact.html" class="btn-brand !py-3 !px-8 !text-[10px] !tracking-[0.2em]">Free Counselling</a>
                 </div>
                 
@@ -121,13 +121,13 @@
             </div>
             
             <!-- Mobile Menu -->
-            <div class="hidden lg:hidden mt-4 bg-white rounded-3xl p-8 shadow-2xl border border-black/40" id="mobile-menu">
+            <div class="hidden lg:hidden mt-4 bg-white rounded-3xl p-8 shadow-2xl border border-white/30" id="mobile-menu">
                 <div class="flex flex-col space-y-6 text-center">
-                    <a href="index.html#home" class="text-navy-900 font-black text-lg uppercase tracking-widest">Home</a>
+                    <a href="#home" class="text-navy-900 font-black text-lg uppercase tracking-widest">Home</a>
                     <a href="about.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">About</a>
                     <a href="services.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Services</a>
-                    <a href="testimonials.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Students</a>
-                    <a href="index.html#partners" class="text-navy-900 font-black text-lg uppercase tracking-widest">Partners</a>
+                    <a href="happy-students.html#testimonials" class="text-navy-900 font-black text-lg uppercase tracking-widest">Students</a>
+                    <a href="study-abroad.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Study Abroad</a>
                     <a href="contact.html" class="btn-brand w-full !py-4">Free Counselling</a>
                 </div>
             </div>
@@ -135,7 +135,7 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="hero relative min-h-screen flex items-center overflow-hidden pt-12">
+    <section id="home" class="hero relative min-h-screen flex items-center overflow-hidden pt-12">
         <!-- Background Elements -->
         <div class="hero-shape w-[600px] h-[600px] bg-orange-primary -top-20 -right-20 rounded-full"></div>
         <div class="hero-shape w-[400px] h-[400px] bg-teal -bottom-20 -left-20 rounded-full"></div>
@@ -474,7 +474,7 @@
                     </p>
                     <div class="flex space-x-4">
                         <a href="https://www.facebook.com/theeducationgroup" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-twitter"></i></a>
+                        <a href="https://twitter.com/TEGEducation" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-twitter"></i></a>
                         <a href="https://www.linkedin.com/company/the-education-group" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
@@ -484,17 +484,16 @@
                         <li><a href="index.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Home</a></li>
                         <li><a href="about.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">About Us</a></li>
                         <li><a href="services.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Our Services</a></li>
-                        <li><a href="universities.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Universities</a></li>
-                        <li><a href="index.html#partners" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Our Partners</a></li>
-                        <li><a href="testimonials.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Success Stories</a></li>
+                        <li><a href="study-abroad.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Study Abroad</a></li>
+                        <li><a href="happy-students.html#testimonials" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Success Stories</a></li>
                     </ul>
                 </div>
                 <div>
                     <h5 class="text-sm font-black uppercase tracking-widest mb-8">Resources</h5>
                     <ul class="space-y-4">
-                        <li><a href="happy-students.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Happy Students</a></li>
+                        <li><a href="happy-students.html#testimonials" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Happy Students</a></li>
                         <li><a href="btec.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">BTEC Programs</a></li>
-                        <li><a href="study-abroad.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Study Abroad</a></li>
+                        <li><a href="site-map.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Site Map</a></li>
                         <li><a href="contact.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Free Counselling</a></li>
                     </ul>
                 </div>
@@ -502,8 +501,8 @@
             <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-black/5 text-navy-700/30 text-xs font-bold uppercase tracking-[0.2em]">
                 <p>&copy; 2024 The Education Group. All Rights Reserved.</p>
                 <div class="flex space-x-8 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-orange-primary transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-orange-primary transition-colors">Terms of Service</a>
+                    <a href="privacy-policy.html" class="hover:text-orange-primary transition-colors">Privacy Policy</a>
+                    <a href="terms-of-service.html" class="hover:text-orange-primary transition-colors">Terms of Service</a>
                 </div>
             </div>
         </div>

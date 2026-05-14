@@ -429,6 +429,10 @@ body {
 
 /* Mobile-First Refinements */
 @media (max-width: 768px) {
+    body {
+        padding-top: 5rem;
+    }
+
     .section-dark, .section-light {
         padding-top: 3.5rem !important;
         padding-bottom: 3.5rem !important;

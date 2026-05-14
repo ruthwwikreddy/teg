@@ -190,6 +190,133 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Smooth scroll initialization error:', error);
     }
 
+    // Clickable cards and route-prefilled navigation
+    try {
+        const isInteractiveElement = (element) => {
+            return Boolean(element && element.closest('a, button, input, select, textarea, label, summary'));
+        };
+
+        const scrollToHash = (hash) => {
+            const target = document.querySelector(hash);
+            if (!target) {
+                return;
+            }
+
+            const targetY = target.getBoundingClientRect().top + window.pageYOffset - 80;
+            window.scrollTo({ top: targetY, behavior: 'smooth' });
+        };
+
+        document.querySelectorAll('[data-href]').forEach((card) => {
+            const href = card.getAttribute('data-href');
+            if (!href) {
+                return;
+            }
+
+            card.classList.add('cursor-pointer');
+            card.setAttribute('role', 'link');
+            if (!card.hasAttribute('tabindex')) {
+                card.setAttribute('tabindex', '0');
+            }
+
+            const navigate = () => {
+                if (href.startsWith('#')) {
+                    scrollToHash(href);
+                    return;
+                }
+
+                window.location.href = href;
+            };
+
+            card.addEventListener('click', (event) => {
+                if (isInteractiveElement(event.target)) {
+                    return;
+                }
+                navigate();
+            });
+
+            card.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    navigate();
+                }
+            });
+        });
+    } catch (error) {
+        console.error('Card navigation initialization error:', error);
+    }
+
+    // Highlight the active page tab in the shared navigation
+    try {
+        const navbar = document.getElementById('navbar');
+        if (navbar) {
+            const currentPage = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+            const navLinks = Array.from(navbar.querySelectorAll('a[href]')).filter((link) => {
+                return !link.classList.contains('btn-brand') && !link.querySelector('img');
+            });
+            const activeRouteMap = {
+                'index.html': ['#home', 'index.html', './index.html', '/'],
+                'about.html': ['about.html'],
+                'services.html': ['services.html'],
+                'btec.html': ['services.html'],
+                'study-abroad.html': ['study-abroad.html'],
+                'universities.html': ['study-abroad.html'],
+                'happy-students.html': ['happy-students.html#testimonials', 'happy-students.html']
+            };
+
+            const activeTargets = activeRouteMap[currentPage] || [];
+
+            navLinks.forEach((link) => {
+                link.classList.remove('text-orange-primary');
+                link.removeAttribute('aria-current');
+            });
+
+            const activeLink = navLinks.find((link) => {
+                const href = (link.getAttribute('href') || '').toLowerCase();
+                return activeTargets.includes(href);
+            });
+
+            if (activeLink) {
+                activeLink.classList.add('text-orange-primary');
+                activeLink.setAttribute('aria-current', 'page');
+            }
+        }
+    } catch (error) {
+        console.error('Navigation highlight error:', error);
+    }
+
+    // Prefill contact forms from route query parameters
+    try {
+        const params = new URLSearchParams(window.location.search);
+        const prefCountry = params.get('country');
+        const prefInterest = params.get('interest');
+
+        if (prefCountry || prefInterest) {
+            document.querySelectorAll('form#contact-form').forEach((form) => {
+                const countryField = form.querySelector('[name="country"]');
+                const interestField = form.querySelector('[name="interest"]');
+
+                if (countryField && prefCountry) {
+                    const countryValue = prefCountry.toLowerCase().trim();
+                    const matchingOption = Array.from(countryField.options).find((option) => {
+                        const optionValue = (option.value || '').toLowerCase().trim();
+                        const optionLabel = (option.textContent || '').toLowerCase().trim();
+                        return optionValue === countryValue || optionLabel === countryValue;
+                    });
+
+                    if (matchingOption) {
+                        countryField.value = matchingOption.value;
+                    }
+                }
+
+                if (interestField && prefInterest) {
+                    interestField.value = prefInterest;
+                }
+            });
+        }
+    } catch (error) {
+        console.error('Contact route prefill error:', error);
+    }
+
     // Performance: Scroll Top Visibility with throttling
     const scrollTopHandler = throttle(() => {
         try {

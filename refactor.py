@@ -6,8 +6,7 @@ files_to_refactor = {
     "about.html": "About",
     "services.html": "Services",
     "universities.html": "Universities",
-    "testimonials.html": "Students",
-    "happy-students.html": None,
+    "happy-students.html": "Students",
     "btec.html": None,
     "study-abroad.html": None,
     "contact.html": None
@@ -28,7 +27,7 @@ nav_template = """    <!-- NAVIGATION -->
                     <a href="about.html" class="{about_class} font-bold text-sm hover:text-orange-primary transition-colors" aria-label="About" {about_aria}>About</a>
                     <a href="services.html" class="{services_class} font-bold text-sm hover:text-orange-primary transition-colors" aria-label="Services" {services_aria}>Services</a>
                     <a href="universities.html" class="{universities_class} font-bold text-sm hover:text-orange-primary transition-colors" aria-label="Universities" {universities_aria}>Universities</a>
-                    <a href="testimonials.html" class="{students_class} font-bold text-sm hover:text-orange-primary transition-colors" aria-label="Students" {students_aria}>Students</a>
+                    <a href="happy-students.html#testimonials" class="{students_class} font-bold text-sm hover:text-orange-primary transition-colors" aria-label="Students" {students_aria}>Students</a>
                     <a href="contact.html" class="btn-brand !py-3 !px-6 !text-xs" aria-label="Free Counselling">Free Counselling</a>
                 </nav>
                 
@@ -47,7 +46,7 @@ nav_template = """    <!-- NAVIGATION -->
                     <a href="about.html" class="{about_class} font-bold" aria-label="About" {about_aria}>About</a>
                     <a href="services.html" class="{services_class} font-bold" aria-label="Services" {services_aria}>Services</a>
                     <a href="universities.html" class="{universities_class} font-bold" aria-label="Universities" {universities_aria}>Universities</a>
-                    <a href="testimonials.html" class="{students_class} font-bold" aria-label="Students" {students_aria}>Students</a>
+                    <a href="happy-students.html#testimonials" class="{students_class} font-bold" aria-label="Students" {students_aria}>Students</a>
                     <a href="contact.html" class="btn-brand !py-3 !px-6 !text-xs" aria-label="Free Counselling">Free Counselling</a>
                 </div>
             </div>
@@ -68,9 +67,9 @@ footer_template = """    <!-- FOOTER -->
                         Premier overseas education consultancy with 15+ years of excellence. Empowering students to achieve their global academic dreams.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-navy-900/5 flex items-center justify-center hover:bg-orange-primary hover:text-white transition-all"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-navy-900/5 flex items-center justify-center hover:bg-orange-primary hover:text-white transition-all"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-navy-900/5 flex items-center justify-center hover:bg-orange-primary hover:text-white transition-all"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/theeducationgroup" class="w-10 h-10 rounded-full bg-navy-900/5 flex items-center justify-center hover:bg-orange-primary hover:text-white transition-all"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/TEGEducation" class="w-10 h-10 rounded-full bg-navy-900/5 flex items-center justify-center hover:bg-orange-primary hover:text-white transition-all"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/the-education-group" class="w-10 h-10 rounded-full bg-navy-900/5 flex items-center justify-center hover:bg-orange-primary hover:text-white transition-all"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div>
@@ -80,13 +79,13 @@ footer_template = """    <!-- FOOTER -->
                         <li><a href="about.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">About Us</a></li>
                         <li><a href="services.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Our Services</a></li>
                         <li><a href="universities.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Universities</a></li>
-                        <li><a href="testimonials.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Success Stories</a></li>
+                        <li><a href="happy-students.html#testimonials" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Success Stories</a></li>
                     </ul>
                 </div>
                 <div>
                     <h5 class="text-sm font-black uppercase tracking-widest mb-8">Resources</h5>
                     <ul class="space-y-4">
-                        <li><a href="happy-students.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Happy Students</a></li>
+                        <li><a href="happy-students.html#testimonials" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Happy Students</a></li>
                         <li><a href="btec.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">BTEC Programs</a></li>
                         <li><a href="study-abroad.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Study Abroad</a></li>
                         <li><a href="contact.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Free Counselling</a></li>
@@ -96,8 +95,8 @@ footer_template = """    <!-- FOOTER -->
             <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-black/5 text-navy-700/30 text-xs font-bold uppercase tracking-[0.2em]">
                 <p>&copy; 2024 The Education Group. All Rights Reserved.</p>
                 <div class="flex space-x-8 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-orange-primary transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-orange-primary transition-colors">Terms of Service</a>
+                    <a href="privacy-policy.html" class="hover:text-orange-primary transition-colors">Privacy Policy</a>
+                    <a href="terms-of-service.html" class="hover:text-orange-primary transition-colors">Terms of Service</a>
                 </div>
             </div>
         </div>

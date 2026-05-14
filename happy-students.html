@@ -68,21 +68,21 @@
     <div class="scroll-progress" id="progressBar"></div>
 
     <!-- NAVIGATION -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-3">
+    <nav id="navbar" class="sticky top-0 w-full z-50 transition-all duration-300 py-4">
         <div class="container mx-auto px-6">
-            <div class="bg-white rounded-[24px] px-8 py-3 flex justify-between items-center shadow-2xl border border-black/40">
+            <div class="bg-white/80 backdrop-blur-md rounded-[24px] px-8 py-4 flex justify-between items-center border border-white/20 shadow-[0_8px_30px_rgba(0,0,0,0.05)]">
                 <!-- Logo -->
                 <a href="index.html" class="flex items-center space-x-2 group">
-                    <img src="logo.png" alt="TEG Logo" class="h-10 w-auto group-hover:scale-110 transition-transform duration-500" loading="lazy" decoding="async">
+                    <img src="logo.png" alt="TEG Logo" class="h-14 w-auto group-hover:scale-110 transition-transform duration-500" loading="lazy" decoding="async">
                 </a>
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden lg:flex items-center space-x-10">
-                    <a href="index.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Home</a>
+                    <a href="#home" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Home</a>
                     <a href="about.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">About</a>
                     <a href="services.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Services</a>
-                    <a href="universities.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Universities</a>
-                    <a href="testimonials.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Students</a>
+                    <a href="happy-students.html#testimonials" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Students</a>
+                    <a href="study-abroad.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Study Abroad</a>
                     <a href="contact.html" class="btn-brand !py-3 !px-8 !text-[10px] !tracking-[0.2em]">Free Counselling</a>
                 </div>
                 
@@ -95,13 +95,13 @@
             </div>
             
             <!-- Mobile Menu -->
-            <div class="hidden lg:hidden mt-4 bg-white rounded-3xl p-8 shadow-2xl border border-black/40" id="mobile-menu">
+            <div class="hidden lg:hidden mt-4 bg-white rounded-3xl p-8 shadow-2xl border border-white/30" id="mobile-menu">
                 <div class="flex flex-col space-y-6 text-center">
-                    <a href="index.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Home</a>
+                    <a href="#home" class="text-navy-900 font-black text-lg uppercase tracking-widest">Home</a>
                     <a href="about.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">About</a>
                     <a href="services.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Services</a>
-                    <a href="universities.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Universities</a>
-                    <a href="testimonials.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Students</a>
+                    <a href="happy-students.html#testimonials" class="text-navy-900 font-black text-lg uppercase tracking-widest">Students</a>
+                    <a href="study-abroad.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Study Abroad</a>
                     <a href="contact.html" class="btn-brand w-full !py-4">Free Counselling</a>
                 </div>
             </div>
@@ -109,7 +109,7 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="hero relative min-h-screen flex items-center overflow-hidden pt-12">
+    <section id="home" class="hero relative min-h-screen flex items-center overflow-hidden pt-12">
         <!-- Background Elements -->
         <div class="hero-shape w-[600px] h-[600px] bg-orange-primary -top-20 -right-20 rounded-full"></div>
         <div class="hero-shape w-[400px] h-[400px] bg-orange-secondary/20 -bottom-20 -left-20 rounded-full"></div>
@@ -131,9 +131,52 @@
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                    <a href="#stories" class="btn-brand text-lg">Explore Stories <i class="fas fa-book-open ml-3"></i></a>
+                    <a href="#testimonials" class="btn-brand text-lg">Explore Stories <i class="fas fa-book-open ml-3"></i></a>
                     <a href="contact.html" class="btn-outline text-lg">Share Your Story</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="py-16 lg:py-24 bg-orange-primary/5 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="serif text-4xl lg:text-6xl text-navy-900 font-black mb-6">Student <span class="text-gradient">Testimonials</span></h2>
+                <p class="text-navy-700/70 text-lg leading-relaxed max-w-3xl mx-auto">
+                    Honest feedback from students who found their path with TEG.
+                </p>
+                <div class="h-1.5 w-24 bg-grad-orange mx-auto rounded-full mt-6"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+                <a href="contact.html" class="group block bg-white p-8 rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 shadow-xl" data-aos="fade-up">
+                    <p class="text-[10px] font-black uppercase tracking-[0.2em] text-orange-primary mb-4">UK Study Visa</p>
+                    <p class="text-navy-900 text-xl leading-relaxed font-medium italic">
+                        "TEG has made my study abroad journey smooth and stress-free. Highly recommended for UK student visas."
+                    </p>
+                </a>
+
+                <a href="contact.html" class="group block bg-white p-8 rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                    <p class="text-[10px] font-black uppercase tracking-[0.2em] text-orange-primary mb-4">USA Admissions</p>
+                    <p class="text-navy-900 text-xl leading-relaxed font-medium italic">
+                        "Best consultancy for studying in the USA—professional guidance from admission to visa approval."
+                    </p>
+                </a>
+
+                <a href="contact.html" class="group block bg-white p-8 rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                    <p class="text-[10px] font-black uppercase tracking-[0.2em] text-orange-primary mb-4">University Selection</p>
+                    <p class="text-navy-900 text-xl leading-relaxed font-medium italic">
+                        "Honest advice and perfect university selection. TEG truly cares about students’ future."
+                    </p>
+                </a>
+
+                <a href="contact.html" class="group block bg-white p-8 rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 shadow-xl" data-aos="fade-up" data-aos-delay="300">
+                    <p class="text-[10px] font-black uppercase tracking-[0.2em] text-orange-primary mb-4">Canada Study Visa</p>
+                    <p class="text-navy-900 text-xl leading-relaxed font-medium italic">
+                        "My Canada study visa got approved easily thanks to TEG’s expert support."
+                    </p>
+                </a>
             </div>
         </div>
     </section>
@@ -155,12 +198,12 @@
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                         <div class="text-center mb-8">
-                            <img src="image.webp" alt="Happy Student" class="w-32 h-32 rounded-full border-4 border-orange-primary/20 p-1 mx-auto mb-6 orange-glow preview-image">
+                            <img src="akash.webp" alt="Akash Sharma" class="w-32 h-32 rounded-full border-4 border-orange-primary/20 p-1 mx-auto mb-6 orange-glow preview-image">
                         </div>
-                        <h3 class="serif text-3xl font-black text-navy-900 mb-4 text-center">Rahul Verma</h3>
-                        <p class="text-orange-primary font-black uppercase text-xs tracking-[0.2em] mb-4 text-center">Engineering • University of Toronto, Canada</p>
+                        <h3 class="serif text-3xl font-black text-navy-900 mb-4 text-center">Akash Sharma</h3>
+                        <p class="text-orange-primary font-black uppercase text-xs tracking-[0.2em] mb-4 text-center">Medical • Hungary</p>
                         <p class="text-navy-900/60 leading-relaxed mb-8 text-center font-medium text-lg italic">
-                            "Canada's education system is amazing! The practical approach and post-graduation work opportunities helped me gain real-world experience while studying."
+                            "After realizng all my efforts are in vain in India, I decided to pursue education abroad. Dr. Pritpal truly saved me from all the hassles. He guided us to Debrecen Medical University in Hungary, and now I am a 2nd-year Medical student here. I am forever grateful."
                         </p>
                         <div class="flex flex-wrap gap-3 mb-8 justify-center">
                             <span class="px-4 py-1.5 bg-orange-primary/10 text-orange-primary rounded-full text-[10px] font-black uppercase tracking-widest">Practical Learning</span>
@@ -249,7 +292,7 @@
     </section>
 
     <!-- STUDENT GALLERY SECTION -->
-    <section class="py-16 lg:py-24 bg-white relative overflow-hidden">
+    <section id="gallery" class="py-16 lg:py-24 bg-white relative overflow-hidden">
         <div class="container mx-auto px-6">
             <div class="text-center mb-20" data-aos="fade-up">
                 <h2 class="serif text-4xl lg:text-6xl text-navy-900 font-black mb-6">Student <span class="text-gradient">Moments</span></h2>
@@ -259,34 +302,98 @@
             </div>
 
                         <!-- Image Gallery -->
-            <div class="image-grid grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6" data-aos="fade-up" data-aos-delay="200">
-                <img src="students/Screenshot%202026-05-13%20at%2016.23.45.png" alt="TEG Student celebrating university admission success" title="Successful Student Admission" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
-                <img src="students/Screenshot%202026-05-13%20at%2016.24.01.png" alt="International student graduation moment with TEG" title="Student Graduation" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
-                <img src="students/Screenshot%202026-05-13%20at%2016.24.06.png" alt="Student exploring international campus life" title="Campus Life Experience" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
-                <img src="students/Screenshot%202026-05-13%20at%2016.24.11.png" alt="TEG student testimonial about study abroad journey" title="Success Story Sharing" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
-                <img src="students/Screenshot%202026-05-13%20at%2016.24.14.png" alt="Student receiving visa approval for overseas education" title="Visa Success Moment" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
-                <img src="students/Screenshot%202026-05-13%20at%2016.24.21.png" alt="International student community gathering" title="Global Student Community" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
-                <img src="students/Screenshot%202026-05-13%20at%2016.24.28.png" alt="TEG student academic achievements abroad" title="Academic Excellence" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
-                <img src="students/Screenshot%202026-05-13%20at%2016.24.31.png" alt="Student experience in European university" title="Study in Europe" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
-                <img src="students/Screenshot%202026-05-13%20at%2016.24.35.png" alt="TEG student culture immersion abroad" title="Cultural Experience" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
-                <img src="students/Screenshot%202026-05-13%20at%2016.24.38.png" alt="Student success in Canadian university" title="Study in Canada Success" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
-                <img src="students/Screenshot%202026-05-13%20at%2016.24.40.png" alt="Student lifestyle and travel during study abroad" title="Global Adventure" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
-                <img src="students/Screenshot%202026-05-13%20at%2016.24.42.png" alt="TEG alumni network meeting abroad" title="Alumni Network" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
-                <img src="students/Screenshot%202026-05-13%20at%2016.24.47.png" alt="Student group success story at TEG" title="Happy Students Group" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
-                <img src="students/Screenshot%202026-05-13%20at%2016.24.51.png" alt="TEG student receiving academic award" title="Student Achievement" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
-                <img src="students/Screenshot%202026-05-13%20at%2016.24.56.png" alt="International student campus exploration" title="Campus Exploration" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
-                <img src="students/Screenshot%202026-05-13%20at%2016.24.59.png" alt="TEG student success in UK university" title="Study in UK Experience" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
-                <img src="students/Screenshot%202026-05-13%20at%2016.25.04.png" alt="Student group enjoying international education" title="Student Community" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
-                <img src="students/Screenshot%202026-05-13%20at%2016.25.25.png" alt="TEG student visa grant celebration" title="Visa Success" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
-                <img src="students/Screenshot%202026-05-13%20at%2016.25.27.png" alt="Student success story in Australian university" title="Study in Australia Success" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
-                <img src="students/Screenshot%202026-05-13%20at%2016.25.29.png" alt="International student career progression" title="Career Success" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
-                <img src="students/Screenshot%202026-05-13%20at%2016.25.30.png" alt="TEG student transforming life through global education" title="Life Transformation" class="w-full h-48 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform preview-image" loading="lazy">
+            <!-- Image Gallery -->
+            <div class="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-6" data-aos="fade-up" data-aos-delay="200">
+                <img src="students/1.jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/2.jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/3.jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted.jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (2).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (3).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (4).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (5).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (6).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (7).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (8).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (9).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (10).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (11).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (12).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (13).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (14).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (15).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (16).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (17).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (18).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (19).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (20).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (21).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (22).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (23).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (24).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (25).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (26).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (27).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (28).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (29).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (30).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (31).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (32).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (33).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (34).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (35).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (36).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (37).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (38).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (39).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (40).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (41).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (42).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (43).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (44).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (45).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (46).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (47).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (48).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (49).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (50).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (51).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (52).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (53).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (54).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (55).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (56).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (57).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (58).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (59).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Posted (60).jpg" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.23.45.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.24.01.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.24.06.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.24.11.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.24.14.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.24.21.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.24.28.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.24.31.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.24.35.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.24.38.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.24.40.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.24.42.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.24.47.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.24.51.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.24.56.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.24.59.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.25.04.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.25.25.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.25.27.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.25.29.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
+                <img src="students/Screenshot 2026-05-13 at 16.25.30.png" alt="Student Success" class="w-full mb-6 rounded-3xl shadow-lg hover:scale-[1.02] transition-transform preview-image" loading="lazy">
             </div>
         </div>
     </section>
 
     <!-- JOIN COMMUNITY SECTION -->
-    <section class="py-16 lg:py-24 section-dark relative overflow-hidden">
+    <section id="community" class="py-16 lg:py-24 section-dark relative overflow-hidden">
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-20" data-aos="fade-up">
                 <h2 class="serif text-4xl lg:text-6xl font-black leading-tight text-white mb-6">Join Our <span class="text-orange-primary">Community</span></h2>
@@ -315,7 +422,7 @@
                     </p>
                     <div class="flex space-x-4">
                         <a href="https://www.facebook.com/theeducationgroup" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-twitter"></i></a>
+                        <a href="https://twitter.com/TEGEducation" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-twitter"></i></a>
                         <a href="https://www.linkedin.com/company/the-education-group" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
@@ -325,16 +432,16 @@
                         <li><a href="index.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Home</a></li>
                         <li><a href="about.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">About Us</a></li>
                         <li><a href="services.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Our Services</a></li>
-                        <li><a href="universities.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Universities</a></li>
-                        <li><a href="testimonials.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Success Stories</a></li>
+                        <li><a href="study-abroad.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Study Abroad</a></li>
+                        <li><a href="#testimonials" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Success Stories</a></li>
                     </ul>
                 </div>
                 <div>
                     <h5 class="text-sm font-black uppercase tracking-widest mb-8">Resources</h5>
                     <ul class="space-y-4">
-                        <li><a href="happy-students.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Happy Students</a></li>
+                        <li><a href="#testimonials" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Happy Students</a></li>
                         <li><a href="btec.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">BTEC Programs</a></li>
-                        <li><a href="study-abroad.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Study Abroad</a></li>
+                        <li><a href="site-map.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Site Map</a></li>
                         <li><a href="contact.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Free Counselling</a></li>
                     </ul>
                 </div>
@@ -342,8 +449,8 @@
             <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-black/5 text-navy-700/30 text-xs font-bold uppercase tracking-[0.2em]">
                 <p>&copy; 2024 The Education Group. All Rights Reserved.</p>
                 <div class="flex space-x-8 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-orange-primary transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-orange-primary transition-colors">Terms of Service</a>
+                    <a href="privacy-policy.html" class="hover:text-orange-primary transition-colors">Privacy Policy</a>
+                    <a href="terms-of-service.html" class="hover:text-orange-primary transition-colors">Terms of Service</a>
                 </div>
             </div>
         </div>

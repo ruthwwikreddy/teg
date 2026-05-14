@@ -101,26 +101,26 @@
 <body class="bg-white overflow-x-hidden">
 
             <!-- NAVIGATION -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-3">
+    <nav id="navbar" class="sticky top-0 w-full z-50 transition-all duration-300 py-4">
         <div class="container mx-auto px-6">
-            <div class="bg-white rounded-[16px] px-8 py-2.5 flex justify-between items-center shadow-premium">
+            <div class="bg-white/80 backdrop-blur-md rounded-[24px] px-8 py-4 flex justify-between items-center border border-white/20 shadow-[0_8px_30px_rgba(0,0,0,0.05)]">
                 <!-- Logo -->
-                <a href="index.html" class="flex items-center space-x-2">
-                    <img src="logo.png" alt="TEG Logo" class="h-10 w-auto" loading="lazy" decoding="async">
+                <a href="index.html" class="flex items-center space-x-2 group">
+                    <img src="logo.png" alt="TEG Logo" class="h-14 w-auto group-hover:scale-110 transition-transform duration-500" loading="lazy" decoding="async">
                 </a>
                 
                 <!-- Desktop Navigation -->
-                <nav class="hidden lg:flex items-center space-x-8" aria-label="Desktop Navigation">
-                    <a href="index.html" class="text-navy-900 font-bold text-sm hover:text-orange-primary transition-colors" aria-label="Home">Home</a>
-                    <a href="about.html" class="text-navy-900 font-bold text-sm hover:text-orange-primary transition-colors" aria-label="About" >About</a>
-                    <a href="services.html" class="text-orange-primary font-bold text-sm hover:text-orange-primary transition-colors" aria-label="Services" aria-current="page">Services</a>
-                    <a href="universities.html" class="text-navy-900 font-bold text-sm hover:text-orange-primary transition-colors" aria-label="Universities" >Universities</a>
-                    <a href="testimonials.html" class="text-navy-900 font-bold text-sm hover:text-orange-primary transition-colors" aria-label="Students" >Students</a>
-                    <a href="contact.html" class="btn-brand !py-3 !px-6 !text-xs" aria-label="Free Counselling">Free Counselling</a>
-                </nav>
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="#home" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Home</a>
+                    <a href="about.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">About</a>
+                    <a href="services.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Services</a>
+                    <a href="happy-students.html#testimonials" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Students</a>
+                    <a href="study-abroad.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Study Abroad</a>
+                    <a href="contact.html" class="btn-brand !py-3 !px-8 !text-[10px] !tracking-[0.2em]">Free Counselling</a>
+                </div>
                 
                 <!-- Mobile Menu Button -->
-                <button class="lg:hidden p-2 rounded-full hover:bg-black/10 transition-colors" id="mobile-menu-button" aria-label="Mobile Menu Button">
+                <button class="lg:hidden p-3 rounded-2xl hover:bg-black/10 transition-colors" id="mobile-menu-button">
                     <svg class="w-6 h-6 text-navy-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -128,23 +128,21 @@
             </div>
             
             <!-- Mobile Menu -->
-            <div class="hidden lg:hidden mt-4 bg-white rounded-3xl p-6" id="mobile-menu">
-                <div class="flex flex-col space-y-4">
-                    <a href="index.html" class="text-navy-900 font-bold" aria-label="Home">Home</a>
-                    <a href="about.html" class="text-navy-900 font-bold" aria-label="About" >About</a>
-                    <a href="services.html" class="text-orange-primary font-bold" aria-label="Services" aria-current="page">Services</a>
-                    <a href="universities.html" class="text-navy-900 font-bold" aria-label="Universities" >Universities</a>
-                    <a href="testimonials.html" class="text-navy-900 font-bold" aria-label="Students" >Students</a>
-                    <a href="happy-students.html" class="text-navy-900 font-bold" aria-label="Happy Students">Happy Students</a>
-                    <a href="btec.html" class="text-navy-900 font-bold" aria-label="BTEC">BTEC</a>
-                    <a href="study-abroad.html" class="text-navy-900 font-bold" aria-label="Study Abroad">Study Abroad</a>
-                    <a href="contact.html" class="btn-brand !py-3 !px-6 !text-xs" aria-label="Free Counselling">Free Counselling</a>
+            <div class="hidden lg:hidden mt-4 bg-white rounded-3xl p-8 shadow-2xl border border-white/30" id="mobile-menu">
+                <div class="flex flex-col space-y-6 text-center">
+                    <a href="#home" class="text-navy-900 font-black text-lg uppercase tracking-widest">Home</a>
+                    <a href="about.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">About</a>
+                    <a href="services.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Services</a>
+                    <a href="happy-students.html#testimonials" class="text-navy-900 font-black text-lg uppercase tracking-widest">Students</a>
+                    <a href="study-abroad.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Study Abroad</a>
+                    <a href="contact.html" class="btn-brand w-full !py-4">Free Counselling</a>
                 </div>
             </div>
         </div>
     </nav>
+
     <!-- HERO SECTION -->
-    <section class="hero relative min-h-screen flex items-center overflow-hidden pt-12">
+    <section id="home" class="hero relative min-h-screen flex items-center overflow-hidden pt-12">
         <!-- Background Elements -->
         <div class="hero-shape w-[600px] h-[600px] bg-orange-primary -top-20 -right-20 rounded-full"></div>
         <div class="hero-shape w-[400px] h-[400px] bg-teal -bottom-20 -left-20 rounded-full"></div>
@@ -177,111 +175,111 @@
     <section id="services" class="py-16 lg:py-24 section-dark relative overflow-hidden">
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="serif text-4xl lg:text-6xl font-black leading-tight text-black">Comprehensive <span class="text-orange-primary">Services</span></h2>
-                <p class="text-black/60 text-lg leading-relaxed max-w-3xl mx-auto mt-6">
+                <h2 class="serif text-4xl lg:text-6xl font-black leading-tight text-white">Comprehensive <span class="text-orange-primary">Services</span></h2>
+                <p class="text-white/60 text-lg leading-relaxed max-w-3xl mx-auto mt-6">
                     Every service designed to maximize your success in international education
                 </p>
             </div>
             
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
                 <!-- Service 1 -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative group" data-aos="fade-up" data-aos-delay="100" data-href="services.html#service-university-selection">
                     <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
                     <div class="p-10 lg:p-14 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
                         <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.05] transition-colors">01</div>
-                        <div class="w-24 h-24 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg mb-8">
+                        <div class="w-24 h-24 bg-black rounded-3xl flex items-center justify-center text-white mb-10 transition-all duration-700 shadow-lg">
                             <i class="fas fa-graduation-cap text-4xl"></i>
                         </div>
-                        <h3 class="serif text-3xl font-black text-black mb-4 group-hover:text-orange-primary transition-colors">University Selection</h3>
-                        <p class="text-navy-900/60 leading-relaxed font-medium mb-6">Strategic shortlisting based on profile analysis and career aspirations.</p>
+                        <h3 class="serif text-3xl font-black text-black mb-4 transition-colors">University Selection</h3>
+                        <p class="text-black leading-relaxed font-medium mb-6">Strategic shortlisting based on profile analysis and career aspirations.</p>
                         <div class="mt-auto pt-8 border-t border-black/5 w-full flex flex-col items-center space-y-2">
-                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Top 100 Universities</span>
-                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Profile Optimization</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-black">Top 100 Universities</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-black">Profile Optimization</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Service 2 -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative group" data-aos="fade-up" data-aos-delay="200" data-href="services.html#service-visa-assistance">
                     <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
                     <div class="p-10 lg:p-14 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
                         <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.05] transition-colors">02</div>
-                        <div class="w-24 h-24 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg mb-8">
+                        <div class="w-24 h-24 bg-black rounded-3xl flex items-center justify-center text-white mb-10 transition-all duration-700 shadow-lg">
                             <i class="fas fa-passport text-4xl"></i>
                         </div>
                         <h3 class="serif text-3xl font-black text-black mb-4 group-hover:text-orange-primary transition-colors">Visa Mastery</h3>
-                        <p class="text-navy-900/60 leading-relaxed font-medium mb-6">Flawless documentation and mock interview sessions for highest approval rates.</p>
+                        <p class="text-black leading-relaxed font-medium mb-6">Flawless documentation and mock interview sessions for highest approval rates.</p>
                         <div class="mt-auto pt-8 border-t border-black/5 w-full flex flex-col items-center space-y-2">
-                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Documentation Support</span>
-                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Interview Prep</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-black">Documentation Support</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-black">Interview Prep</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Service 3 -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="300">
+                <div class="relative group" data-aos="fade-up" data-aos-delay="300" data-href="services.html#service-test-preparation">
                     <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
                     <div class="p-10 lg:p-14 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
                         <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.05] transition-colors">03</div>
-                        <div class="w-24 h-24 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg mb-8">
+                        <div class="w-24 h-24 bg-black rounded-3xl flex items-center justify-center text-white mb-10 transition-all duration-700 shadow-lg">
                             <i class="fas fa-award text-4xl"></i>
                         </div>
                         <h3 class="serif text-3xl font-black text-black mb-4 group-hover:text-orange-primary transition-colors">IELTS/PTE Training</h3>
-                        <p class="text-navy-900/60 leading-relaxed font-medium mb-6">Premium training programs to help you achieve elite scores in proficiency tests.</p>
+                        <p class="text-black leading-relaxed font-medium mb-6">Premium training programs to help you achieve elite scores in proficiency tests.</p>
                         <div class="mt-auto pt-8 border-t border-black/5 w-full flex flex-col items-center space-y-2">
-                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Expert Trainers</span>
-                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Mock Tests & Material</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-black">Expert Trainers</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-black">Mock Tests & Material</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Service 4 -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="400">
+                <div class="relative group" data-aos="fade-up" data-aos-delay="400" data-href="services.html#service-pre-departure">
                     <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
                     <div class="p-10 lg:p-14 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
                         <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.05] transition-colors">04</div>
-                        <div class="w-24 h-24 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg mb-8">
+                        <div class="w-24 h-24 bg-black rounded-3xl flex items-center justify-center text-white mb-10 transition-all duration-700 shadow-lg">
                             <i class="fas fa-money-bill-wave text-4xl"></i>
                         </div>
                         <h3 class="serif text-3xl font-black text-black mb-4 group-hover:text-orange-primary transition-colors">Financial Aid</h3>
-                        <p class="text-navy-900/60 leading-relaxed font-medium mb-6">Scholarship assistance and educational loan guidance for hassle-free funding.</p>
+                        <p class="text-black leading-relaxed font-medium mb-6">Scholarship assistance and educational loan guidance for hassle-free funding.</p>
                         <div class="mt-auto pt-8 border-t border-black/5 w-full flex flex-col items-center space-y-2">
-                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Scholarship Search</span>
-                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Loan Processing</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-black">Scholarship Search</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-black">Loan Processing</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Service 5 -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="500">
+                <div class="relative group" data-aos="fade-up" data-aos-delay="500" data-href="services.html#service-post-arrival">
                     <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
                     <div class="p-10 lg:p-14 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
                         <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.05] transition-colors">05</div>
-                        <div class="w-24 h-24 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg mb-8">
+                        <div class="w-24 h-24 bg-black rounded-3xl flex items-center justify-center text-white mb-10 transition-all duration-700 shadow-lg">
                             <i class="fas fa-briefcase text-4xl"></i>
                         </div>
                         <h3 class="serif text-3xl font-black text-black mb-4 group-hover:text-orange-primary transition-colors">Career Roadmap</h3>
-                        <p class="text-navy-900/60 leading-relaxed font-medium mb-6">Expert guidance on course selection that aligns with future job market trends.</p>
+                        <p class="text-black leading-relaxed font-medium mb-6">Expert guidance on course selection that aligns with future job market trends.</p>
                         <div class="mt-auto pt-8 border-t border-black/5 w-full flex flex-col items-center space-y-2">
-                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Trend Analysis</span>
-                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Global Opportunities</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-black">Trend Analysis</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-black">Global Opportunities</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Service 6 -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="600">
+                <div class="relative group" data-aos="fade-up" data-aos-delay="600" data-href="services.html#service-financial-aid">
                     <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
                     <div class="p-10 lg:p-14 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
                         <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.05] transition-colors">06</div>
-                        <div class="w-24 h-24 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg mb-8">
+                        <div class="w-24 h-24 bg-black rounded-3xl flex items-center justify-center text-white mb-10 transition-all duration-700 shadow-lg">
                             <i class="fas fa-plane-arrival text-4xl"></i>
                         </div>
                         <h3 class="serif text-3xl font-black text-black mb-4 group-hover:text-orange-primary transition-colors">Post-Departure</h3>
-                        <p class="text-navy-900/60 leading-relaxed font-medium mb-6">Comprehensive pre-departure briefings and on-ground support in your destination.</p>
+                        <p class="text-black leading-relaxed font-medium mb-6">Comprehensive pre-departure briefings and on-ground support in your destination.</p>
                         <div class="mt-auto pt-8 border-t border-black/5 w-full flex flex-col items-center space-y-2">
-                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Housing Assistance</span>
-                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Cultural Orientation</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-black">Housing Assistance</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-black">Cultural Orientation</span>
                         </div>
                     </div>
                 </div>
@@ -351,90 +349,90 @@
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Application Support -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative group" data-aos="fade-up" data-aos-delay="100" data-href="contact.html?interest=Application%20Assistance#contact-form">
                     <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
                     <div class="p-10 lg:p-14 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
                         <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.05] transition-colors">01</div>
-                        <div class="w-24 h-24 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg mb-8">
+                        <div class="w-24 h-24 bg-black rounded-3xl flex items-center justify-center text-white mb-10 transition-all duration-700 shadow-lg">
                             <i class="fas fa-file-alt text-4xl"></i>
                         </div>
                         <h3 class="serif text-3xl font-black text-black mb-4 group-hover:text-orange-primary transition-colors">Application Assistance</h3>
-                        <p class="text-navy-900/60 leading-relaxed font-medium mb-6">Complete application support with document preparation and submission tracking.</p>
+                        <p class="text-black leading-relaxed font-medium mb-6">Complete application support with document preparation and submission tracking.</p>
                         <div class="mt-auto pt-8 border-t border-black/5 w-full flex items-center justify-center space-x-2">
                             <span class="w-1.5 h-1.5 bg-orange-primary rounded-full"></span>
-                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">End-to-End</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-black">End-to-End</span>
                             <span class="w-1.5 h-1.5 bg-orange-primary rounded-full"></span>
                         </div>
                     </div>
                 </div>
 
                 <!-- References -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative group" data-aos="fade-up" data-aos-delay="200" data-href="contact.html?interest=References%20and%20SOP#contact-form">
                     <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
                     <div class="p-10 lg:p-14 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
                         <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.05] transition-colors">02</div>
-                        <div class="w-24 h-24 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg mb-8">
+                        <div class="w-24 h-24 bg-black rounded-3xl flex items-center justify-center text-white mb-10 transition-all duration-700 shadow-lg">
                             <i class="fas fa-users text-4xl"></i>
                         </div>
                         <h3 class="serif text-3xl font-black text-black mb-4 group-hover:text-orange-primary transition-colors">References & SOP</h3>
-                        <p class="text-navy-900/60 leading-relaxed font-medium mb-6">Professional reference letters and Statement of Purpose guidance.</p>
+                        <p class="text-black leading-relaxed font-medium mb-6">Professional reference letters and Statement of Purpose guidance.</p>
                         <div class="mt-auto pt-8 border-t border-black/5 w-full flex items-center justify-center space-x-2">
                             <span class="w-1.5 h-1.5 bg-orange-primary rounded-full"></span>
-                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Expert SOP</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-black">Expert SOP</span>
                             <span class="w-1.5 h-1.5 bg-orange-primary rounded-full"></span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Interview Prep -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="300">
+                <div class="relative group" data-aos="fade-up" data-aos-delay="300" data-href="contact.html?interest=Interview%20Training#contact-form">
                     <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
                     <div class="p-10 lg:p-14 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
                         <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.05] transition-colors">03</div>
-                        <div class="w-24 h-24 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg mb-8">
+                        <div class="w-24 h-24 bg-black rounded-3xl flex items-center justify-center text-white mb-10 transition-all duration-700 shadow-lg">
                             <i class="fas fa-comments text-4xl"></i>
                         </div>
                         <h3 class="serif text-3xl font-black text-black mb-4 group-hover:text-orange-primary transition-colors">Interview Training</h3>
-                        <p class="text-navy-900/60 leading-relaxed font-medium mb-6">Mock interviews and communication skill development for university admissions.</p>
+                        <p class="text-black leading-relaxed font-medium mb-6">Mock interviews and communication skill development for university admissions.</p>
                         <div class="mt-auto pt-8 border-t border-black/5 w-full flex items-center justify-center space-x-2">
                             <span class="w-1.5 h-1.5 bg-orange-primary rounded-full"></span>
-                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Confident Success</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-black">Confident Success</span>
                             <span class="w-1.5 h-1.5 bg-orange-primary rounded-full"></span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Documentation -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="400">
+                <div class="relative group" data-aos="fade-up" data-aos-delay="400" data-href="contact.html?interest=Documentation%20Help#contact-form">
                     <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
                     <div class="p-10 lg:p-14 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
                         <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.05] transition-colors">04</div>
-                        <div class="w-24 h-24 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg mb-8">
+                        <div class="w-24 h-24 bg-black rounded-3xl flex items-center justify-center text-white mb-10 transition-all duration-700 shadow-lg">
                             <i class="fas fa-file-contract text-4xl"></i>
                         </div>
                         <h3 class="serif text-3xl font-black text-black mb-4 group-hover:text-orange-primary transition-colors">Documentation Help</h3>
-                        <p class="text-navy-900/60 leading-relaxed font-medium mb-6">Assistance with 'all-important' Statement of Purpose and essential paperwork.</p>
+                        <p class="text-black leading-relaxed font-medium mb-6">Assistance with 'all-important' Statement of Purpose and essential paperwork.</p>
                         <div class="mt-auto pt-8 border-t border-black/5 w-full flex items-center justify-center space-x-2">
                             <span class="w-1.5 h-1.5 bg-orange-primary rounded-full"></span>
-                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">Zero Errors</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-black">Zero Errors</span>
                             <span class="w-1.5 h-1.5 bg-orange-primary rounded-full"></span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Success Rate -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="500">
+                <div class="relative group" data-aos="fade-up" data-aos-delay="500" data-href="happy-students.html#testimonials">
                     <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
                     <div class="p-10 lg:p-14 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
                         <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.05] transition-colors">05</div>
-                        <div class="w-24 h-24 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg mb-8">
+                        <div class="w-24 h-24 bg-black rounded-3xl flex items-center justify-center text-white mb-10 transition-all duration-700 shadow-lg">
                             <i class="fas fa-star text-4xl"></i>
                         </div>
                         <h3 class="serif text-3xl font-black text-black mb-4 group-hover:text-orange-primary transition-colors">99% Success Rate</h3>
-                        <p class="text-navy-900/60 leading-relaxed font-medium mb-6">Regularly advised by consulates with updated visa requirements and success.</p>
+                        <p class="text-black leading-relaxed font-medium mb-6">Regularly advised by consulates with updated visa requirements and success.</p>
                         <div class="mt-auto pt-8 border-t border-black/5 w-full flex items-center justify-center space-x-2">
                             <span class="w-1.5 h-1.5 bg-orange-primary rounded-full"></span>
-                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-navy-900/40">High Approval</span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-black">High Approval</span>
                             <span class="w-1.5 h-1.5 bg-orange-primary rounded-full"></span>
                         </div>
                     </div>
@@ -455,7 +453,7 @@
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- University Selection -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="100">
+                <div id="service-university-selection" class="relative group scroll-mt-32" data-aos="fade-up" data-aos-delay="100" data-href="contact.html?interest=University%20Selection#contact-form">
                     <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
                     <div class="p-10 lg:p-14 bg-white rounded-[32px] border-2 border-black/5 hover:border-orange-primary transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
                         <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.1] transition-colors">01</div>
@@ -471,7 +469,7 @@
                 </div>
 
                 <!-- Visa Assistance -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="200">
+                <div id="service-visa-assistance" class="relative group scroll-mt-32" data-aos="fade-up" data-aos-delay="200" data-href="contact.html?interest=Visa%20Assistance#contact-form">
                     <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
                     <div class="p-10 lg:p-14 bg-white rounded-[32px] border-2 border-black/5 hover:border-orange-primary transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
                         <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.1] transition-colors">02</div>
@@ -487,7 +485,7 @@
                 </div>
 
                 <!-- Test Preparation -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="300">
+                <div id="service-test-preparation" class="relative group scroll-mt-32" data-aos="fade-up" data-aos-delay="300" data-href="contact.html?interest=Test%20Preparation#contact-form">
                     <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
                     <div class="p-10 lg:p-14 bg-white rounded-[32px] border-2 border-black/5 hover:border-orange-primary transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
                         <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.1] transition-colors">03</div>
@@ -503,7 +501,7 @@
                 </div>
 
                 <!-- Pre-Departure Support -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="400">
+                <div id="service-pre-departure" class="relative group scroll-mt-32" data-aos="fade-up" data-aos-delay="400" data-href="contact.html?interest=Pre-Departure#contact-form">
                     <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
                     <div class="p-10 lg:p-14 bg-white rounded-[32px] border-2 border-black/5 hover:border-orange-primary transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
                         <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.1] transition-colors">04</div>
@@ -519,7 +517,7 @@
                 </div>
 
                 <!-- Post-Arrival Support -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="500">
+                <div id="service-post-arrival" class="relative group scroll-mt-32" data-aos="fade-up" data-aos-delay="500" data-href="contact.html?interest=Post-Arrival#contact-form">
                     <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
                     <div class="p-10 lg:p-14 bg-white rounded-[32px] border-2 border-black/5 hover:border-orange-primary transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
                         <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.1] transition-colors">05</div>
@@ -535,7 +533,7 @@
                 </div>
 
                 <!-- Financial Aid Guidance -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="600">
+                <div id="service-financial-aid" class="relative group scroll-mt-32" data-aos="fade-up" data-aos-delay="600" data-href="contact.html?interest=Financial%20Aid#contact-form">
                     <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
                     <div class="p-10 lg:p-14 bg-white rounded-[32px] border-2 border-black/5 hover:border-orange-primary transition-all duration-500 h-full flex flex-col items-center text-center relative overflow-hidden">
                         <div class="absolute -right-6 -top-6 text-9xl font-black text-black/[0.03] select-none group-hover:text-orange-primary/[0.1] transition-colors">06</div>
@@ -557,15 +555,15 @@
     <section class="py-16 lg:py-24 section-dark relative overflow-hidden">
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center" data-aos="fade-up">
-                <h2 class="serif text-4xl lg:text-6xl font-black leading-tight text-black mb-8">
-                    Ready to Transform Your <span class="text-orange-primary">Future?</span>
+                <h2 class="serif text-4xl lg:text-6xl font-black leading-tight text-white mb-8">
+                    Ready to Transform Your <span class="text-white">Future?</span>
                 </h2>
-                <p class="text-black/60 text-lg leading-relaxed max-w-3xl mx-auto mb-12">
+                <p class="text-white text-lg leading-relaxed max-w-3xl mx-auto mb-12">
                     Take the first step towards your international education journey with our expert guidance
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center">
                     <a href="contact.html" class="btn-brand text-lg">Start Now <i class="fas fa-rocket ml-3"></i></a>
-                    <a href="about.html" class="btn-outline text-lg text-black border-white hover:bg-white hover:text-black">Why TEG</a>
+                    <a href="about.html" class="btn-outline text-lg text-white border-white hover:bg-white hover:text-black">Why TEG</a>
                 </div>
             </div>
         </div>
@@ -585,7 +583,7 @@
                     </p>
                     <div class="flex space-x-4">
                         <a href="https://www.facebook.com/theeducationgroup" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-twitter"></i></a>
+                        <a href="https://twitter.com/TEGEducation" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-twitter"></i></a>
                         <a href="https://www.linkedin.com/company/the-education-group" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
@@ -595,16 +593,16 @@
                         <li><a href="index.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Home</a></li>
                         <li><a href="about.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">About Us</a></li>
                         <li><a href="services.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Our Services</a></li>
-                        <li><a href="universities.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Universities</a></li>
-                        <li><a href="testimonials.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Success Stories</a></li>
+                        <li><a href="study-abroad.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Study Abroad</a></li>
+                        <li><a href="happy-students.html#testimonials" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Success Stories</a></li>
                     </ul>
                 </div>
                 <div>
                     <h5 class="text-sm font-black uppercase tracking-widest mb-8">Resources</h5>
                     <ul class="space-y-4">
-                        <li><a href="happy-students.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Happy Students</a></li>
+                        <li><a href="happy-students.html#testimonials" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Happy Students</a></li>
                         <li><a href="btec.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">BTEC Programs</a></li>
-                        <li><a href="study-abroad.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Study Abroad</a></li>
+                        <li><a href="site-map.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Site Map</a></li>
                         <li><a href="contact.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Free Counselling</a></li>
                     </ul>
                 </div>
@@ -612,8 +610,8 @@
             <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-black/5 text-navy-700/30 text-xs font-bold uppercase tracking-[0.2em]">
                 <p>&copy; 2024 The Education Group. All Rights Reserved.</p>
                 <div class="flex space-x-8 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-orange-primary transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-orange-primary transition-colors">Terms of Service</a>
+                    <a href="privacy-policy.html" class="hover:text-orange-primary transition-colors">Privacy Policy</a>
+                    <a href="terms-of-service.html" class="hover:text-orange-primary transition-colors">Terms of Service</a>
                 </div>
             </div>
         </div>

@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study Abroad - TEG | International Education Destinations</title>
-    <meta name="description" content="Explore study abroad opportunities with TEG. Choose from top destinations like UK, Ireland, Germany, New Zealand, Canada, Australia, and USA. Get expert guidance for international education.">
-    <meta name="keywords" content="study abroad, international education, UK universities, Ireland study, Germany education, New Zealand study, Canada study, Australia study, USA education">
+    <meta name="description" content="Explore study abroad opportunities with TEG. Choose from top destinations like UK, Ireland, Germany, Canada, Australia, and USA. Get expert guidance for international education.">
+    <meta name="keywords" content="study abroad, international education, UK universities, Ireland study, Germany education, Canada study, Australia study, USA education">
     <link rel="canonical" href="https://theeducationgroup.net/study-abroad.html">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Study Abroad - TEG | International Education Destinations">
-    <meta property="og:description" content="Explore study abroad opportunities with TEG. Choose from top destinations like UK, Ireland, Germany, New Zealand, Canada, Australia, and USA. Get expert guidance for international education.">
+    <meta property="og:description" content="Explore study abroad opportunities with TEG. Choose from top destinations like UK, Ireland, Germany, Canada, Australia, and USA. Get expert guidance for international education.">
     <meta property="og:url" content="https://theeducationgroup.net/study-abroad.html">
     <meta property="og:site_name" content="TEG - The Education Group">
     <meta property="og:image" content="https://theeducationgroup.net/logo.png">
@@ -23,7 +23,7 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Study Abroad - TEG | International Education Destinations">
-    <meta name="twitter:description" content="Explore study abroad opportunities with TEG. Choose from top destinations like UK, Ireland, Germany, New Zealand, Canada, Australia, and USA.">
+    <meta name="twitter:description" content="Explore study abroad opportunities with TEG. Choose from top destinations like UK, Ireland, Germany, Canada, Australia, and USA.">
     <meta name="twitter:image" content="https://theeducationgroup.net/logo.png">
     <meta name="twitter:image:alt" content="TEG - The Education Group Logo">
     <meta name="twitter:site" content="@TEGEducation">
@@ -77,6 +77,226 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <link rel="preload" href="https://unpkg.com/aos@next/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"></noscript>
+    <style>
+        .country-card {
+            position: relative;
+            min-height: 34rem;
+            border-radius: 2.5rem;
+            overflow: hidden;
+            isolation: isolate;
+            background: #08111f;
+            box-shadow: 0 38px 100px -42px rgba(0, 0, 0, 0.78);
+            transform: translateZ(0);
+            transition: transform 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .country-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .country-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(6, 11, 20, 0.02) 0%, rgba(6, 11, 20, 0.18) 40%, rgba(6, 11, 20, 0.9) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .country-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 48px 120px -42px rgba(0, 0, 0, 0.9);
+            border-color: rgba(255, 255, 255, 0.18);
+        }
+
+        .country-card:focus-visible {
+            outline: 3px solid rgba(255, 106, 0, 0.65);
+            outline-offset: 4px;
+        }
+
+        .country-card__media {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1);
+            transition: transform 0.95s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.95s ease;
+            filter: saturate(1.05) contrast(1.06);
+            z-index: 0;
+        }
+
+        .country-card:hover .country-card__media {
+            transform: scale(1.11);
+        }
+
+        .country-card__wash {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg, rgba(255, 106, 0, 0.2) 0%, rgba(255, 106, 0, 0.02) 34%, rgba(0, 0, 0, 0.12) 100%);
+            z-index: 1;
+        }
+
+        .country-card__accent {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            z-index: 3;
+        }
+
+        .country-card__accent span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.55rem 0.85rem;
+            border-radius: 9999px;
+            background: rgba(7, 11, 20, 0.58);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            color: #fff;
+            font-size: 0.62rem;
+            font-weight: 900;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            backdrop-filter: blur(14px);
+        }
+
+        .country-card__body {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+        }
+
+        .country-card__panel {
+            width: 100%;
+            padding: 1.35rem;
+            border-radius: 1.9rem;
+            background: rgba(6, 11, 20, 0.6);
+            backdrop-filter: blur(24px) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            box-shadow: 0 28px 60px -34px rgba(0, 0, 0, 0.8);
+        }
+
+        .country-card__top {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.75rem;
+            align-items: flex-start;
+            margin-bottom: 0.9rem;
+        }
+
+        .country-card__country,
+        .country-card__count,
+        .country-chip,
+        .country-cta {
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        .country-card__country {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 0.75rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            font-size: 0.68rem;
+            font-weight: 900;
+        }
+
+        .country-card__count {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.45rem 0.75rem;
+            border-radius: 9999px;
+            background: rgba(255, 106, 0, 0.18);
+            border: 1px solid rgba(255, 106, 0, 0.35);
+            color: #ffd3b5;
+            font-size: 0.64rem;
+            font-weight: 900;
+            white-space: nowrap;
+        }
+
+        .country-card__title {
+            font-size: clamp(1.85rem, 2vw, 2.35rem);
+            line-height: 0.96;
+            margin-bottom: 0.7rem;
+            color: #fff;
+            font-weight: 900;
+        }
+
+        .country-card__desc {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .country-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.5rem 0.8rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.96);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            font-size: 0.62rem;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .country-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+            width: 100%;
+            padding: 0.98rem 1rem;
+            border-radius: 9999px;
+            background: linear-gradient(135deg, #ff9a3d 0%, #ff6a00 55%, #ff5600 100%);
+            color: #08111f;
+            font-size: 0.72rem;
+            font-weight: 900;
+            box-shadow: 0 18px 42px -24px rgba(255, 106, 0, 0.95);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+        }
+
+        .country-card:hover .country-cta {
+            transform: translateY(-1px);
+            box-shadow: 0 22px 55px -24px rgba(255, 106, 0, 1);
+            filter: saturate(1.05);
+        }
+
+        @media (max-width: 640px) {
+            .country-card {
+                min-height: 29rem;
+                border-radius: 2rem;
+            }
+
+            .country-card__body {
+                padding: 0.8rem;
+            }
+
+            .country-card__panel {
+                padding: 1.1rem;
+                border-radius: 1.6rem;
+            }
+        }
+    </style>
     
     <!-- No-JavaScript Fallback -->
     <noscript>
@@ -94,21 +314,21 @@
     <div class="scroll-progress" id="progressBar"></div>
 
     <!-- NAVIGATION -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-3">
+    <nav id="navbar" class="sticky top-0 w-full z-50 transition-all duration-300 py-4">
         <div class="container mx-auto px-6">
-            <div class="bg-white rounded-[24px] px-8 py-3 flex justify-between items-center shadow-2xl border border-black/40">
+            <div class="bg-white/80 backdrop-blur-md rounded-[24px] px-8 py-4 flex justify-between items-center border border-white/20 shadow-[0_8px_30px_rgba(0,0,0,0.05)]">
                 <!-- Logo -->
                 <a href="index.html" class="flex items-center space-x-2 group">
-                    <img src="logo.png" alt="TEG Logo" class="h-10 w-auto group-hover:scale-110 transition-transform duration-500" loading="lazy" decoding="async">
+                    <img src="logo.png" alt="TEG Logo" class="h-14 w-auto group-hover:scale-110 transition-transform duration-500" loading="lazy" decoding="async">
                 </a>
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden lg:flex items-center space-x-10">
-                    <a href="index.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Home</a>
+                    <a href="#home" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Home</a>
                     <a href="about.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">About</a>
                     <a href="services.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Services</a>
-                    <a href="universities.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Universities</a>
-                    <a href="testimonials.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Students</a>
+                    <a href="happy-students.html#testimonials" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Students</a>
+                    <a href="study-abroad.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Study Abroad</a>
                     <a href="contact.html" class="btn-brand !py-3 !px-8 !text-[10px] !tracking-[0.2em]">Free Counselling</a>
                 </div>
                 
@@ -121,13 +341,13 @@
             </div>
             
             <!-- Mobile Menu -->
-            <div class="hidden lg:hidden mt-4 bg-white rounded-3xl p-8 shadow-2xl border border-black/40" id="mobile-menu">
+            <div class="hidden lg:hidden mt-4 bg-white rounded-3xl p-8 shadow-2xl border border-white/30" id="mobile-menu">
                 <div class="flex flex-col space-y-6 text-center">
-                    <a href="index.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Home</a>
+                    <a href="#home" class="text-navy-900 font-black text-lg uppercase tracking-widest">Home</a>
                     <a href="about.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">About</a>
                     <a href="services.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Services</a>
-                    <a href="universities.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Universities</a>
-                    <a href="testimonials.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Students</a>
+                    <a href="happy-students.html#testimonials" class="text-navy-900 font-black text-lg uppercase tracking-widest">Students</a>
+                    <a href="study-abroad.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Study Abroad</a>
                     <a href="contact.html" class="btn-brand w-full !py-4">Free Counselling</a>
                 </div>
             </div>
@@ -135,7 +355,7 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="hero relative min-h-screen flex items-center overflow-hidden pt-12">
+    <section id="home" class="hero relative min-h-screen flex items-center overflow-hidden pt-12">
         <!-- Background Elements -->
         <div class="hero-shape w-[600px] h-[600px] bg-orange-primary -top-20 -right-20 rounded-full"></div>
         <div class="hero-shape w-[400px] h-[400px] bg-orange-secondary/20 -bottom-20 -left-20 rounded-full"></div>
@@ -172,106 +392,266 @@
                 <div class="h-1.5 w-24 bg-grad-orange mx-auto rounded-full"></div>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-12" data-aos="fade-up">
+                <span class="inline-flex items-center gap-2 rounded-full bg-black/5 px-4 py-2 text-[11px] font-black uppercase tracking-[0.22em] text-navy-900">
+                    <i class="fas fa-globe"></i> 10 destination routes
+                </span>
+                <span class="inline-flex items-center gap-2 rounded-full bg-black/5 px-4 py-2 text-[11px] font-black uppercase tracking-[0.22em] text-navy-900">
+                    <i class="fas fa-passport"></i> Visa-backed counselling
+                </span>
+                <span class="inline-flex items-center gap-2 rounded-full bg-black/5 px-4 py-2 text-[11px] font-black uppercase tracking-[0.22em] text-navy-900">
+                    <i class="fas fa-briefcase"></i> Career-first recommendations
+                </span>
+            </div>
+
+            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+                <!-- Australia -->
+                <div class="country-card group" data-aos="fade-up" aria-label="Explore Australia study abroad options" data-href="contact.html?country=Australia&interest=Australia%20Study%20Abroad#contact-form">
+                    <img src="countries/austrailai.png" alt="Australia" class="country-card__media">
+                    <div class="country-card__wash"></div>
+                    <div class="country-card__accent">
+                        <span><i class="fas fa-compass"></i>Student favorite</span>
+                    </div>
+                    <div class="country-card__body">
+                        <div class="country-card__panel">
+                            <div class="country-card__top">
+                                <span class="country-card__country"><i class="fas fa-plane-departure"></i>Australia</span>
+                                <span class="country-card__count">Quality life</span>
+                            </div>
+                            <h3 class="country-card__title">Australia</h3>
+                            <p class="country-card__desc">World-class education with a superior quality of life and great post-study work options.</p>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="country-chip"><i class="fas fa-university"></i>Top universities</span>
+                                <span class="country-chip"><i class="fas fa-briefcase"></i>Career pathways</span>
+                                <span class="country-chip"><i class="fas fa-passport"></i>Visa guidance</span>
+                            </div>
+                            <a href="contact.html?country=Australia&interest=Australia%20Study%20Abroad#contact-form" class="country-cta">Explore Australia <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- United Kingdom -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
-                    <div class="bg-white p-10 rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col relative overflow-hidden">
-                        <h3 class="serif text-3xl font-black text-navy-900 mb-4">United Kingdom</h3>
-                        <p class="text-navy-900/60 leading-relaxed mb-8 font-medium">World-renowned universities with rich academic heritage and cutting-edge research. Excellent post-study work opportunities.</p>
-                        <div class="flex flex-wrap gap-3 mb-10">
-                            <span class="px-4 py-1.5 bg-orange-primary/10 text-orange-primary rounded-full text-[10px] font-black uppercase tracking-widest">Top 100</span>
-                            <span class="px-4 py-1.5 bg-orange-primary/5 text-navy-900/60 rounded-full text-[10px] font-black uppercase tracking-widest">Research Excellence</span>
-                            <span class="px-4 py-1.5 bg-orange-primary/5 text-navy-900/60 rounded-full text-[10px] font-black uppercase tracking-widest">2 Years PSW</span>
-                        </div>
-                        <a href="contact.html" class="w-full btn-brand !py-4 text-sm mt-auto">Explore UK Universities</a>
+                <div class="country-card group" data-aos="fade-up" data-aos-delay="100" aria-label="Explore United Kingdom study abroad options" data-href="contact.html?country=United%20Kingdom&interest=United%20Kingdom%20Study%20Abroad#contact-form">
+                    <img src="countries/uk.png" alt="United Kingdom" class="country-card__media">
+                    <div class="country-card__wash"></div>
+                    <div class="country-card__accent">
+                        <span><i class="fas fa-crown"></i>Postgrad route</span>
                     </div>
-                </div>
-
-                <!-- Ireland -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
-                    <div class="bg-white p-10 rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col relative overflow-hidden">
-                        <h3 class="serif text-3xl font-black text-navy-900 mb-4">Ireland</h3>
-                        <p class="text-navy-900/60 leading-relaxed mb-8 font-medium">Friendly, English-speaking country with growing tech sector and beautiful landscapes. Affordable education with high quality of life.</p>
-                        <div class="flex flex-wrap gap-3 mb-10">
-                            <span class="px-4 py-1.5 bg-orange-primary/10 text-orange-primary rounded-full text-[10px] font-black uppercase tracking-widest">Tech Hub</span>
-                            <span class="px-4 py-1.5 bg-orange-primary/5 text-navy-900/60 rounded-full text-[10px] font-black uppercase tracking-widest">English Speaking</span>
-                            <span class="px-4 py-1.5 bg-orange-primary/5 text-navy-900/60 rounded-full text-[10px] font-black uppercase tracking-widest">1 Year Stay Back</span>
+                    <div class="country-card__body">
+                        <div class="country-card__panel">
+                            <div class="country-card__top">
+                                <span class="country-card__country"><i class="fas fa-plane-departure"></i>United Kingdom</span>
+                                <span class="country-card__count">Prestige path</span>
+                            </div>
+                            <h3 class="country-card__title">United Kingdom</h3>
+                            <p class="country-card__desc">Home to some of the world's oldest and most prestigious universities with strong post-study work options.</p>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="country-chip"><i class="fas fa-graduation-cap"></i>1-year masters</span>
+                                <span class="country-chip"><i class="fas fa-book-open"></i>Global recognition</span>
+                                <span class="country-chip"><i class="fas fa-passport"></i>Visa guidance</span>
+                            </div>
+                            <a href="contact.html?country=United%20Kingdom&interest=United%20Kingdom%20Study%20Abroad#contact-form" class="country-cta">Explore the UK <i class="fas fa-arrow-right"></i></a>
                         </div>
-                        <a href="contact.html" class="w-full btn-brand !py-4 text-sm mt-auto">Explore Ireland</a>
-                    </div>
-                </div>
-
-                <!-- Germany -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
-                    <div class="bg-white p-10 rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col relative overflow-hidden">
-                        <div class="w-20 h-20 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg">
-                            <i class="fas fa-cog text-4xl"></i>
-                        </div>
-                        <h3 class="serif text-3xl font-black text-navy-900 mb-4">Germany</h3>
-                        <p class="text-navy-900/60 leading-relaxed mb-8 font-medium">Engineering powerhouse with tuition-free public universities. Strong industry connections and research opportunities.</p>
-                        <div class="flex flex-wrap gap-3 mb-10">
-                            <span class="px-4 py-1.5 bg-orange-primary/10 text-orange-primary rounded-full text-[10px] font-black uppercase tracking-widest">No Tuition Fees</span>
-                            <span class="px-4 py-1.5 bg-orange-primary/5 text-navy-900/60 rounded-full text-[10px] font-black uppercase tracking-widest">Engineering Leader</span>
-                            <span class="px-4 py-1.5 bg-orange-primary/5 text-navy-900/60 rounded-full text-[10px] font-black uppercase tracking-widest">18 Month Stay</span>
-                        </div>
-                        <a href="contact.html" class="w-full btn-brand !py-4 text-sm mt-auto">Explore Germany</a>
-                    </div>
-                </div>
-
-                <!-- New Zealand -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="400">
-                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
-                    <div class="bg-white p-10 rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col relative overflow-hidden">
-                        <div class="w-20 h-20 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg">
-                            <i class="fas fa-kiwi-bird text-4xl"></i>
-                        </div>
-                        <h3 class="serif text-3xl font-black text-navy-900 mb-4">New Zealand</h3>
-                        <p class="text-navy-900/60 leading-relaxed mb-8 font-medium">Safe, welcoming country with excellent education system and stunning natural beauty. Perfect for adventure seekers.</p>
-                        <div class="flex flex-wrap gap-3 mb-10">
-                            <span class="px-4 py-1.5 bg-orange-primary/10 text-orange-primary rounded-full text-[10px] font-black uppercase tracking-widest">Safe & Welcoming</span>
-                            <span class="px-4 py-1.5 bg-orange-primary/5 text-navy-900/60 rounded-full text-[10px] font-black uppercase tracking-widest">Nature Paradise</span>
-                            <span class="px-4 py-1.5 bg-orange-primary/5 text-navy-900/60 rounded-full text-[10px] font-black uppercase tracking-widest">3 Years PSW</span>
-                        </div>
-                        <a href="contact.html" class="w-full btn-brand !py-4 text-sm mt-auto">Explore NZ</a>
-                    </div>
-                </div>
-
-                <!-- Canada -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="500">
-                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
-                    <div class="bg-white p-10 rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col relative overflow-hidden">
-                        <div class="w-20 h-20 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg">
-                            <i class="fas fa-maple-leaf text-4xl"></i>
-                        </div>
-                        <h3 class="serif text-3xl font-black text-navy-900 mb-4">Canada</h3>
-                        <p class="text-navy-900/60 leading-relaxed mb-8 font-medium">Multicultural society with quality education and post-graduation work opportunities. High standard of living.</p>
-                        <div class="flex flex-wrap gap-3 mb-10">
-                            <span class="px-4 py-1.5 bg-orange-primary/10 text-orange-primary rounded-full text-[10px] font-black uppercase tracking-widest">Multicultural</span>
-                            <span class="px-4 py-1.5 bg-orange-primary/5 text-navy-900/60 rounded-full text-[10px] font-black uppercase tracking-widest">Work Opportunities</span>
-                            <span class="px-4 py-1.5 bg-orange-primary/5 text-navy-900/60 rounded-full text-[10px] font-black uppercase tracking-widest">3 Years PSW</span>
-                        </div>
-                        <a href="contact.html" class="w-full btn-brand !py-4 text-sm mt-auto">Explore Canada</a>
                     </div>
                 </div>
 
                 <!-- USA -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="600">
-                    <div class="absolute inset-0 bg-orange-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[32px] blur-3xl -z-10 scale-90"></div>
-                    <div class="bg-white p-10 rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all duration-500 h-full flex flex-col relative overflow-hidden">
-                        <div class="w-20 h-20 bg-orange-primary/10 rounded-3xl flex items-center justify-center text-orange-primary mb-10 group-hover:bg-orange-primary group-hover:text-black transition-all duration-700 shadow-lg">
-                            <i class="fas fa-flag-usa text-4xl"></i>
+                <div class="country-card group" data-aos="fade-up" data-aos-delay="200" aria-label="Explore USA study abroad options" data-href="contact.html?country=USA&interest=USA%20Study%20Abroad#contact-form">
+                    <img src="countries/us.png" alt="USA" class="country-card__media">
+                    <div class="country-card__wash"></div>
+                    <div class="country-card__accent">
+                        <span><i class="fas fa-rocket"></i>Innovation hub</span>
+                    </div>
+                    <div class="country-card__body">
+                        <div class="country-card__panel">
+                            <div class="country-card__top">
+                                <span class="country-card__country"><i class="fas fa-plane-departure"></i>USA</span>
+                                <span class="country-card__count">Research edge</span>
+                            </div>
+                            <h3 class="country-card__title">USA</h3>
+                            <p class="country-card__desc">The global leader in higher education offering diverse programs, research depth, and innovation hubs.</p>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="country-chip"><i class="fas fa-microscope"></i>STEM focus</span>
+                                <span class="country-chip"><i class="fas fa-flask"></i>Research access</span>
+                                <span class="country-chip"><i class="fas fa-passport"></i>Visa support</span>
+                            </div>
+                            <a href="contact.html?country=USA&interest=USA%20Study%20Abroad#contact-form" class="country-cta">Explore the USA <i class="fas fa-arrow-right"></i></a>
                         </div>
-                        <h3 class="serif text-3xl font-black text-navy-900 mb-4">United States</h3>
-                        <p class="text-navy-900/60 leading-relaxed mb-8 font-medium">World's leading education system with diverse opportunities and innovation hubs. Prestigious institutions.</p>
-                        <div class="flex flex-wrap gap-3 mb-10">
-                            <span class="px-4 py-1.5 bg-orange-primary/10 text-orange-primary rounded-full text-[10px] font-black uppercase tracking-widest">World-Class</span>
-                            <span class="px-4 py-1.5 bg-orange-primary/5 text-navy-900/60 rounded-full text-[10px] font-black uppercase tracking-widest">Innovation Hub</span>
-                            <span class="px-4 py-1.5 bg-orange-primary/5 text-navy-900/60 rounded-full text-[10px] font-black uppercase tracking-widest">OPT Available</span>
+                    </div>
+                </div>
+
+                <!-- Canada -->
+                <div class="country-card group" data-aos="fade-up" data-aos-delay="300" aria-label="Explore Canada study abroad options" data-href="contact.html?country=Canada&interest=Canada%20Study%20Abroad#contact-form">
+                    <img src="countries/canada.png" alt="Canada" class="country-card__media">
+                    <div class="country-card__wash"></div>
+                    <div class="country-card__accent">
+                        <span><i class="fas fa-map-marked-alt"></i>PR pathway</span>
+                    </div>
+                    <div class="country-card__body">
+                        <div class="country-card__panel">
+                            <div class="country-card__top">
+                                <span class="country-card__country"><i class="fas fa-plane-departure"></i>Canada</span>
+                                <span class="country-card__count">Career + settlement</span>
+                            </div>
+                            <h3 class="country-card__title">Canada</h3>
+                            <p class="country-card__desc">High-quality education in a multicultural environment with excellent PR pathways and safe cities.</p>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="country-chip"><i class="fas fa-users"></i>Multicultural</span>
+                                <span class="country-chip"><i class="fas fa-home"></i>Student safety</span>
+                                <span class="country-chip"><i class="fas fa-passport"></i>PR guidance</span>
+                            </div>
+                            <a href="contact.html?country=Canada&interest=Canada%20Study%20Abroad#contact-form" class="country-cta">Explore Canada <i class="fas fa-arrow-right"></i></a>
                         </div>
-                        <a href="contact.html" class="w-full btn-brand !py-4 text-sm mt-auto">Explore USA</a>
+                    </div>
+                </div>
+
+                <!-- Ireland -->
+                <div class="country-card group" data-aos="fade-up" data-aos-delay="400" aria-label="Explore Ireland study abroad options" data-href="contact.html?country=Ireland&interest=Ireland%20Study%20Abroad#contact-form">
+                    <img src="countries/ireland.png" alt="Ireland" class="country-card__media">
+                    <div class="country-card__wash"></div>
+                    <div class="country-card__accent">
+                        <span><i class="fas fa-microchip"></i>Tech corridor</span>
+                    </div>
+                    <div class="country-card__body">
+                        <div class="country-card__panel">
+                            <div class="country-card__top">
+                                <span class="country-card__country"><i class="fas fa-plane-departure"></i>Ireland</span>
+                                <span class="country-card__count">English-speaking</span>
+                            </div>
+                            <h3 class="country-card__title">Ireland</h3>
+                            <p class="country-card__desc">English-speaking tech hub with friendly people, high-ranking universities, and strong industry links.</p>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="country-chip"><i class="fas fa-building"></i>Tech hub</span>
+                                <span class="country-chip"><i class="fas fa-globe-europe"></i>EU gateway</span>
+                                <span class="country-chip"><i class="fas fa-passport"></i>Visa guidance</span>
+                            </div>
+                            <a href="contact.html?country=Ireland&interest=Ireland%20Study%20Abroad#contact-form" class="country-cta">Explore Ireland <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Germany -->
+                <div class="country-card group" data-aos="fade-up" data-aos-delay="500" aria-label="Explore Germany study abroad options" data-href="contact.html?country=Germany&interest=Germany%20Study%20Abroad#contact-form">
+                    <img src="countries/germany.png" alt="Germany" class="country-card__media">
+                    <div class="country-card__wash"></div>
+                    <div class="country-card__accent">
+                        <span><i class="fas fa-gears"></i>Low-tuition route</span>
+                    </div>
+                    <div class="country-card__body">
+                        <div class="country-card__panel">
+                            <div class="country-card__top">
+                                <span class="country-card__country"><i class="fas fa-plane-departure"></i>Germany</span>
+                                <span class="country-card__count">Engineering edge</span>
+                            </div>
+                            <h3 class="country-card__title">Germany</h3>
+                            <p class="country-card__desc">The engineering powerhouse of Europe with low tuition fees, strong industry links, and global credibility.</p>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="country-chip"><i class="fas fa-cogs"></i>Engineering</span>
+                                <span class="country-chip"><i class="fas fa-euro-sign"></i>Budget-friendly</span>
+                                <span class="country-chip"><i class="fas fa-passport"></i>Visa guidance</span>
+                            </div>
+                            <a href="contact.html?country=Germany&interest=Germany%20Study%20Abroad#contact-form" class="country-cta">Explore Germany <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dubai -->
+                <div class="country-card group" data-aos="fade-up" data-aos-delay="600" aria-label="Explore Dubai study abroad options" data-href="contact.html?country=Dubai&interest=Dubai%20Study%20Abroad#contact-form">
+                    <img src="countries/dubai.png" alt="Dubai" class="country-card__media">
+                    <div class="country-card__wash"></div>
+                    <div class="country-card__accent">
+                        <span><i class="fas fa-city"></i>Global campus</span>
+                    </div>
+                    <div class="country-card__body">
+                        <div class="country-card__panel">
+                            <div class="country-card__top">
+                                <span class="country-card__country"><i class="fas fa-plane-departure"></i>Dubai</span>
+                                <span class="country-card__count">Fast-growing</span>
+                            </div>
+                            <h3 class="country-card__title">Dubai</h3>
+                            <p class="country-card__desc">Fast-growing education hub with global universities, modern city life, and exciting career prospects.</p>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="country-chip"><i class="fas fa-briefcase"></i>Career access</span>
+                                <span class="country-chip"><i class="fas fa-landmark"></i>Global campuses</span>
+                                <span class="country-chip"><i class="fas fa-passport"></i>Visa guidance</span>
+                            </div>
+                            <a href="contact.html?country=Dubai&interest=Dubai%20Study%20Abroad#contact-form" class="country-cta">Explore Dubai <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Singapore -->
+                <div class="country-card group" data-aos="fade-up" data-aos-delay="700" aria-label="Explore Singapore study abroad options" data-href="contact.html?country=Singapore&interest=Singapore%20Study%20Abroad#contact-form">
+                    <img src="countries/singapore.png" alt="Singapore" class="country-card__media">
+                    <div class="country-card__wash"></div>
+                    <div class="country-card__accent">
+                        <span><i class="fas fa-award"></i>Elite hub</span>
+                    </div>
+                    <div class="country-card__body">
+                        <div class="country-card__panel">
+                            <div class="country-card__top">
+                                <span class="country-card__country"><i class="fas fa-plane-departure"></i>Singapore</span>
+                                <span class="country-card__count">Academic excellence</span>
+                            </div>
+                            <h3 class="country-card__title">Singapore</h3>
+                            <p class="country-card__desc">A leading global education hub in Asia known for academic excellence, safety, and quality networks.</p>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="country-chip"><i class="fas fa-shield-alt"></i>Safe city</span>
+                                <span class="country-chip"><i class="fas fa-bolt"></i>Asian hub</span>
+                                <span class="country-chip"><i class="fas fa-passport"></i>Visa guidance</span>
+                            </div>
+                            <a href="contact.html?country=Singapore&interest=Singapore%20Study%20Abroad#contact-form" class="country-cta">Explore Singapore <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Italy -->
+                <div class="country-card group" data-aos="fade-up" data-aos-delay="800" aria-label="Explore Italy study abroad options" data-href="contact.html?country=Italy&interest=Italy%20Study%20Abroad#contact-form">
+                    <img src="countries/italy.png" alt="Italy" class="country-card__media">
+                    <div class="country-card__wash"></div>
+                    <div class="country-card__accent">
+                        <span><i class="fas fa-palette"></i>Cultural capital</span>
+                    </div>
+                    <div class="country-card__body">
+                        <div class="country-card__panel">
+                            <div class="country-card__top">
+                                <span class="country-card__country"><i class="fas fa-plane-departure"></i>Italy</span>
+                                <span class="country-card__count">Creative edge</span>
+                            </div>
+                            <h3 class="country-card__title">Italy</h3>
+                            <p class="country-card__desc">World-class education in fashion, design, and arts in a culturally rich environment with global appeal.</p>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="country-chip"><i class="fas fa-pen-nib"></i>Design</span>
+                                <span class="country-chip"><i class="fas fa-theater-masks"></i>Arts</span>
+                                <span class="country-chip"><i class="fas fa-passport"></i>Visa guidance</span>
+                            </div>
+                            <a href="contact.html?country=Italy&interest=Italy%20Study%20Abroad#contact-form" class="country-cta">Explore Italy <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hungary -->
+                <div class="country-card group" data-aos="fade-up" data-aos-delay="900" aria-label="Explore Hungary study abroad options" data-href="contact.html?country=Hungary&interest=Hungary%20Study%20Abroad#contact-form">
+                    <img src="countries/hungary.png" alt="Hungary" class="country-card__media">
+                    <div class="country-card__wash"></div>
+                    <div class="country-card__accent">
+                        <span><i class="fas fa-heart"></i>Affordable path</span>
+                    </div>
+                    <div class="country-card__body">
+                        <div class="country-card__panel">
+                            <div class="country-card__top">
+                                <span class="country-card__country"><i class="fas fa-plane-departure"></i>Hungary</span>
+                                <span class="country-card__count">Value choice</span>
+                            </div>
+                            <h3 class="country-card__title">Hungary</h3>
+                            <p class="country-card__desc">Affordable high-quality education in the heart of Europe, especially popular for medical studies.</p>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="country-chip"><i class="fas fa-notes-medical"></i>Medical studies</span>
+                                <span class="country-chip"><i class="fas fa-euro-sign"></i>Budget friendly</span>
+                                <span class="country-chip"><i class="fas fa-passport"></i>Visa guidance</span>
+                            </div>
+                            <a href="contact.html?country=Hungary&interest=Hungary%20Study%20Abroad#contact-form" class="country-cta">Explore Hungary <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -360,7 +740,7 @@
                     </p>
                     <div class="flex space-x-4">
                         <a href="https://www.facebook.com/theeducationgroup" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-twitter"></i></a>
+                        <a href="https://twitter.com/TEGEducation" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-twitter"></i></a>
                         <a href="https://www.linkedin.com/company/the-education-group" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-orange-primary hover:text-black transition-all"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
@@ -370,16 +750,16 @@
                         <li><a href="index.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Home</a></li>
                         <li><a href="about.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">About Us</a></li>
                         <li><a href="services.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Our Services</a></li>
-                        <li><a href="universities.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Universities</a></li>
-                        <li><a href="testimonials.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Success Stories</a></li>
+                        <li><a href="study-abroad.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Study Abroad</a></li>
+                        <li><a href="happy-students.html#testimonials" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Success Stories</a></li>
                     </ul>
                 </div>
                 <div>
                     <h5 class="text-sm font-black uppercase tracking-widest mb-8">Resources</h5>
                     <ul class="space-y-4">
-                        <li><a href="happy-students.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Happy Students</a></li>
+                        <li><a href="happy-students.html#testimonials" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Happy Students</a></li>
                         <li><a href="btec.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">BTEC Programs</a></li>
-                        <li><a href="study-abroad.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Study Abroad</a></li>
+                        <li><a href="site-map.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Site Map</a></li>
                         <li><a href="contact.html" class="text-navy-700/60 hover:text-orange-primary transition-colors text-sm font-bold">Free Counselling</a></li>
                     </ul>
                 </div>
@@ -387,8 +767,8 @@
             <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-black/5 text-navy-700/30 text-xs font-bold uppercase tracking-[0.2em]">
                 <p>&copy; 2024 The Education Group. All Rights Reserved.</p>
                 <div class="flex space-x-8 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-orange-primary transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-orange-primary transition-colors">Terms of Service</a>
+                    <a href="privacy-policy.html" class="hover:text-orange-primary transition-colors">Privacy Policy</a>
+                    <a href="terms-of-service.html" class="hover:text-orange-primary transition-colors">Terms of Service</a>
                 </div>
             </div>
         </div>
