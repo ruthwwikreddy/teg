@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Study in Australia - TEG</title>
+    <meta name="description" content="World-class education with a superior quality of life and great post-study work options.">
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    
+    <style>
+        :root {
+            --navy-900: #000000;
+            --navy-800: #000000;
+            --navy-700: #000000;
+            --orange-primary: #FF6A00;
+            --orange-secondary: #FF8C00;
+            --teal: #2DD4BF;
+            --off-white: #FFFFFF;
+            --grad-orange: linear-gradient(135deg, #FF6A00 0%, #FF8C00 100%);
+            --shadow-premium: 0 20px 40px -15px rgba(2, 6, 23, 0.2);
+            --shadow-orange: 0 10px 30px -5px rgba(255, 106, 0, 0.4);
+            --glow-orange: 0 0 20px rgba(255, 106, 0, 0.3);
+        }
+        
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--off-white);
+            color: var(--navy-900);
+            overflow-x: hidden;
+        }
+
+        .serif { font-family: 'Playfair Display', serif; }
+
+        .bg-white {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-brand {
+            background: var(--grad-orange);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-orange);
+            border: none;
+            width: max-content;
+        }
+
+        .btn-brand:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 35px -5px rgba(255, 106, 0, 0.5);
+            color: white;
+        }
+
+        .hero-shape {
+            position: absolute;
+            z-index: -1;
+            filter: blur(60px);
+            opacity: 0.4;
+        }
+
+        .glow-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--orange-primary);
+            border-radius: 50%;
+            box-shadow: var(--glow-orange);
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        .text-gradient {
+            background: var(--grad-orange);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        #mobile-menu {
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-origin: top;
+        }
+        
+        #mobile-menu.hidden {
+            opacity: 0;
+            transform: scaleY(0);
+            display: none;
+        }
+        
+        #mobile-menu:not(.hidden) {
+            opacity: 1;
+            transform: scaleY(1);
+            display: block;
+        }
+
+        .college-card-premium {
+            background: rgba(255, 255, 255, 1);
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.05);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .college-card-premium:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-premium);
+            border-color: rgba(255, 106, 0, 0.2);
+        }
+        .college-image-wrapper {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+            border-radius: 32px 32px 0 0;
+            margin: 8px 8px 0 8px;
+        }
+        .college-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        .college-card-premium:hover .college-image {
+            transform: scale(1.1);
+        }
+        .watermark-rank {
+            position: absolute;
+            top: -20px;
+            right: 10px;
+            font-size: 140px;
+            font-weight: 900;
+            color: rgba(255, 106, 0, 0.05);
+            z-index: 0;
+            font-family: 'Inter', sans-serif;
+            pointer-events: none;
+            transition: color 0.5s ease, transform 0.5s ease;
+        }
+        .college-card-premium:hover .watermark-rank {
+            color: rgba(255, 106, 0, 0.1);
+            transform: scale(1.05) rotate(-5deg);
+        }
+        .college-card-content {
+            padding: 2.5rem;
+            position: relative;
+            z-index: 10;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+        .college-cta {
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            background: rgba(255, 106, 0, 0.1);
+            color: #ff6a00;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            width: max-content;
+        }
+        .college-card-premium:hover .college-cta {
+            background: #ff6a00;
+            color: white;
+            box-shadow: 0 10px 20px -5px rgba(255, 106, 0, 0.4);
+        }
+        
+        .map-bg {
+            background-image: url('https://www.transparenttextures.com/patterns/world-map.png');
+            background-repeat: repeat;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3.25rem !important; line-height: 0.95 !important; letter-spacing: -2px !important; margin-bottom: 2rem !important; }
+            h2 { font-size: 2.5rem !important; text-align: center !important; line-height: 1.1 !important; }
+            .college-card-content { padding: 1.5rem !important; text-align: center !important; }
+            .college-cta { margin-left: auto; margin-right: auto; }
+        }
+    </style>
+</head>
+<body class="bg-orange-primary/5 overflow-x-hidden">
+    <!-- NAVIGATION -->
+    <nav id="navbar" class="sticky top-0 w-full z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-6">
+            <div class="bg-white/80 backdrop-blur-md rounded-[24px] px-8 py-4 flex justify-between items-center border border-white/20 shadow-[0_8px_30px_rgba(0,0,0,0.05)]">
+                <a href="index.html" class="flex items-center space-x-2 group">
+                    <img src="logo.png" alt="TEG Logo" class="h-14 w-auto group-hover:scale-110 transition-transform duration-500">
+                </a>
+                
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="index.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Home</a>
+                    <a href="about.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">About</a>
+                    <a href="services.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Services</a>
+                    <a href="happy-students.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Students</a>
+                    <a href="study-abroad.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Study Abroad</a>
+                    <a href="contact.html" class="btn-brand !py-3 !px-8 !text-[10px] !tracking-[0.2em]">Free Counselling</a>
+                </div>
+                
+                <button class="lg:hidden p-3 rounded-2xl hover:bg-black/10 transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <svg class="w-6 h-6 text-navy-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div id="mobile-menu" class="hidden lg:hidden mt-4 bg-white rounded-3xl p-8 shadow-2xl border border-white/30">
+                <div class="flex flex-col space-y-6 text-center">
+                    <a href="index.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Home</a>
+                    <a href="about.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">About</a>
+                    <a href="services.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Services</a>
+                    <a href="happy-students.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Students</a>
+                    <a href="study-abroad.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Study Abroad</a>
+                    <a href="contact.html" class="btn-brand w-full !py-4 text-sm">Free Counselling</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[60vh] flex items-center overflow-hidden pt-12 pb-20">
+        <div class="hero-shape w-[600px] h-[600px] bg-orange-primary -top-20 -right-20 rounded-full"></div>
+        <div class="hero-shape w-[400px] h-[400px] bg-teal -bottom-20 -left-20 rounded-full opacity-20"></div>
+        <div class="absolute inset-0 map-bg opacity-5"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-flex items-center space-x-2 px-4 py-2 bg-white rounded-full mb-8 shadow-sm border border-black/5">
+                        <span class="glow-dot"></span>
+                        <span class="text-navy-900 text-xs font-bold uppercase tracking-widest">Destination Guide</span>
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-7xl font-black text-navy-900 leading-[1.1] mb-6 tracking-tighter">
+                        Study in <br><span class="text-gradient">Australia</span>
+                    </h1>
+                    
+                    <p class="text-lg lg:text-xl text-navy-700/80 mb-10 max-w-xl leading-relaxed">
+                        World-class education with a superior quality of life and great post-study work options.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 lg:gap-6">
+                        <a href="#colleges" class="btn-brand text-base lg:text-lg">View Top Universities <i class="fas fa-arrow-down ml-3"></i></a>
+                    </div>
+                </div>
+                
+                <div class="relative hidden lg:block" data-aos="fade-left" data-aos-duration="1200">
+                    <img src="countries/austrailai.png" alt="Australia" class="w-full object-cover rounded-[32px] shadow-2xl border-8 border-white aspect-square max-w-md mx-auto" style="box-shadow: 0 0 40px rgba(255, 115, 0, 0.15);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COLLEGES GRID -->
+    <section id="colleges" class="py-16 lg:py-24 relative bg-white">
+        <!-- Decorative bg elements -->
+        <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-orange-primary/5 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+        
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <p class="text-orange-primary font-black text-sm uppercase tracking-[0.2em] mb-4">World Class Education</p>
+                <h2 class="serif text-4xl lg:text-6xl text-navy-900 font-black mb-6">Top 10 Universities in Australia</h2>
+                <div class="h-1.5 w-24 bg-grad-orange mx-auto rounded-full mt-6"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- College Card -->
+                <a href="https://www.unimelb.edu.au/" target="_blank" rel="noopener noreferrer" class="college-card-premium" data-aos="fade-up" data-aos-delay="0">
+                    <div class="college-image-wrapper">
+                        <div class="absolute inset-0 bg-navy-900/20 z-10"></div>
+                        <img src="https://www.unimelb.edu.au/__data/assets/image/0006/5550216/Telstra-Creator-Space.webp" alt="University of Melbourne" class="college-image" loading="lazy">
+                        <div class="absolute bottom-4 left-4 z-20 flex items-center space-x-2">
+                            <span class="bg-white/90 backdrop-blur-sm text-navy-900 text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full">Rank #1</span>
+                        </div>
+                    </div>
+                    <div class="college-card-content">
+                        <div class="watermark-rank">1</div>
+                        <h3 class="serif text-3xl font-black text-navy-900 mb-4 pr-12 leading-tight">University of Melbourne</h3>
+                        <p class="text-navy-900/60 leading-relaxed font-medium mb-8 text-lg">Australia's leading university for research and education.</p>
+                        <div class="college-cta mt-auto">
+                            Visit Website <i class="fas fa-external-link-alt ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+                <!-- College Card -->
+                <a href="https://www.sydney.edu.au/" target="_blank" rel="noopener noreferrer" class="college-card-premium" data-aos="fade-up" data-aos-delay="50">
+                    <div class="college-image-wrapper">
+                        <div class="absolute inset-0 bg-navy-900/20 z-10"></div>
+                        <img src="https://www.sydney.edu.au/content/dam/campus-facilities-and-amenities/buildings/quadrangle/_06i3773.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg" alt="University of Sydney" class="college-image" loading="lazy">
+                        <div class="absolute bottom-4 left-4 z-20 flex items-center space-x-2">
+                            <span class="bg-white/90 backdrop-blur-sm text-navy-900 text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full">Rank #2</span>
+                        </div>
+                    </div>
+                    <div class="college-card-content">
+                        <div class="watermark-rank">2</div>
+                        <h3 class="serif text-3xl font-black text-navy-900 mb-4 pr-12 leading-tight">University of Sydney</h3>
+                        <p class="text-navy-900/60 leading-relaxed font-medium mb-8 text-lg">One of the world's top research universities, known for its beautiful campus.</p>
+                        <div class="college-cta mt-auto">
+                            Visit Website <i class="fas fa-external-link-alt ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+                <!-- College Card -->
+                <a href="https://www.unsw.edu.au/" target="_blank" rel="noopener noreferrer" class="college-card-premium" data-aos="fade-up" data-aos-delay="100">
+                    <div class="college-image-wrapper">
+                        <div class="absolute inset-0 bg-navy-900/20 z-10"></div>
+                        <img src="https://www.unsw.edu.au/content/unsw-sites/au/en/study/discover/campus/_jcr_content/root/responsivegrid-layout-fixed-width/responsivegrid-full-top/column_layout/par_1/column_layout_copy/par_1/column_layout_579515_1357325856/par_2_1_50/image.coreimg.82.1170.jpeg/1757678963997/2021-11-eng-news-13.jpeg" alt="UNSW Sydney" class="college-image" loading="lazy">
+                        <div class="absolute bottom-4 left-4 z-20 flex items-center space-x-2">
+                            <span class="bg-white/90 backdrop-blur-sm text-navy-900 text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full">Rank #3</span>
+                        </div>
+                    </div>
+                    <div class="college-card-content">
+                        <div class="watermark-rank">3</div>
+                        <h3 class="serif text-3xl font-black text-navy-900 mb-4 pr-12 leading-tight">UNSW Sydney</h3>
+                        <p class="text-navy-900/60 leading-relaxed font-medium mb-8 text-lg">A powerhouse of cutting-edge research, teaching and innovation.</p>
+                        <div class="college-cta mt-auto">
+                            Visit Website <i class="fas fa-external-link-alt ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+                <!-- College Card -->
+                <a href="https://www.anu.edu.au/" target="_blank" rel="noopener noreferrer" class="college-card-premium" data-aos="fade-up" data-aos-delay="150">
+                    <div class="college-image-wrapper">
+                        <div class="absolute inset-0 bg-navy-900/20 z-10"></div>
+                        <img src="https://www.unsw.edu.au/content/dam/images/unsw-wide/general/buildings-facilities/2020-08-front-door-photography-assets/2017-02-Canberra-ADAF-0001.cropimg.width=1920.crop=basic.jpg" alt="Australian National University" class="college-image" loading="lazy">
+                        <div class="absolute bottom-4 left-4 z-20 flex items-center space-x-2">
+                            <span class="bg-white/90 backdrop-blur-sm text-navy-900 text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full">Rank #4</span>
+                        </div>
+                    </div>
+                    <div class="college-card-content">
+                        <div class="watermark-rank">4</div>
+                        <h3 class="serif text-3xl font-black text-navy-900 mb-4 pr-12 leading-tight">Australian National University</h3>
+                        <p class="text-navy-900/60 leading-relaxed font-medium mb-8 text-lg">A world-leading university in Australia's capital.</p>
+                        <div class="college-cta mt-auto">
+                            Visit Website <i class="fas fa-external-link-alt ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+                <!-- College Card -->
+                <a href="https://www.monash.edu/" target="_blank" rel="noopener noreferrer" class="college-card-premium" data-aos="fade-up" data-aos-delay="200">
+                    <div class="college-image-wrapper">
+                        <div class="absolute inset-0 bg-navy-900/20 z-10"></div>
+                        <img src="https://www.usnews.com/object/image/00000153-ec2c-d802-ab7f-feacb9230000/160406-monashu-submitted.jpg?update-time=1459956316556&size=responsiveFlow970" alt="Monash University" class="college-image" loading="lazy">
+                        <div class="absolute bottom-4 left-4 z-20 flex items-center space-x-2">
+                            <span class="bg-white/90 backdrop-blur-sm text-navy-900 text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full">Rank #5</span>
+                        </div>
+                    </div>
+                    <div class="college-card-content">
+                        <div class="watermark-rank">5</div>
+                        <h3 class="serif text-3xl font-black text-navy-900 mb-4 pr-12 leading-tight">Monash University</h3>
+                        <p class="text-navy-900/60 leading-relaxed font-medium mb-8 text-lg">Australia's largest university, with global reach.</p>
+                        <div class="college-cta mt-auto">
+                            Visit Website <i class="fas fa-external-link-alt ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+                <!-- College Card -->
+                <a href="https://www.uq.edu.au/" target="_blank" rel="noopener noreferrer" class="college-card-premium" data-aos="fade-up" data-aos-delay="250">
+                    <div class="college-image-wrapper">
+                        <div class="absolute inset-0 bg-navy-900/20 z-10"></div>
+                        <img src="https://study.uq.edu.au/sites/default/files/styles/hero_xl/public/2022-05/hero-image-study-page.jpg?h=2087dbb7&itok=DZYugbQD" alt="University of Queensland" class="college-image" loading="lazy">
+                        <div class="absolute bottom-4 left-4 z-20 flex items-center space-x-2">
+                            <span class="bg-white/90 backdrop-blur-sm text-navy-900 text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full">Rank #6</span>
+                        </div>
+                    </div>
+                    <div class="college-card-content">
+                        <div class="watermark-rank">6</div>
+                        <h3 class="serif text-3xl font-black text-navy-900 mb-4 pr-12 leading-tight">University of Queensland</h3>
+                        <p class="text-navy-900/60 leading-relaxed font-medium mb-8 text-lg">Known for teaching excellence and research.</p>
+                        <div class="college-cta mt-auto">
+                            Visit Website <i class="fas fa-external-link-alt ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+                <!-- College Card -->
+                <a href="https://www.uwa.edu.au/" target="_blank" rel="noopener noreferrer" class="college-card-premium" data-aos="fade-up" data-aos-delay="0">
+                    <div class="college-image-wrapper">
+                        <div class="absolute inset-0 bg-navy-900/20 z-10"></div>
+                        <img src="https://www.assethub.uwa.edu.au/api/public/content/99411f3b5ddb4386947a53a934027568?v=752127d5&width=900&height=675&fit=cover&transform=true" alt="University of Western Australia" class="college-image" loading="lazy">
+                        <div class="absolute bottom-4 left-4 z-20 flex items-center space-x-2">
+                            <span class="bg-white/90 backdrop-blur-sm text-navy-900 text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full">Rank #7</span>
+                        </div>
+                    </div>
+                    <div class="college-card-content">
+                        <div class="watermark-rank">7</div>
+                        <h3 class="serif text-3xl font-black text-navy-900 mb-4 pr-12 leading-tight">University of Western Australia</h3>
+                        <p class="text-navy-900/60 leading-relaxed font-medium mb-8 text-lg">A top 100 university with a stunning riverside campus.</p>
+                        <div class="college-cta mt-auto">
+                            Visit Website <i class="fas fa-external-link-alt ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+                <!-- College Card -->
+                <a href="https://www.adelaide.edu.au/" target="_blank" rel="noopener noreferrer" class="college-card-premium" data-aos="fade-up" data-aos-delay="50">
+                    <div class="college-image-wrapper">
+                        <div class="absolute inset-0 bg-navy-900/20 z-10"></div>
+                        <img src="https://adelaide.edu.au/adobe/dynamicmedia/deliver/dm-aid--df79676c-25be-42fd-b312-fc572e5dfa3d/hero-banner-sq-750x750-mawson-lakes.jpg?width=1600&preferwebp=true&quality=82" alt="University of Adelaide" class="college-image" loading="lazy">
+                        <div class="absolute bottom-4 left-4 z-20 flex items-center space-x-2">
+                            <span class="bg-white/90 backdrop-blur-sm text-navy-900 text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full">Rank #8</span>
+                        </div>
+                    </div>
+                    <div class="college-card-content">
+                        <div class="watermark-rank">8</div>
+                        <h3 class="serif text-3xl font-black text-navy-900 mb-4 pr-12 leading-tight">University of Adelaide</h3>
+                        <p class="text-navy-900/60 leading-relaxed font-medium mb-8 text-lg">A Group of Eight university known for high impact research.</p>
+                        <div class="college-cta mt-auto">
+                            Visit Website <i class="fas fa-external-link-alt ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+                <!-- College Card -->
+                <a href="https://www.mq.edu.au/" target="_blank" rel="noopener noreferrer" class="college-card-premium" data-aos="fade-up" data-aos-delay="100">
+                    <div class="college-image-wrapper">
+                        <div class="absolute inset-0 bg-navy-900/20 z-10"></div>
+                        <img src="https://cdn.prod.website-files.com/67b861ab00707b40050b601f/69417bfd1473d7d79855bfcc_201206081055271-img7508-low-1%402x.png" alt="Macquarie University" class="college-image" loading="lazy">
+                        <div class="absolute bottom-4 left-4 z-20 flex items-center space-x-2">
+                            <span class="bg-white/90 backdrop-blur-sm text-navy-900 text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full">Rank #9</span>
+                        </div>
+                    </div>
+                    <div class="college-card-content">
+                        <div class="watermark-rank">9</div>
+                        <h3 class="serif text-3xl font-black text-navy-900 mb-4 pr-12 leading-tight">Macquarie University</h3>
+                        <p class="text-navy-900/60 leading-relaxed font-medium mb-8 text-lg">Renowned for its interdisciplinary research and teaching innovation.</p>
+                        <div class="college-cta mt-auto">
+                            Visit Website <i class="fas fa-external-link-alt ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+                <!-- College Card -->
+                <a href="https://www.rmit.edu.au/" target="_blank" rel="noopener noreferrer" class="college-card-premium" data-aos="fade-up" data-aos-delay="150">
+                    <div class="college-image-wrapper">
+                        <div class="absolute inset-0 bg-navy-900/20 z-10"></div>
+                        <img src="https://assets.studies-overseas.com/RMIT_University_Desktop_984x398_Header_Banner_d793e4ee87.webp" alt="RMIT University" class="college-image" loading="lazy">
+                        <div class="absolute bottom-4 left-4 z-20 flex items-center space-x-2">
+                            <span class="bg-white/90 backdrop-blur-sm text-navy-900 text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full">Rank #10</span>
+                        </div>
+                    </div>
+                    <div class="college-card-content">
+                        <div class="watermark-rank">10</div>
+                        <h3 class="serif text-3xl font-black text-navy-900 mb-4 pr-12 leading-tight">RMIT University</h3>
+                        <p class="text-navy-900/60 leading-relaxed font-medium mb-8 text-lg">A global university of technology, design and enterprise.</p>
+                        <div class="college-cta mt-auto">
+                            Visit Website <i class="fas fa-external-link-alt ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-16 bg-[#040810] text-center mt-auto">
+        <div class="container mx-auto px-6">
+            <img src="logo.png" alt="TEG Logo" class="h-16 mx-auto mb-8 brightness-0 invert opacity-50">
+            <p class="font-medium text-white/40 text-sm tracking-wide">&copy; 2024 The Education Group. Empowering Global Education.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init({ once: true, offset: 50, duration: 800, easing: 'ease-out-cubic' });</script>
+</body>
+</html>

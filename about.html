@@ -78,10 +78,10 @@
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden lg:flex items-center space-x-10">
-                    <a href="#home" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Home</a>
+                    <a href="index.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Home</a>
                     <a href="about.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">About</a>
                     <a href="services.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Services</a>
-                    <a href="happy-students.html#testimonials" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Students</a>
+                    <a href="happy-students.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Students</a>
                     <a href="study-abroad.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Study Abroad</a>
                     <a href="contact.html" class="btn-brand !py-3 !px-8 !text-[10px] !tracking-[0.2em]">Free Counselling</a>
                 </div>
@@ -97,10 +97,10 @@
             <!-- Mobile Menu -->
             <div class="hidden lg:hidden mt-4 bg-white rounded-3xl p-8 shadow-2xl border border-white/30" id="mobile-menu">
                 <div class="flex flex-col space-y-6 text-center">
-                    <a href="#home" class="text-navy-900 font-black text-lg uppercase tracking-widest">Home</a>
+                    <a href="index.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Home</a>
                     <a href="about.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">About</a>
                     <a href="services.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Services</a>
-                    <a href="happy-students.html#testimonials" class="text-navy-900 font-black text-lg uppercase tracking-widest">Students</a>
+                    <a href="happy-students.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Students</a>
                     <a href="study-abroad.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Study Abroad</a>
                     <a href="contact.html" class="btn-brand w-full !py-4">Free Counselling</a>
                 </div>
@@ -111,8 +111,9 @@
     <!-- HERO SECTION -->
     <section id="home" class="hero relative min-h-screen flex items-center overflow-hidden pt-12">
         <!-- Background Elements -->
-        <div class="hero-shape w-[600px] h-[600px] bg-orange-primary -top-20 -right-20 rounded-full"></div>
-        <div class="hero-shape w-[400px] h-[400px] bg-teal -bottom-20 -left-20 rounded-full"></div>
+        <img src="gemini/image1.png" alt="About TEG Background" class="absolute inset-0 w-full h-full object-cover opacity-10" loading="lazy" decoding="async">
+        <div class="hero-shape w-[600px] h-[600px] bg-orange-primary/20 -top-20 -right-20 rounded-full blur-3xl"></div>
+        <div class="hero-shape w-[400px] h-[400px] bg-teal/20 -bottom-20 -left-20 rounded-full blur-3xl"></div>
         
         <div class="container mx-auto px-6 relative z-10 mobile-center">
             <div class="text-center" data-aos="fade-up" data-aos-duration="1000">
@@ -140,7 +141,8 @@
 
     <!-- MISSION SECTION -->
     <section id="mission" class="py-16 lg:py-24 bg-white relative overflow-hidden">
-        <div class="container mx-auto px-6">
+        <img src="gemini/image2.png" alt="Mission Background" class="absolute inset-0 w-full h-full object-cover opacity-5" loading="lazy" decoding="async">
+        <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-20" data-aos="fade-up">
                 <h2 class="serif text-4xl lg:text-6xl text-navy-900 font-black mb-6">Our <span class="text-gradient">Mission</span></h2>
                 <p class="text-xl text-navy-700/70 leading-relaxed max-w-3xl mx-auto">
@@ -253,7 +255,53 @@
             </div>
         </div>
     </section>
-
+    <!-- SPECIALIZATION SECTION -->
+    <section class="py-16 lg:py-24 bg-orange-primary/5 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="serif text-4xl lg:text-6xl text-navy-900 font-black mb-6">TEG is <span class="text-gradient">Specialised in:</span></h2>
+                <div class="h-1.5 w-24 bg-grad-orange mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="p-8 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all shadow-premium text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-orange-primary/10 rounded-2xl flex items-center justify-center text-orange-primary mx-auto mb-6">
+                        <i class="fas fa-globe-americas text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-navy-900 mb-2">Overseas Education Consulting</h3>
+                    <p class="text-navy-700/60 text-sm">Expert guidance for global admissions.</p>
+                </div>
+                <div class="p-8 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all shadow-premium text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-orange-primary/10 rounded-2xl flex items-center justify-center text-orange-primary mx-auto mb-6">
+                        <i class="fas fa-certificate text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-navy-900 mb-2">Pearson BTEC Pathway Qualifications</h3>
+                    <p class="text-navy-700/60 text-sm">Fast-track to UK university degrees.</p>
+                </div>
+                <div class="p-8 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all shadow-premium text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-orange-primary/10 rounded-2xl flex items-center justify-center text-orange-primary mx-auto mb-6">
+                        <i class="fas fa-book-open text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-navy-900 mb-2">SAT, IELTS & PTE Training</h3>
+                    <p class="text-navy-700/60 text-sm">Elite score achievement training.</p>
+                </div>
+                <div class="p-8 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all shadow-premium text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-orange-primary/10 rounded-2xl flex items-center justify-center text-orange-primary mx-auto mb-6">
+                        <i class="fas fa-user-graduate text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-navy-900 mb-2">Student Support Services</h3>
+                    <p class="text-navy-700/60 text-sm">End-to-end guidance and orientation.</p>
+                </div>
+                <div class="p-8 bg-white rounded-[32px] border border-black/5 hover:border-orange-primary/30 transition-all shadow-premium text-center" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-16 h-16 bg-orange-primary/10 rounded-2xl flex items-center justify-center text-orange-primary mx-auto mb-6">
+                        <i class="fas fa-handshake text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-navy-900 mb-2">Partnerships Management</h3>
+                    <p class="text-navy-700/60 text-sm">Connecting with top global institutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- DIRECTOR'S MESSAGE SECTION -->
     <section class="py-16 lg:py-24 bg-white relative overflow-hidden">
         <div class="container mx-auto px-6">
@@ -284,21 +332,7 @@
                 <p class="text-navy-700/70 leading-relaxed mb-8">
                     I am committed to doling out my years of knowledge in the industry and have mentored my teams to give in their best, so that students aspiring to study abroad, get placed in the right institutions according to their aptitude and budget.
                 </p>
-                <!-- Student Testimonial -->
-                <div class="bg-white p-8 rounded-2xl border border-orange-primary/20">
-                    <p class="text-navy-700/70 leading-relaxed italic mb-4">
-                        "After desperately searching for colleges in India and realizing that all my efforts are in vain, I decided to pursue education abroad. My parents came across Dr. Pritpal and he truly saved me from all the hassles and scams of the Indian colleges which we know are prevalent in India. He told us about Debrecen Medical University in Hungary, which is one of the most reputed universities in central europe and guided us right from the start about what the course entails and everything we must know about the University and the city of Debrecen. I am now a 2nd year Medical student here and am grateful I had Dr Pritpal's guidance, he know's what he is doing and my parents and I highly recommend him"
-                    </p>
-                    <div class="flex items-center space-x-4 mt-6">
-                        <div>
-                            <p class="text-xl font-black text-navy-900">- Aakash Sharma and family</p>
-                            <p class="text-orange-primary font-bold uppercase text-xs tracking-widest">HYDERABAD</p>
-                        </div>
-                        <div class="w-20 h-20 rounded-full border-4 border-orange-primary/20 p-1">
-                            <img src="akash.webp" alt="Aakash Sharma" class="w-full h-full rounded-full object-cover">
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>

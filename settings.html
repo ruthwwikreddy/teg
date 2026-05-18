@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEG | Admin Settings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        
+        :root {
+            --navy-900: #000000;
+            --orange-primary: #FF6A00;
+            --sidebar-width: 280px;
+        }
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fcfcfc; 
+        }
+
+        .dashboard-container {
+            display: flex;
+            min-height: screen;
+        }
+
+        .sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: black;
+            color: white;
+            padding: 2rem;
+            z-index: 100;
+        }
+
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 2.5rem;
+            min-height: 100vh;
+        }
+
+        .premium-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px -5px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+
+        .premium-card:hover {
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+
+        /* Toast Notifications */
+        #toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 300;
+            transform: translateY(100px);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        #toast.show { transform: translateY(0); }
+
+        @media (max-width: 1024px) {
+            .sidebar { display: none; }
+            .main-content { margin-left: 0; padding: 1.5rem; }
+        }
+
+        .bg-grad-orange {
+            background: linear-gradient(135deg, #FF6A00 0%, #FF8C33 100%);
+        }
+        
+        .shadow-orange {
+            box-shadow: 0 10px 30px -5px rgba(255, 106, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Toast -->
+    <div id="toast" class="bg-black text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center space-x-3">
+        <i id="toastIcon" class="fas fa-check-circle text-orange-primary"></i>
+        <span id="toastMessage" class="font-bold text-sm tracking-wide"></span>
+    </div>
+
+    <!-- Login Overlay -->
+    <div id="loginOverlay" class="fixed inset-0 z-[200] bg-[#050505] flex items-center justify-center p-6 overflow-hidden">
+        <div class="bg-white rounded-[48px] p-12 lg:p-16 max-w-lg w-full shadow-[0_32px_128px_-16px_rgba(0,0,0,0.5)] relative overflow-hidden group">
+            <div class="absolute top-0 left-0 w-full h-2 bg-grad-orange"></div>
+            <div class="text-center mb-12 relative z-10">
+                <img src="logo.png" alt="TEG Logo" class="h-16 mx-auto mb-10 group-hover:scale-105 transition-transform duration-700">
+                <h1 class="text-4xl font-black text-black tracking-tight mb-4">Admin Login</h1>
+                <p class="text-gray-400 font-medium leading-relaxed">Sign in to manage your student leads.</p>
+            </div>
+            <form id="loginForm" class="space-y-8 relative z-10">
+                <div class="space-y-3">
+                    <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 px-1">Password</label>
+                    <div class="relative group/input">
+                        <i class="fas fa-key absolute left-6 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within/input:text-orange-primary transition-colors"></i>
+                        <input type="password" id="adminPassword" class="w-full bg-gray-50 border-2 border-gray-50 pl-14 pr-16 py-5 rounded-[24px] focus:border-orange-primary focus:bg-white outline-none transition-all font-bold text-lg" placeholder="Enter password" required>
+                    </div>
+                </div>
+                <div class="pt-2">
+                    <button type="submit" class="w-full btn-brand !py-6 !rounded-[24px] shadow-orange transition-all font-black uppercase tracking-widest text-xs">Sign In</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Settings Content -->
+    <div id="adminContent" class="hidden dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar flex flex-col justify-between border-r border-white/5">
+            <div>
+                <div class="flex items-center space-x-3 mb-12 px-2">
+                    <div class="w-8 h-8 bg-orange-primary rounded-lg flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-white text-xs"></i>
+                    </div>
+                    <span class="text-sm font-black tracking-tight text-white">Admin Hub</span>
+                </div>
+                <nav class="space-y-2">
+                    <a href="admin.html" class="w-full flex items-center space-x-4 px-6 py-4 text-gray-400 hover:text-white hover:bg-white/5 rounded-2xl font-bold transition-all">
+                        <i class="fas fa-users"></i>
+                        <span class="text-[10px] uppercase tracking-widest">Students</span>
+                    </a>
+                    <a href="settings.html" class="w-full flex items-center space-x-4 px-6 py-4 bg-white/10 text-white rounded-2xl font-black transition-all">
+                        <i class="fas fa-sliders-h"></i>
+                        <span class="text-[10px] uppercase tracking-widest">Settings</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="pt-8 border-t border-white/10">
+                <button onclick="logout()" class="flex items-center space-x-4 px-6 py-4 text-gray-400 hover:text-red-400 transition-colors w-full group">
+                    <i class="fas fa-power-off group-hover:rotate-12 transition-transform"></i>
+                    <span class="text-[10px] font-black uppercase tracking-widest">Log out</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main -->
+        <main class="main-content">
+            <header class="mb-12">
+                <h2 class="text-3xl font-black text-black mb-1">Dashboard Controls</h2>
+                <p class="text-gray-500 font-medium text-sm">Configure how you receive and manage student inquiries</p>
+            </header>
+
+            <div class="max-w-4xl">
+                <!-- General Settings -->
+                <div class="premium-card p-10 mb-8">
+                    <div class="flex items-center justify-between mb-10 pb-6 border-b border-gray-50">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-orange-primary/10 rounded-2xl flex items-center justify-center text-orange-primary">
+                                <i class="fas fa-envelope-open-text text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-black text-black">Email & Response</h4>
+                                <p class="text-gray-400 text-xs font-medium">Set your default contact information</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-10">
+                        <div class="space-y-4">
+                            <label class="block">
+                                <span class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3 block px-1">Default Reply Email</span>
+                                <input id="defaultReplyEmail" type="email" class="w-full bg-gray-50 border-2 border-gray-50 px-6 py-4 rounded-2xl outline-none focus:border-orange-primary focus:bg-white transition-all font-bold text-sm" value="pritpal@theeducationgroup.net">
+                            </label>
+                            <p class="text-[10px] text-gray-400 px-1 italic">This email will be used when you click "Email Student".</p>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <label class="block">
+                                <span class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3 block px-1">Initial Lead Status</span>
+                                <select id="defaultLeadStatus" class="w-full bg-gray-50 border-2 border-gray-50 px-6 py-4 rounded-2xl outline-none focus:border-orange-primary focus:bg-white transition-all font-bold text-sm appearance-none cursor-pointer">
+                                    <option value="pending">New Lead</option>
+                                    <option value="contacted" selected>Contacted</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications -->
+                <div class="premium-card p-10 mb-8">
+                    <div class="flex items-center space-x-4 mb-10">
+                        <div class="w-12 h-12 bg-orange-primary/10 rounded-2xl flex items-center justify-center text-orange-primary">
+                            <i class="fas fa-bell text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-black text-black">Notifications</h4>
+                            <p class="text-gray-400 text-xs font-medium">Manage your system alerts</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between p-6 bg-gray-50 rounded-3xl">
+                        <div>
+                            <p class="text-sm font-black text-black">Browser Alerts</p>
+                            <p class="text-xs text-gray-500 mt-1">Get alerted immediately when a new lead arrives</p>
+                        </div>
+                        <select id="leadNotifications" class="bg-white border-2 border-gray-100 px-6 py-3 rounded-xl font-bold text-xs outline-none cursor-pointer">
+                            <option value="enabled">Enabled</option>
+                            <option value="disabled" selected>Disabled</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Security / Change Password -->
+                <div class="premium-card p-10 mb-12">
+                    <div class="flex items-center space-x-4 mb-10">
+                        <div class="w-12 h-12 bg-orange-primary/10 rounded-2xl flex items-center justify-center text-orange-primary">
+                            <i class="fas fa-lock text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-black text-black">Security</h4>
+                            <p class="text-gray-400 text-xs font-medium">Change your admin access password</p>
+                        </div>
+                    </div>
+                    
+                    <form id="changePasswordForm" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="space-y-3">
+                                <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 px-1">Current Password</label>
+                                <div class="relative">
+                                    <input type="password" id="currentPass" class="w-full bg-gray-50 border-2 border-gray-50 px-6 py-4 rounded-2xl outline-none focus:border-orange-primary focus:bg-white transition-all font-bold text-sm" placeholder="••••••••" required>
+                                    <button type="button" onclick="togglePass('currentPass', this)" class="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 hover:text-black">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 px-1">New Password</label>
+                                <div class="relative">
+                                    <input type="password" id="newPass" class="w-full bg-gray-50 border-2 border-gray-50 px-6 py-4 rounded-2xl outline-none focus:border-orange-primary focus:bg-white transition-all font-bold text-sm" placeholder="New Password" required>
+                                    <button type="button" onclick="togglePass('newPass', this)" class="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 hover:text-black">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-end">
+                            <button type="submit" class="bg-black text-white px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-orange-primary transition-all">
+                                Update Password
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="flex justify-end">
+                    <button onclick="saveSettings()" class="bg-black text-white px-12 py-5 rounded-[24px] text-xs font-black uppercase tracking-widest hover:bg-orange-primary transition-all shadow-xl hover:shadow-orange/30">
+                        Save Settings
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        const loginOverlay = document.getElementById('loginOverlay');
+        const adminContent = document.getElementById('adminContent');
+        const loginForm = document.getElementById('loginForm');
+        const adminPasswordInput = document.getElementById('adminPassword');
+        const changePasswordForm = document.getElementById('changePasswordForm');
+        
+        const ADMIN_PASS_KEY = 'teg_admin_password_v2';
+        const DEFAULT_PASS = 'ADMIN_PASSWORD_PLACEHOLDER';
+        const ADMIN_SETTINGS_KEY = 'teg_admin_settings';
+
+        function getAdminPass() {
+            return localStorage.getItem(ADMIN_PASS_KEY) || DEFAULT_PASS;
+        }
+
+        // Auth
+        if (localStorage.getItem('teg_admin_auth') === 'true') {
+            showDashboard();
+        }
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (adminPasswordInput.value === getAdminPass()) {
+                localStorage.setItem('teg_admin_auth', 'true');
+                showDashboard();
+            } else {
+                showToast('Invalid access key', 'fa-times-circle', 'red');
+                adminPasswordInput.value = '';
+            }
+        });
+
+        window.logout = () => {
+            localStorage.removeItem('teg_admin_auth');
+            location.reload();
+        }
+
+        function showDashboard() {
+            loginOverlay.classList.add('hidden');
+            adminContent.classList.remove('hidden');
+            loadSettings();
+        }
+
+        function loadSettings() {
+            const saved = JSON.parse(localStorage.getItem(ADMIN_SETTINGS_KEY) || '{}');
+            if (saved.replyEmail) document.getElementById('defaultReplyEmail').value = saved.replyEmail;
+            if (saved.defaultStatus) document.getElementById('defaultLeadStatus').value = saved.defaultStatus;
+            if (saved.notifications) document.getElementById('leadNotifications').value = saved.notifications;
+        }
+
+        window.saveSettings = () => {
+            const settings = {
+                replyEmail: document.getElementById('defaultReplyEmail').value,
+                defaultStatus: document.getElementById('defaultLeadStatus').value,
+                notifications: document.getElementById('leadNotifications').value
+            };
+            localStorage.setItem(ADMIN_SETTINGS_KEY, JSON.stringify(settings));
+            showToast('Settings saved successfully', 'fa-check-circle', '#FF6A00');
+        };
+
+        // Password Change
+        changePasswordForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const current = document.getElementById('currentPass').value;
+            const next = document.getElementById('newPass').value;
+            
+            if (current !== getAdminPass()) {
+                showToast('Current password incorrect', 'fa-times-circle', '#ef4444');
+                return;
+            }
+            
+            if (next.length < 6) {
+                showToast('Password too short (min 6 chars)', 'fa-exclamation-triangle', 'orange');
+                return;
+            }
+            
+            localStorage.setItem(ADMIN_PASS_KEY, next);
+            showToast('Password updated successfully', 'fa-check-circle', '#10b981');
+            changePasswordForm.reset();
+        });
+
+        window.togglePass = (id, btn) => {
+            const input = document.getElementById(id);
+            const icon = btn.querySelector('i');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        };
+
+        function showToast(message, icon, color) {
+            const toast = document.getElementById('toast');
+            const toastIcon = document.getElementById('toastIcon');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toastMessage.innerText = message;
+            toastIcon.className = `fas ${icon}`;
+            toastIcon.style.color = color;
+            
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

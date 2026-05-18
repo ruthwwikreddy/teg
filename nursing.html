@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Study Nursing Abroad - TEG</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    
+    <style>
+        :root {
+            --navy-900: #000000;
+            --navy-800: #000000;
+            --navy-700: #000000;
+            --orange-primary: #FF6A00;
+            --orange-secondary: #FF8C00;
+            --teal: #2DD4BF;
+            --off-white: #FFFFFF;
+            --grad-orange: linear-gradient(135deg, #FF6A00 0%, #FF8C00 100%);
+            --shadow-premium: 0 20px 40px -15px rgba(2, 6, 23, 0.2);
+            --shadow-orange: 0 10px 30px -5px rgba(255, 106, 0, 0.4);
+            --glow-orange: 0 0 20px rgba(255, 106, 0, 0.3);
+        }
+        
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--off-white);
+            color: var(--navy-900);
+            overflow-x: hidden;
+        }
+
+        .serif { font-family: 'Playfair Display', serif; }
+
+        .bg-white {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-brand {
+            background: var(--grad-orange);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-orange);
+            border: none;
+        }
+
+        .btn-brand:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 35px -5px rgba(255, 106, 0, 0.5);
+            color: white;
+        }
+
+        .hero-shape {
+            position: absolute;
+            z-index: -1;
+            filter: blur(60px);
+            opacity: 0.4;
+        }
+
+        .glow-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--orange-primary);
+            border-radius: 50%;
+            box-shadow: var(--glow-orange);
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        .card-service {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 24px;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            border: 1px solid rgba(0,0,0,0.05);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-service::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--grad-orange);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            transform-origin: left;
+        }
+
+        .card-service:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-premium);
+        }
+
+        .card-service:hover::before {
+            transform: scaleX(1);
+        }
+
+        .text-gradient {
+            background: var(--grad-orange);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        #mobile-menu {
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-origin: top;
+        }
+        
+        #mobile-menu.hidden {
+            opacity: 0;
+            transform: scaleY(0);
+            display: none;
+        }
+        
+        #mobile-menu:not(.hidden) {
+            opacity: 1;
+            transform: scaleY(1);
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3.25rem !important; line-height: 0.95 !important; letter-spacing: -2px !important; margin-bottom: 2rem !important; }
+            h2 { font-size: 2.5rem !important; text-align: center !important; line-height: 1.1 !important; }
+            .card-service { padding: 2rem 1.5rem !important; text-align: center !important; }
+        }
+    </style>
+</head>
+<body class="bg-orange-primary/5 overflow-x-hidden">
+    <!-- NAVIGATION -->
+    <nav id="navbar" class="sticky top-0 w-full z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-6">
+            <div class="bg-white/80 backdrop-blur-md rounded-[24px] px-8 py-4 flex justify-between items-center border border-white/20 shadow-[0_8px_30px_rgba(0,0,0,0.05)]">
+                <a href="index.html" class="flex items-center space-x-2 group">
+                    <img src="logo.png" alt="TEG Logo" class="h-14 w-auto group-hover:scale-110 transition-transform duration-500">
+                </a>
+                
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="index.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Home</a>
+                    <a href="about.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">About</a>
+                    <a href="services.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Services</a>
+                    <a href="happy-students.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Students</a>
+                    <a href="study-abroad.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Study Abroad</a>
+                    <a href="contact.html" class="btn-brand !py-3 !px-8 !text-[10px] !tracking-[0.2em]">Free Counselling</a>
+                </div>
+                
+                <button class="lg:hidden p-3 rounded-2xl hover:bg-black/10 transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <svg class="w-6 h-6 text-navy-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div id="mobile-menu" class="hidden lg:hidden mt-4 bg-white rounded-3xl p-8 shadow-2xl border border-white/30">
+                <div class="flex flex-col space-y-6 text-center">
+                    <a href="index.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Home</a>
+                    <a href="about.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">About</a>
+                    <a href="services.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Services</a>
+                    <a href="happy-students.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Students</a>
+                    <a href="study-abroad.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Study Abroad</a>
+                    <a href="contact.html" class="btn-brand w-full !py-4 text-sm">Free Counselling</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[60vh] flex items-center overflow-hidden pt-12 pb-20">
+        <div class="hero-shape w-[600px] h-[600px] bg-orange-primary -top-20 -right-20 rounded-full"></div>
+        <div class="hero-shape w-[400px] h-[400px] bg-teal -bottom-20 -left-20 rounded-full opacity-20"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-flex items-center space-x-2 px-4 py-2 bg-white rounded-full mb-8 shadow-sm border border-black/5">
+                        <span class="glow-dot"></span>
+                        <span class="text-navy-900 text-xs font-bold uppercase tracking-widest">Medical Pathway</span>
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-7xl font-black text-navy-900 leading-[1.1] mb-6 tracking-tighter">
+                        Study Nursing Abroad
+                    </h1>
+                    
+                    <p class="text-lg lg:text-xl text-navy-700/80 mb-10 max-w-xl leading-relaxed">
+                        Courses, Benefits & Requirements with TEG
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 lg:gap-6">
+                        <a href="#content" class="btn-brand text-base lg:text-lg">Explore Programs <i class="fas fa-arrow-right ml-3"></i></a>
+                    </div>
+                </div>
+                
+                <div class="relative hidden lg:block" data-aos="fade-left" data-aos-duration="1200">
+                    <img src="medical/nursing.png" alt="Medical Program" class="w-full object-cover rounded-[32px] shadow-2xl border-8 border-white aspect-square max-w-md mx-auto" style="box-shadow: 0 0 40px rgba(255, 115, 0, 0.15);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section id="content" class="py-16 lg:py-24 relative bg-white">
+        <div class="container mx-auto px-6 max-w-6xl">
+            
+<div class="card-service mb-12" data-aos="fade-up">
+    <h2 class="serif text-3xl sm:text-4xl lg:text-5xl font-black text-navy-900 mb-6 leading-tight">Study Nursing Abroad: Courses, Benefits & Requirements</h2>
+    <p class="text-lg text-navy-700/80 leading-relaxed mb-6 font-medium">Are you planning a career in nursing and looking to study abroad? Nursing courses overseas offer a globally enriching experience, exposing students to advanced healthcare systems, diverse cultures, and real-world medical challenges.</p>
+    <p class="text-lg text-navy-700/80 leading-relaxed font-medium">From leading hospitals in major cities to hands-on training in community and rural healthcare settings, studying nursing abroad builds both professional skills and personal growth.</p>
+</div>
+
+<div class="mb-16">
+    <div class="text-center mb-10">
+        <h3 class="serif text-4xl font-black text-navy-900 mb-4" data-aos="fade-up">Why Study Nursing Abroad?</h3>
+        <div class="h-1.5 w-24 bg-grad-orange mx-auto rounded-full"></div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8">
+        <div class="card-service" data-aos="fade-up"><h4 class="font-bold text-orange-primary mb-3 uppercase tracking-widest text-sm">Global exposure</h4><p class="text-navy-700 font-medium">Learn diverse patient care practices, advanced medical technologies, and international treatment methods.</p></div>
+        <div class="card-service" data-aos="fade-up" data-aos-delay="100"><h4 class="font-bold text-teal mb-3 uppercase tracking-widest text-sm">Cultural experience</h4><p class="text-navy-700 font-medium">Study in a new environment and develop strong cultural competence essential for modern nursing careers.</p></div>
+        <div class="card-service" data-aos="fade-up"><h4 class="font-bold text-teal mb-3 uppercase tracking-widest text-sm">Advanced learning</h4><p class="text-navy-700 font-medium">Gain access to research, interdisciplinary programs, and emerging healthcare trends.</p></div>
+        <div class="card-service" data-aos="fade-up" data-aos-delay="100"><h4 class="font-bold text-orange-primary mb-3 uppercase tracking-widest text-sm">Networking</h4><p class="text-navy-700 font-medium">Connect with global peers, faculty, and healthcare professionals to boost your career prospects.</p></div>
+    </div>
+</div>
+
+<div class="card-service mb-12" data-aos="fade-up">
+    <h3 class="serif text-3xl font-black text-navy-900 mb-8">Types of Nursing Courses</h3>
+    <ul class="space-y-6">
+        <li class="flex items-start"><i class="fas fa-graduation-cap text-orange-primary mt-1 mr-4 text-2xl"></i> <div><strong class="text-navy-900 text-xl">BSN:</strong> <span class="text-navy-700 font-medium block mt-1">Foundation-level degree covering core nursing skills and clinical training.</span></div></li>
+        <li class="flex items-start"><i class="fas fa-user-md text-orange-primary mt-1 mr-4 text-2xl"></i> <div><strong class="text-navy-900 text-xl">MSN:</strong> <span class="text-navy-700 font-medium block mt-1">Advanced studies with specialisations like nurse practitioner, educator, or administrator.</span></div></li>
+        <li class="flex items-start"><i class="fas fa-award text-orange-primary mt-1 mr-4 text-2xl"></i> <div><strong class="text-navy-900 text-xl">DNP:</strong> <span class="text-navy-700 font-medium block mt-1">Highest-level practice degree focused on leadership and advanced clinical expertise.</span></div></li>
+    </ul>
+</div>
+
+<div class="text-center mt-12 mb-12">
+    <a href="contact.html" class="btn-brand">Apply with TEG <i class="fas fa-arrow-right ml-3"></i></a>
+</div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-16 bg-[#040810] text-center mt-auto">
+        <div class="container mx-auto px-6">
+            <img src="logo.png" alt="TEG Logo" class="h-16 mx-auto mb-8 brightness-0 invert opacity-50">
+            <p class="font-medium text-white/40 text-sm tracking-wide">&copy; 2024 The Education Group. Empowering Global Education.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init({ once: true, offset: 50, duration: 800, easing: 'ease-out-cubic' });</script>
+</body>
+</html>

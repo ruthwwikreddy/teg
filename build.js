@@ -37,7 +37,8 @@ function replaceInFile(filePath) {
 // Files to process
 const filesToProcess = [
     'firebase-config.js',
-    'admin.html'
+    'admin.html',
+    'settings.html'
 ];
 
 filesToProcess.forEach(file => {

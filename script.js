@@ -77,24 +77,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, { passive: true });
 
-    // Mobile Menu Toggle with Enhanced Interactions
+    // Mobile Menu Toggle (Premium Overlay)
     const menuBtn = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener('click', () => {
-            try {
-                mobileMenu.classList.toggle('hidden');
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.style.display = 'block';
-                    // Trigger reflow for animation
-                    mobileMenu.offsetHeight; 
-                    mobileMenu.style.opacity = '1';
-                    mobileMenu.style.transform = 'translateY(0)';
-                }
-            } catch (error) {
-                console.error('Mobile menu toggle error:', error);
-            }
-        });
+    const menuOverlay = document.getElementById('mobile-menu-overlay');
+    const menuContent = document.getElementById('menu-content');
+    const closeMenuBtn = document.getElementById('close-menu');
+    const menuLinks = document.querySelectorAll('#menu-content a');
+
+    if (menuBtn && menuOverlay && menuContent) {
+        const openMenu = () => {
+            menuOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                menuContent.classList.remove('translate-x-full');
+                menuContent.classList.add('translate-x-0');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeMenu = () => {
+            menuContent.classList.remove('translate-x-0');
+            menuContent.classList.add('translate-x-full');
+            setTimeout(() => {
+                menuOverlay.classList.add('hidden');
+            }, 700);
+            document.body.style.overflow = '';
+        };
+
+        menuBtn.addEventListener('click', openMenu);
+        if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
+        
+        // Close on backdrop click
+        const backdrop = document.getElementById('menu-backdrop');
+        if (backdrop) backdrop.addEventListener('click', closeMenu);
+
+        // Close on link click
+        menuLinks.forEach(link => link.addEventListener('click', closeMenu));
     }
 
     // Stats Counter Animation
@@ -249,36 +266,52 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
         const navbar = document.getElementById('navbar');
         if (navbar) {
-            const currentPage = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+            const path = window.location.pathname;
+            let currentPage = path.split('/').pop().toLowerCase();
+            
+            // Handle directory paths (like '/' or '/about/')
+            if (!currentPage || currentPage === '') {
+                currentPage = 'index.html';
+            }
+            
             const navLinks = Array.from(navbar.querySelectorAll('a[href]')).filter((link) => {
                 return !link.classList.contains('btn-brand') && !link.querySelector('img');
             });
+            
             const activeRouteMap = {
-                'index.html': ['#home', 'index.html', './index.html', '/'],
-                'about.html': ['about.html'],
-                'services.html': ['services.html'],
-                'btec.html': ['services.html'],
-                'study-abroad.html': ['study-abroad.html'],
-                'universities.html': ['study-abroad.html'],
-                'happy-students.html': ['happy-students.html#testimonials', 'happy-students.html']
+                'index.html': ['index.html', 'index', '', '/'],
+                'about.html': ['about.html', 'about'],
+                'services.html': ['services.html', 'services', 'btec.html'],
+                'btec.html': ['services.html', 'services', 'btec.html'],
+                'study-abroad.html': ['study-abroad.html', 'study-abroad'],
+                'happy-students.html': ['happy-students.html', 'happy-students', 'students']
             };
 
-            const activeTargets = activeRouteMap[currentPage] || [];
+            // Find which logical page we are on
+            let logicalPage = currentPage;
+            for (const [key, aliases] of Object.entries(activeRouteMap)) {
+                if (aliases.includes(currentPage) || currentPage === key) {
+                    logicalPage = key;
+                    break;
+                }
+            }
+
+            const activeTargets = activeRouteMap[logicalPage] || [logicalPage];
 
             navLinks.forEach((link) => {
-                link.classList.remove('text-orange-primary');
+                link.classList.remove('nav-link-active');
                 link.removeAttribute('aria-current');
+                
+                const rawHref = link.getAttribute('href').split('#')[0];
+                const href = rawHref.split('/').pop().toLowerCase() || 'index.html';
+                const isHome = href === 'index.html' || href === 'index' || href === '';
+                
+                // Check if this link matches the logical page or any of its aliases
+                if (activeTargets.includes(href) || (logicalPage === 'index.html' && isHome)) {
+                    link.classList.add('nav-link-active');
+                    link.setAttribute('aria-current', 'page');
+                }
             });
-
-            const activeLink = navLinks.find((link) => {
-                const href = (link.getAttribute('href') || '').toLowerCase();
-                return activeTargets.includes(href);
-            });
-
-            if (activeLink) {
-                activeLink.classList.add('text-orange-primary');
-                activeLink.setAttribute('aria-current', 'page');
-            }
         }
     } catch (error) {
         console.error('Navigation highlight error:', error);

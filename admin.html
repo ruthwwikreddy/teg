@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEG | Premium Admin Console</title>
+    <title>TEG | Admin Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -105,11 +105,22 @@
             .main-content { margin-left: 0; padding: 1.5rem; }
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #eee; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #ddd; }
+        /* Premium Section Transitions */
+        .section-content {
+            animation: fadeIn 0.5s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .bg-grad-orange {
+            background: linear-gradient(135deg, #FF6A00 0%, #FF8C33 100%);
+        }
+        
+        .shadow-orange {
+            box-shadow: 0 10px 30px -5px rgba(255, 106, 0, 0.3);
+        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -176,138 +187,113 @@
     <!-- Dashboard Content -->
     <div id="adminContent" class="hidden dashboard-container">
         <!-- Sidebar -->
-        <aside class="sidebar flex flex-col justify-between">
+        <aside class="sidebar flex flex-col justify-between border-r border-white/5">
             <div>
-                <img src="logo.png" alt="TEG Logo" class="h-10 mb-12 brightness-0 invert">
-                <nav class="space-y-4">
-                    <a href="#inquiries" class="flex items-center space-x-4 px-6 py-4 bg-white/5 text-white rounded-2xl font-black transition-all">
-                        <i class="fas fa-th-large text-white"></i>
-                        <span class="text-xs uppercase tracking-widest">Inquiries</span>
+                <div class="flex items-center space-x-3 mb-12 px-2">
+                    <div class="w-8 h-8 bg-orange-primary rounded-lg flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-white text-xs"></i>
+                    </div>
+                    <span class="text-sm font-black tracking-tight text-white">Admin Hub</span>
+                </div>
+                <nav class="space-y-2">
+                    <a href="admin.html" class="w-full flex items-center space-x-4 px-6 py-4 bg-white/10 text-white rounded-2xl font-black transition-all">
+                        <i class="fas fa-users"></i>
+                        <span class="text-[10px] uppercase tracking-widest">Students</span>
                     </a>
-                    <a href="#settings" class="flex items-center space-x-4 px-6 py-4 text-gray-400 hover:text-white hover:bg-white/5 rounded-2xl font-bold transition-all">
-                        <i class="fas fa-cog"></i>
-                        <span class="text-xs uppercase tracking-widest">Settings</span>
+                    <a href="settings.html" class="w-full flex items-center space-x-4 px-6 py-4 text-gray-400 hover:text-white hover:bg-white/5 rounded-2xl font-bold transition-all">
+                        <i class="fas fa-sliders-h"></i>
+                        <span class="text-[10px] uppercase tracking-widest">Settings</span>
                     </a>
                 </nav>
             </div>
             <div class="pt-8 border-t border-white/10">
-                <button onclick="logout()" class="flex items-center space-x-4 px-6 py-4 text-gray-400 hover:text-orange-primary transition-colors w-full">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span class="text-xs font-black uppercase tracking-widest">Sign Out</span>
+                <button onclick="logout()" class="flex items-center space-x-4 px-6 py-4 text-gray-400 hover:text-red-400 transition-colors w-full group">
+                    <i class="fas fa-power-off group-hover:rotate-12 transition-transform"></i>
+                    <span class="text-[10px] font-black uppercase tracking-widest">Log out</span>
                 </button>
             </div>
         </aside>
 
         <!-- Main -->
         <main class="main-content">
-            <!-- Header -->
-            <header class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
-                <div>
-                    <h2 class="text-3xl font-bold text-black mb-1">Admin Dashboard</h2>
-                    <p class="text-gray-500">Manage student leads and inquiries</p>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <input type="text" id="searchInput" placeholder="Search leads..." class="bg-white border border-gray-200 px-6 py-3 rounded-xl text-sm outline-none focus:ring-2 focus:ring-orange-500 w-64 transition-all">
-                    <button onclick="exportToCSV()" class="bg-black text-white px-6 py-3 rounded-xl text-sm font-bold hover:bg-orange-600 transition-all">
-                        Export CSV
-                    </button>
-                </div>
-            </header>
+            <!-- Dashboard Section -->
+            <div id="section-dashboard" class="section-content">
+                <header class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+                    <div>
+                        <h2 class="text-3xl font-black text-black mb-1">Student Messages</h2>
+                        <p class="text-gray-500 font-medium text-sm">Manage and respond to new student leads</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="relative group">
+                            <i class="fas fa-search absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-orange-primary transition-colors"></i>
+                            <input type="text" id="searchInput" placeholder="Search students..." class="bg-white border border-gray-100 pl-12 pr-6 py-3.5 rounded-2xl text-sm outline-none focus:ring-4 focus:ring-orange-500/10 focus:border-orange-primary w-72 transition-all shadow-sm">
+                        </div>
+                        <button onclick="exportToCSV()" class="bg-black text-white px-8 py-3.5 rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-orange-primary transition-all shadow-lg hover:shadow-orange/30">
+                            Download List
+                        </button>
+                    </div>
+                </header>
 
-            <!-- Stats -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                <div class="premium-card p-6">
-                    <p class="text-sm font-bold text-gray-500 mb-2">Total Leads</p>
-                    <h4 id="statTotal" class="text-3xl font-bold text-black">0</h4>
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    <div class="premium-card p-8 bg-grad-orange text-white border-none">
+                        <p class="text-[10px] font-black uppercase tracking-widest opacity-80 mb-2">Total Students</p>
+                        <h4 id="statTotal" class="text-4xl font-black">0</h4>
+                    </div>
+                    <div class="premium-card stat-card p-8">
+                        <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-500 mr-5 text-xl">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest">New Today</p>
+                            <h4 id="statToday" class="text-3xl font-black text-black">0</h4>
+                        </div>
+                    </div>
+                    <div class="premium-card stat-card p-8">
+                        <div class="w-14 h-14 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-500 mr-5 text-xl">
+                            <i class="fas fa-reply"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Responded</p>
+                            <h4 id="statContacted" class="text-3xl font-black text-black">0</h4>
+                        </div>
+                    </div>
+                    <div class="premium-card stat-card p-8">
+                        <div class="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-500 mr-5 text-xl">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Top Country</p>
+                            <h4 id="statTopCountry" class="text-2xl font-black text-black truncate max-w-[120px]">--</h4>
+                        </div>
+                    </div>
                 </div>
-                <div class="premium-card stat-card">
-                    <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500 mr-4 text-lg">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div>
-                        <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Leads Today</p>
-                        <h4 id="statToday" class="text-2xl font-black text-black">0</h4>
-                    </div>
-                </div>
-                <div class="premium-card stat-card">
-                    <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center text-green-500 mr-4 text-lg">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div>
-                        <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Contacted</p>
-                        <h4 id="statContacted" class="text-2xl font-black text-black">0</h4>
-                    </div>
-                </div>
-                <div class="premium-card stat-card">
-                    <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-500 mr-4 text-lg">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <div>
-                        <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Top Target</p>
-                        <h4 id="statTopCountry" class="text-2xl font-black text-black">--</h4>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Settings -->
-            <div id="settings" class="premium-card p-8 mb-12">
-                <div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
-                    <div>
-                        <p class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Dashboard Controls</p>
-                        <h4 class="text-2xl font-bold text-black">Settings</h4>
-                        <p class="text-gray-500 mt-2">Keep a few default routing choices ready for the dashboard workflow.</p>
+                <!-- Table -->
+                <div class="table-container shadow-2xl shadow-black/5 border border-gray-100">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="bg-gray-50/80 border-b border-gray-100">
+                                    <th class="px-8 py-6 text-[10px] font-black uppercase tracking-widest text-gray-400">Sent On</th>
+                                    <th class="px-8 py-6 text-[10px] font-black uppercase tracking-widest text-gray-400">Student Name</th>
+                                    <th class="px-8 py-6 text-[10px] font-black uppercase tracking-widest text-gray-400">Country</th>
+                                    <th class="px-8 py-6 text-[10px] font-black uppercase tracking-widest text-gray-400">Status</th>
+                                    <th class="px-8 py-6 text-[10px] font-black uppercase tracking-widest text-gray-400 text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leadsTableBody">
+                                <tr>
+                                    <td colspan="5" class="px-8 py-28 text-center">
+                                        <div class="flex flex-col items-center">
+                                            <div class="w-16 h-16 border-4 border-orange-primary/20 border-t-orange-primary rounded-full animate-spin mb-6"></div>
+                                            <p class="text-gray-400 font-bold uppercase tracking-widest text-xs">Checking for new messages...</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <button onclick="saveSettings()" class="bg-black text-white px-6 py-3 rounded-xl text-sm font-bold hover:bg-orange-600 transition-all">
-                        Save Settings
-                    </button>
-                </div>
-                <div class="grid md:grid-cols-3 gap-6 mt-8">
-                    <label class="block">
-                        <span class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3 block">Default Reply Email</span>
-                        <input id="defaultReplyEmail" type="email" class="w-full bg-white border border-gray-200 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-orange-500" value="pritpal@theeducationgroup.net">
-                    </label>
-                    <label class="block">
-                        <span class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3 block">Default Lead Status</span>
-                        <select id="defaultLeadStatus" class="w-full bg-white border border-gray-200 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-orange-500">
-                            <option value="pending">Pending</option>
-                            <option value="contacted">Contacted</option>
-                        </select>
-                    </label>
-                    <label class="block">
-                        <span class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3 block">Notifications</span>
-                        <select id="leadNotifications" class="w-full bg-white border border-gray-200 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-orange-500">
-                            <option value="enabled">Enabled</option>
-                            <option value="disabled">Disabled</option>
-                        </select>
-                    </label>
-                </div>
-            </div>
-
-            <!-- Table -->
-            <div id="inquiries" class="table-container shadow-sm border border-gray-100">
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left">
-                        <thead>
-                            <tr class="bg-gray-50/50 border-b border-gray-100">
-                                <th class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-gray-400">Submission</th>
-                                <th class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-gray-400">Lead Profile</th>
-                                <th class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-gray-400">Destinations</th>
-                                <th class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-gray-400">Details</th>
-                                <th class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-gray-400 text-right">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="leadsTableBody">
-                            <!-- Data injected here -->
-                            <tr>
-                                <td colspan="5" class="px-8 py-20 text-center">
-                                    <div class="flex flex-col items-center">
-                                        <i class="fas fa-circle-notch fa-spin text-4xl text-orange-primary mb-4"></i>
-                                        <p class="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Synchronizing with Nexus...</p>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </main>
@@ -344,15 +330,15 @@
                 </div>
             </div>
             <div class="bg-gray-50 p-8 rounded-[32px] mb-10">
-                <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-4 block">Student Message</label>
+                <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-4 block">Student's Message</label>
                 <p id="modalMessage" class="text-gray-900 leading-relaxed font-medium">--</p>
             </div>
             <div class="flex space-x-4">
                 <a id="modalCall" href="tel:+919700500087" class="flex-1 bg-black text-white text-center py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-orange-primary transition-all">
-                    Initiate Call
+                    Call now
                 </a>
                 <a id="modalMail" href="mailto:pritpal@theeducationgroup.net" class="flex-1 bg-gray-100 text-black text-center py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-gray-200 transition-all">
-                    Send Email
+                    Email now
                 </a>
             </div>
         </div>
@@ -367,12 +353,14 @@
         const loginForm = document.getElementById('loginForm');
         const adminPassword = document.getElementById('adminPassword');
         const searchInput = document.getElementById('searchInput');
-        const defaultReplyEmail = document.getElementById('defaultReplyEmail');
-        const defaultLeadStatus = document.getElementById('defaultLeadStatus');
-        const leadNotifications = document.getElementById('leadNotifications');
-        const ADMIN_SETTINGS_KEY = 'teg_admin_settings';
+        
+        const ADMIN_PASS_KEY = 'teg_admin_password_v2';
+        const DEFAULT_PASS = 'ADMIN_PASSWORD_PLACEHOLDER';
+        
+        function getAdminPass() {
+            return localStorage.getItem(ADMIN_PASS_KEY) || DEFAULT_PASS;
+        }
 
-        const ADMIN_PASS = 'theeducationgroup';
         let allLeads = [];
 
         // Show/Hide Password
@@ -391,7 +379,7 @@
 
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            if (adminPassword.value === ADMIN_PASS) {
+            if (adminPassword.value === getAdminPass()) {
                 localStorage.setItem('teg_admin_auth', 'true');
                 showDashboard();
             } else {
@@ -408,45 +396,10 @@
         function showDashboard() {
             loginOverlay.classList.add('hidden');
             adminContent.classList.remove('hidden');
-            loadSettings();
             loadLeads();
         }
 
-        function loadSettings() {
-            try {
-                const saved = JSON.parse(localStorage.getItem(ADMIN_SETTINGS_KEY) || '{}');
-                if (defaultReplyEmail && saved.replyEmail) {
-                    defaultReplyEmail.value = saved.replyEmail;
-                }
-                if (defaultLeadStatus && saved.defaultStatus) {
-                    defaultLeadStatus.value = saved.defaultStatus;
-                }
-                if (leadNotifications && saved.notifications) {
-                    leadNotifications.value = saved.notifications;
-                }
-            } catch (error) {
-                console.error('Error loading admin settings:', error);
-            }
-        }
-
-        window.saveSettings = () => {
-            try {
-                const settings = {
-                    replyEmail: defaultReplyEmail ? defaultReplyEmail.value : 'pritpal@theeducationgroup.net',
-                    defaultStatus: defaultLeadStatus ? defaultLeadStatus.value : 'pending',
-                    notifications: leadNotifications ? leadNotifications.value : 'enabled'
-                };
-                localStorage.setItem(ADMIN_SETTINGS_KEY, JSON.stringify(settings));
-                showToast('Settings saved', 'fa-check-circle', 'orange');
-            } catch (error) {
-                console.error('Error saving admin settings:', error);
-                showToast('Settings could not be saved', 'fa-exclamation-circle', 'red');
-            }
-        };
-
         async function loadLeads() {
-            const tableBody = document.getElementById('leadsTableBody');
-            
             try {
                 const q = query(collection(db, 'leads'), orderBy('timestamp', 'desc'));
                 const querySnapshot = await getDocs(q);
@@ -460,7 +413,7 @@
                 updateStats(allLeads);
             } catch (error) {
                 console.error('Error loading leads:', error);
-                showToast('Nexus synchronization failed', 'fa-exclamation-triangle', 'red');
+                showToast('Could not load messages', 'fa-exclamation-triangle', '#ef4444');
             }
         }
 
@@ -469,12 +422,12 @@
             tableBody.innerHTML = '';
 
             if (leads.length === 0) {
-                tableBody.innerHTML = '<tr><td colspan="5" class="px-8 py-20 text-center text-gray-400 font-bold uppercase tracking-widest text-[10px]">No records found</td></tr>';
+                tableBody.innerHTML = '<tr><td colspan="5" class="px-8 py-20 text-center text-gray-400 font-bold uppercase tracking-widest text-[10px]">No messages yet</td></tr>';
                 return;
             }
 
             leads.forEach((lead) => {
-                const date = lead.timestamp ? new Date(lead.timestamp.seconds * 1000).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'N/A';
+                const date = lead.timestamp ? new Date(lead.timestamp.seconds * 1000).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : 'N/A';
                 const time = lead.timestamp ? new Date(lead.timestamp.seconds * 1000).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) : '';
                 
                 const row = document.createElement('tr');
@@ -494,43 +447,32 @@
                                     <a href="tel:${lead.phone}" class="text-xs font-black text-orange-primary hover:underline mr-2">
                                         ${lead.phone || 'N/A'}
                                     </a>
-                                    <button onclick="copyToClipboard('${lead.phone}', 'Phone')" class="opacity-0 group-hover/contact:opacity-100 text-[8px] text-gray-400 hover:text-orange-primary transition-all">
-                                        <i class="fas fa-copy"></i>
-                                    </button>
-                                </div>
-                                <div class="flex items-center">
-                                    <a href="mailto:${lead.email}" class="text-[10px] font-bold text-gray-400 hover:text-black transition-colors mr-2 truncate max-w-[120px]">
-                                        ${lead.email || 'No email'}
-                                    </a>
-                                    <button onclick="copyToClipboard('${lead.email}', 'Email')" class="opacity-0 group-hover/contact:opacity-100 text-[8px] text-gray-400 hover:text-black transition-all">
-                                        <i class="fas fa-copy"></i>
-                                    </button>
                                 </div>
                             </div>
                         </div>
                     </td>
                     <td class="px-8 py-6">
-                        <span class="status-pill bg-orange-primary/10 text-orange-primary">
+                        <span class="text-[10px] font-black uppercase tracking-widest text-navy-900/40">
                             ${lead.country || 'Global'}
                         </span>
                     </td>
                     <td class="px-8 py-6">
                         <div class="flex items-center space-x-3">
-                            <span class="status-pill ${lead.status === 'contacted' ? 'bg-green-500/10 text-green-500' : 'bg-blue-500/10 text-blue-500'}">
-                                ${lead.status || 'pending'}
+                            <span class="status-pill ${lead.status === 'contacted' ? 'bg-green-500/10 text-green-500' : 'bg-orange-primary/10 text-orange-primary'}">
+                                ${lead.status === 'contacted' ? 'Responded' : 'New Lead'}
                             </span>
                         </div>
                     </td>
                     <td class="px-8 py-6 text-right">
                         <div class="flex items-center justify-end space-x-2">
                             <button onclick="viewDetail('${lead.id}')" class="btn-action bg-gray-50 text-gray-400 hover:bg-black hover:text-white" title="View Details">
-                                <i class="fas fa-eye text-[10px]"></i>
+                                <i class="fas fa-expand-alt text-[10px]"></i>
                             </button>
-                            <button onclick="toggleStatus('${lead.id}', '${lead.status}')" class="btn-action bg-gray-50 text-gray-400 hover:bg-green-500 hover:text-white" title="Toggle Status">
+                            <button onclick="toggleStatus('${lead.id}', '${lead.status}')" class="btn-action bg-gray-50 text-gray-400 hover:bg-green-500 hover:text-white" title="Mark as responded">
                                 <i class="fas fa-check text-[10px]"></i>
                             </button>
-                            <button onclick="deleteLead('${lead.id}')" class="btn-action bg-gray-50 text-gray-400 hover:bg-red-500 hover:text-white" title="Delete">
-                                <i class="fas fa-trash text-[10px]"></i>
+                            <button onclick="deleteLead('${lead.id}')" class="btn-action bg-gray-50 text-gray-400 hover:bg-red-500 hover:text-white" title="Remove">
+                                <i class="fas fa-trash-alt text-[10px]"></i>
                             </button>
                         </div>
                     </td>
@@ -540,20 +482,28 @@
         }
 
         function updateStats(leads) {
-            document.getElementById('statTotal').innerText = leads.length;
+            const totalEl = document.getElementById('statTotal');
+            const todayEl = document.getElementById('statToday');
+            const contactedEl = document.getElementById('statContacted');
+            const countryEl = document.getElementById('statTopCountry');
+
+            if (totalEl) totalEl.innerText = leads.length;
             
             const today = new Date().toDateString();
             const leadsToday = leads.filter(l => l.timestamp && new Date(l.timestamp.seconds * 1000).toDateString() === today).length;
-            document.getElementById('statToday').innerText = leadsToday;
+            if (todayEl) todayEl.innerText = leadsToday;
 
             const contacted = leads.filter(l => l.status === 'contacted').length;
-            document.getElementById('statContacted').innerText = contacted;
+            if (contactedEl) contactedEl.innerText = contacted;
 
             const countries = leads.map(l => l.country).filter(Boolean);
             const counts = {};
             countries.forEach(c => counts[c] = (counts[c] || 0) + 1);
-            const topCountry = Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b, '--');
-            document.getElementById('statTopCountry').innerText = topCountry;
+            const countryKeys = Object.keys(counts);
+            const topCountry = countryKeys.length > 0 
+                ? countryKeys.reduce((a, b) => counts[a] > counts[b] ? a : b)
+                : '--';
+            if (countryEl) countryEl.innerText = topCountry;
         }
 
         // Search
@@ -599,7 +549,7 @@
             try {
                 const newStatus = currentStatus === 'contacted' ? 'pending' : 'contacted';
                 await updateDoc(doc(db, 'leads', id), { status: newStatus });
-                showToast(`Status updated to ${newStatus}`, 'fa-sync-alt', 'orange');
+                showToast('Status updated', 'fa-sync-alt', '#FF6A00');
                 loadLeads();
             } catch (error) {
                 console.error('Error updating status:', error);
@@ -607,10 +557,10 @@
         }
 
         window.deleteLead = async (id) => {
-            if (!confirm('Are you sure you want to permanently delete this lead?')) return;
+            if (!confirm('Permanently remove this student message?')) return;
             try {
                 await deleteDoc(doc(db, 'leads', id));
-                showToast('Lead permanently removed', 'fa-trash', 'red');
+                showToast('Message removed', 'fa-trash-alt', '#ef4444');
                 loadLeads();
             } catch (error) {
                 console.error('Error deleting lead:', error);
@@ -637,12 +587,12 @@
             const link = document.createElement("a");
             const url = URL.createObjectURL(blob);
             link.setAttribute("href", url);
-            link.setAttribute("download", `TEG_Leads_${new Date().toISOString().split('T')[0]}.csv`);
+            link.setAttribute("download", `TEG_Students_${new Date().toISOString().split('T')[0]}.csv`);
             link.style.visibility = 'hidden';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-            showToast('CSV export initiated', 'fa-file-export', 'green');
+            showToast('Student list downloaded', 'fa-file-download', '#10b981');
         }
 
         function showToast(message, icon, color) {
