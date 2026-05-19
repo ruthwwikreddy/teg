@@ -1,69 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Core Pages -->
     <url>
-        <loc>https://theeducationgroup.net/</loc>
-        <lastmod>2026-05-14</lastmod>
+        <loc>https://theeducationgroup.net/index.html</loc>
+        <lastmod>2026-05-19</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://theeducationgroup.net/about</loc>
-        <lastmod>2026-05-14</lastmod>
+        <loc>https://theeducationgroup.net/about.html</loc>
+        <lastmod>2026-05-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://theeducationgroup.net/services</loc>
-        <lastmod>2026-05-14</lastmod>
+        <loc>https://theeducationgroup.net/services.html</loc>
+        <lastmod>2026-05-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://theeducationgroup.net/universities</loc>
-        <lastmod>2026-05-14</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://theeducationgroup.net/contact</loc>
-        <lastmod>2026-05-14</lastmod>
+        <loc>https://theeducationgroup.net/contact.html</loc>
+        <lastmod>2026-05-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://theeducationgroup.net/btec</loc>
-        <lastmod>2026-05-14</lastmod>
+        <loc>https://theeducationgroup.net/study-abroad.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://theeducationgroup.net/happy-students.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Country Pages -->
+    <url>
+        <loc>https://theeducationgroup.net/germany.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://theeducationgroup.net/dubai.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://theeducationgroup.net/canada.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://theeducationgroup.net/united-kingdom.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://theeducationgroup.net/usa.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://theeducationgroup.net/australia.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://theeducationgroup.net/ireland.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://theeducationgroup.net/italy.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://theeducationgroup.net/hungary.html</loc>
+        <lastmod>2026-05-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://theeducationgroup.net/study-abroad</loc>
-        <lastmod>2026-05-14</lastmod>
+        <loc>https://theeducationgroup.net/singapore.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Medical & Specialized -->
+    <url>
+        <loc>https://theeducationgroup.net/mbbs.html</loc>
+        <lastmod>2026-05-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://theeducationgroup.net/happy-students</loc>
-        <lastmod>2026-05-14</lastmod>
+        <loc>https://theeducationgroup.net/nursing.html</loc>
+        <lastmod>2026-05-19</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://theeducationgroup.net/privacy-policy</loc>
-        <lastmod>2026-05-14</lastmod>
+        <loc>https://theeducationgroup.net/dental.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://theeducationgroup.net/pharmacy.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://theeducationgroup.net/btec.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Legal -->
+    <url>
+        <loc>https://theeducationgroup.net/privacy-policy.html</loc>
+        <lastmod>2026-05-19</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
-        <loc>https://theeducationgroup.net/terms-of-service</loc>
-        <lastmod>2026-05-14</lastmod>
+        <loc>https://theeducationgroup.net/terms-of-service.html</loc>
+        <lastmod>2026-05-19</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
-    </url>
-    <url>
-        <loc>https://theeducationgroup.net/site-map</loc>
-        <lastmod>2026-05-14</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.4</priority>
     </url>
 </urlset>
