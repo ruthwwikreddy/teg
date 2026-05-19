@@ -213,6 +213,19 @@ document.addEventListener('DOMContentLoaded', () => {
             return Boolean(element && element.closest('a, button, input, select, textarea, label, summary'));
         };
 
+        const pageCountryMap = {
+            'australia.html': 'Australia',
+            'united-kingdom.html': 'United Kingdom',
+            'usa.html': 'USA',
+            'canada.html': 'Canada',
+            'ireland.html': 'Ireland',
+            'germany.html': 'Germany',
+            'dubai.html': 'Dubai',
+            'singapore.html': 'Singapore',
+            'italy.html': 'Italy',
+            'hungary.html': 'Hungary'
+        };
+
         const scrollToHash = (hash) => {
             const target = document.querySelector(hash);
             if (!target) {
@@ -241,7 +254,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
 
-                window.location.href = href;
+                if (href.startsWith('http')) {
+                    window.open(href, '_blank', 'noopener,noreferrer');
+                } else {
+                    window.location.href = href;
+                }
             };
 
             card.addEventListener('click', (event) => {
@@ -258,6 +275,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+
+        const currentPage = window.location.pathname.split('/').pop().toLowerCase() || 'index.html';
+        const prefCountry = pageCountryMap[currentPage];
+
+        if (prefCountry) {
+            document.querySelectorAll('#colleges .college-card-premium').forEach((card) => {
+                if (card.hasAttribute('data-href')) {
+                    return;
+                }
+
+                const title = card.querySelector('h3');
+                if (!title) {
+                    return;
+                }
+
+                const interest = title.textContent.trim();
+                if (!interest) {
+                    return;
+                }
+
+                card.setAttribute(
+                    'data-href',
+                    `contact.html?country=${encodeURIComponent(prefCountry)}&interest=${encodeURIComponent(interest)}#contact-form`
+                );
+            });
+        }
     } catch (error) {
         console.error('Card navigation initialization error:', error);
     }

@@ -2,72 +2,350 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Study in Canada - TEG</title>
+    <meta name="description" content="High-quality education, diverse culture, and excellent post-study opportunities in Canada.">
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    
+    <style>
+        :root {
+            --navy-900: #000000;
+            --navy-800: #000000;
+            --navy-700: #000000;
+            --orange-primary: #FF6A00;
+            --orange-secondary: #FF8C00;
+            --teal: #2DD4BF;
+            --off-white: #FFFFFF;
+            --grad-orange: linear-gradient(135deg, #FF6A00 0%, #FF8C00 100%);
+            --shadow-premium: 0 20px 40px -15px rgba(2, 6, 23, 0.2);
+            --shadow-orange: 0 10px 30px -5px rgba(255, 106, 0, 0.4);
+            --glow-orange: 0 0 20px rgba(255, 106, 0, 0.3);
+        }
+        
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--off-white);
+            color: var(--navy-900);
+            overflow-x: hidden;
+        }
+
+        .serif { font-family: 'Playfair Display', serif; }
+
+        .bg-white {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-brand {
+            background: var(--grad-orange);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-orange);
+            border: none;
+            width: max-content;
+        }
+
+        .btn-brand:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 35px -5px rgba(255, 106, 0, 0.5);
+            color: white;
+        }
+
+        .hero-shape {
+            position: absolute;
+            z-index: -1;
+            filter: blur(60px);
+            opacity: 0.4;
+        }
+
+        .glow-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--orange-primary);
+            border-radius: 50%;
+            box-shadow: var(--glow-orange);
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        .text-gradient {
+            background: var(--grad-orange);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        #mobile-menu {
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-origin: top;
+        }
+        
+        #mobile-menu.hidden {
+            opacity: 0;
+            transform: scaleY(0);
+            display: none;
+        }
+        
+        #mobile-menu:not(.hidden) {
+            opacity: 1;
+            transform: scaleY(1);
+            display: block;
+        }
+
+        .college-card-premium {
+            background: rgba(255, 255, 255, 1);
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.05);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .college-card-premium:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-premium);
+            border-color: rgba(255, 106, 0, 0.2);
+        }
+        .college-image-wrapper {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+            border-radius: 32px 32px 0 0;
+            margin: 8px 8px 0 8px;
+        }
+        .college-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        .college-card-premium:hover .college-image {
+            transform: scale(1.1);
+        }
+        .watermark-rank {
+            position: absolute;
+            top: -20px;
+            right: 10px;
+            font-size: 140px;
+            font-weight: 900;
+            color: rgba(255, 106, 0, 0.05);
+            z-index: 0;
+            font-family: 'Inter', sans-serif;
+            pointer-events: none;
+            transition: color 0.5s ease, transform 0.5s ease;
+        }
+        .college-card-premium:hover .watermark-rank {
+            color: rgba(255, 106, 0, 0.1);
+            transform: scale(1.05) rotate(-5deg);
+        }
+        .college-card-content {
+            padding: 2.5rem;
+            position: relative;
+            z-index: 10;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+        .college-cta {
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            background: rgba(255, 106, 0, 0.1);
+            color: #ff6a00;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            width: max-content;
+        }
+        .college-card-premium:hover .college-cta {
+            background: #ff6a00;
+            color: white;
+            box-shadow: 0 10px 20px -5px rgba(255, 106, 0, 0.4);
+        }
+        
+        .map-bg {
+            background-image: url('https://www.transparenttextures.com/patterns/world-map.png');
+            background-repeat: repeat;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3.25rem !important; line-height: 0.95 !important; letter-spacing: -2px !important; margin-bottom: 2rem !important; }
+            h2 { font-size: 2.5rem !important; text-align: center !important; line-height: 1.1 !important; }
+            .college-card-content { padding: 1.5rem !important; text-align: center !important; }
+            .college-cta { margin-left: auto; margin-right: auto; }
+        }
+    </style>
 </head>
-<body class="bg-white overflow-x-hidden">
-    <!-- NAVIGATION (simplified for brevity) -->
-    <nav id="navbar" class="sticky top-0 w-full z-50 transition-all duration-300 py-4 bg-white/80 backdrop-blur-md shadow-sm">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2"><img src="logo.png" alt="TEG Logo" class="h-12"></a>
-            <div class="hidden lg:flex space-x-8 text-sm font-black uppercase tracking-widest">
-                <a href="index.html">Home</a><a href="about.html">About</a><a href="study-abroad.html">Study Abroad</a>
+<body class="bg-orange-primary/5 overflow-x-hidden">
+    <!-- NAVIGATION -->
+    <nav id="navbar" class="sticky top-0 w-full z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-6">
+            <div class="bg-white/80 backdrop-blur-md rounded-[24px] px-8 py-4 flex justify-between items-center border border-white/20 shadow-[0_8px_30px_rgba(0,0,0,0.05)]">
+                <a href="index.html" class="flex items-center space-x-2 group">
+                    <img src="logo.png" alt="TEG Logo" class="h-14 w-auto group-hover:scale-110 transition-transform duration-500">
+                </a>
+                
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="index.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Home</a>
+                    <a href="about.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">About</a>
+                    <a href="services.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Services</a>
+                    <a href="happy-students.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Students</a>
+                    <a href="study-abroad.html" class="text-navy-900 font-extrabold text-xs uppercase tracking-widest hover:text-orange-primary transition-colors">Study Abroad</a>
+                    <a href="contact.html" class="btn-brand !py-3 !px-8 !text-[10px] !tracking-[0.2em]">Free Counselling</a>
+                </div>
+                
+                <button class="lg:hidden p-3 rounded-2xl hover:bg-black/10 transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <svg class="w-6 h-6 text-navy-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div id="mobile-menu" class="hidden lg:hidden mt-4 bg-white rounded-3xl p-8 shadow-2xl border border-white/30">
+                <div class="flex flex-col space-y-6 text-center">
+                    <a href="index.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Home</a>
+                    <a href="about.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">About</a>
+                    <a href="services.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Services</a>
+                    <a href="happy-students.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Students</a>
+                    <a href="study-abroad.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Study Abroad</a>
+                    <a href="contact.html" class="btn-brand w-full !py-4 text-sm">Free Counselling</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <section class="py-20 text-center">
-        <h1 class="text-6xl font-black mb-6">Study in Canada</h1>
-        <p class="text-xl">For International Students</p>
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[60vh] flex items-center overflow-hidden pt-12 pb-20">
+        <div class="hero-shape w-[600px] h-[600px] bg-orange-primary -top-20 -right-20 rounded-full"></div>
+        <div class="hero-shape w-[400px] h-[400px] bg-teal -bottom-20 -left-20 rounded-full opacity-20"></div>
+        <div class="absolute inset-0 map-bg opacity-5"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-flex items-center space-x-2 px-4 py-2 bg-white rounded-full mb-8 shadow-sm border border-black/5">
+                        <span class="glow-dot"></span>
+                        <span class="text-navy-900 text-xs font-bold uppercase tracking-widest">Destination Guide</span>
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-7xl font-black text-navy-900 leading-[1.1] mb-6 tracking-tighter">
+                        Study in <br><span class="text-gradient">Canada</span>
+                    </h1>
+                    
+                    <p class="text-lg lg:text-xl text-navy-700/80 mb-10 max-w-xl leading-relaxed">
+                        High-quality education, diverse culture, and excellent post-study opportunities in Canada.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 lg:gap-6">
+                        <a href="#colleges" class="btn-brand text-base lg:text-lg">View Top Universities <i class="fas fa-arrow-down ml-3"></i></a>
+                    </div>
+                </div>
+                
+                <div class="relative hidden lg:block" data-aos="fade-left" data-aos-duration="1200">
+                    <img src="countries/canada.png" alt="Canada" class="w-full object-cover rounded-[32px] shadow-2xl border-8 border-white aspect-square max-w-md mx-auto" style="box-shadow: 0 0 40px rgba(255, 115, 0, 0.15);">
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="py-16 container mx-auto px-6">
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- University Cards List -->
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="University of Windsor" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Windsor</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Thompson Rivers University - TRU" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Thompson Rivers University - TRU</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Humber Polytechnic" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Humber Polytechnic</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Fanshawe College" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Fanshawe College</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Durham College" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Durham College</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Niagara College" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Niagara College</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="University of Alberta" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Alberta</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="University of Waterloo" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Waterloo</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="University of Calgary Continuing Education" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Calgary Continuing Education</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="University of Ottawa" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Ottawa</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Dalhousie University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Dalhousie University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Simon Fraser University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Simon Fraser University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="University of Victoria" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Victoria</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="University of Guelph" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Guelph</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="University of New Brunswick - UNB" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of New Brunswick - UNB</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="University of Manitoba" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Manitoba</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Memorial University of Newfoundland - MUN" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Memorial University of Newfoundland - MUN</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Toronto Metropolitan University - TMU" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Toronto Metropolitan University - TMU</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Carleton University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Carleton University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="University of Regina" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Regina</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Brock University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Brock University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="University of New Brunswick - UNB" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of New Brunswick - UNB</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Wilfrid Laurier University - WLU" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Wilfrid Laurier University - WLU</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Wilfrid Laurier International College" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Wilfrid Laurier International College</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Lakehead University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Lakehead University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Trent University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Trent University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Ontario Tech University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Ontario Tech University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="University of Northern British Columbia" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Northern British Columbia</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="University of Winnipeg" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Winnipeg</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="St. Francis Xavier University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">St. Francis Xavier University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="University of Prince Edward Island" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Prince Edward Island</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Acadia University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Acadia University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="MacEwan University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">MacEwan University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Nipissing University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Nipissing University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Mount Saint Vincent University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Mount Saint Vincent University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Cape Breton University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Cape Breton University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Royal Roads University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Royal Roads University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="University of Lethbridge" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Lethbridge</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Kwantlen Polytechnic University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Kwantlen Polytechnic University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="British Columbia Institute of Technology" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">British Columbia Institute of Technology</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Trinity Western University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Trinity Western University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
-            <div class="college-card-premium" data-aos="fade-up"><div class="college-image-wrapper"><img src="colleges/canada_7.jpg" alt="Vancouver Island University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Vancouver Island University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+    <!-- COLLEGES GRID -->
+    <section id="colleges" class="py-16 lg:py-24 relative bg-white">
+        <!-- Decorative bg elements -->
+        <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-orange-primary/5 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+        
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <p class="text-orange-primary font-black text-sm uppercase tracking-[0.2em] mb-4">World Class Education</p>
+                <h2 class="serif text-4xl lg:text-6xl text-navy-900 font-black mb-6">Top Universities in Canada</h2>
+                <div class="h-1.5 w-24 bg-grad-orange mx-auto rounded-full mt-6"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- University Cards List -->
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.uwindsor.ca/"><div class="college-image-wrapper"><img src="https://images.shiksha.com/mediadata/images/1533550797phpz94tfm.jpeg" alt="University of Windsor" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Windsor</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.tru.ca/"><div class="college-image-wrapper"><img src="https://image.cdn.uscholars.in/media/institutions_banner/FOOqxNow2.jpg" alt="Thompson Rivers University - TRU" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Thompson Rivers University - TRU</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://humber.ca/"><div class="college-image-wrapper"><img src="https://assets.studies-overseas.com/Humber_Polytechnic_Desktop_984x398_Header_Banner_3f8e894d86.webp" alt="Humber Polytechnic" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Humber Polytechnic</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.fanshawec.ca/"><div class="college-image-wrapper"><img src="https://images.shiksha.com/mediadata/images/1533628052phpRjQ7Ip.jpeg" alt="Fanshawe College" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Fanshawe College</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://durhamcollege.ca/"><div class="college-image-wrapper"><img src="https://images.shiksha.com/mediadata/images/1533711829php40apSP_g.jpg" alt="Durham College" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Durham College</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.niagaracollege.ca/"><div class="college-image-wrapper"><img src="https://international.niagaracollege.ca/wp-content/uploads/2025/07/front-of-campus-e1752774223311.jpg" alt="Niagara College" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Niagara College</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.ualberta.ca/"><div class="college-image-wrapper"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvBGM6JJ7LOr3G8VQGviap_OqHFIPqcyrtmA&s" alt="University of Alberta" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Alberta</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://uwaterloo.ca/"><div class="college-image-wrapper"><img src="https://cdn.prod.website-files.com/67b861ab00707b40050b601f/69417de2d8a3611df9d3aefd_uw-campus.png" alt="University of Waterloo" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Waterloo</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://conted.ucalgary.ca/"><div class="college-image-wrapper"><img src="https://conted.ucalgary.ca/images/campus-main.png" alt="University of Calgary Continuing Education" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Calgary Continuing Education</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.uottawa.ca/"><div class="college-image-wrapper"><img src="https://assets.studies-overseas.com/University_of_Ottawa_Desktop_984x398_Header_Banner_2d7168039b.webp" alt="University of Ottawa" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Ottawa</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.dal.ca/"><div class="college-image-wrapper"><img src="https://www.dal.ca/_jcr_content/_cq_featuredimage.coreimg.jpeg/1743691813725/robie-street-dalhousie-sign.jpeg" alt="Dalhousie University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Dalhousie University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.sfu.ca/"><div class="college-image-wrapper"><img src="https://techportal.in/wp-content/uploads/2024/01/simon.jpg" alt="Simon Fraser University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Simon Fraser University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.uvic.ca/"><div class="college-image-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Provincial_Normal_School%2C_Saanich%2C_British_Columbia%2C_Canada_03.jpg/250px-Provincial_Normal_School%2C_Saanich%2C_British_Columbia%2C_Canada_03.jpg" alt="University of Victoria" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Victoria</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.uoguelph.ca/"><div class="college-image-wrapper"><img src="https://beyondthestates.com/wp-content/uploads/2025/10/OATKVOZUV5HLJNRY4W7OAXWKSM-scaled-1.jpg" alt="University of Guelph" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Guelph</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.unb.ca/"><div class="college-image-wrapper"><img src="https://cdn.britannica.com/66/153866-050-E3FFFD9A/Howard-Douglas-Hall-University-of-New-Brunswick.jpg" alt="University of New Brunswick - UNB" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of New Brunswick - UNB</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://umanitoba.ca/"><div class="college-image-wrapper"><img src="https://beyondthestates.com/wp-content/uploads/2025/10/about-university-manitoba-administration-building-04.jpg" alt="University of Manitoba" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Manitoba</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.mun.ca/"><div class="college-image-wrapper"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvazC7AfQMk3mTIH-R8wfIiIgvTGzZiSQ6Ig&s" alt="Memorial University of Newfoundland - MUN" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Memorial University of Newfoundland - MUN</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.torontomu.ca/"><div class="college-image-wrapper"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo8MmeCeDIm-DBAW6da0QKFMISV174j92Rmg&s" alt="Toronto Metropolitan University - TMU" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Toronto Metropolitan University - TMU</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://carleton.ca/"><div class="college-image-wrapper"><img src="https://assets.studies-overseas.com/Carleton_University_Desktop_984x398_Header_Banner_1a74e587ed.webp" alt="Carleton University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Carleton University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.uregina.ca/"><div class="college-image-wrapper"><img src="https://photos.applyboard.com/school_photos/000/018/735/photos/optimized/URegina_campus_2022.webp?1669394282" alt="University of Regina" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Regina</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://brocku.ca/"><div class="college-image-wrapper"><img src="https://image.cdn.uscholars.in/media/institutions_banner/brock_u.jpeg" alt="Brock University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Brock University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.wlu.ca/"><div class="college-image-wrapper"><img src="https://wlu.ca/about/campuses-and-locations/assets/images/savas-chamberlin-music-building-banner.jpg" alt="Wilfrid Laurier University - WLU" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Wilfrid Laurier University - WLU</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.laurieric.ca/"><div class="college-image-wrapper"><img src="https://www.laurieric.ca/wp-content/uploads/2025/02/campus-photo-of-Wilfird-Laurier-University-Waterloo-campus.jpg.optimal.jpg" alt="Wilfrid Laurier International College" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Wilfrid Laurier International College</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.lakeheadu.ca/"><div class="college-image-wrapper"><img src="https://assets.studies-overseas.com/mobile/Lakehead_University_Desktop_984x398_Header_Banner_185be96dd2.webp" alt="Lakehead University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Lakehead University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.trentu.ca/"><div class="college-image-wrapper"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3yAot7hkozGIG5gGTaM74QgmPuqwin3pJwQ&s" alt="Trent University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Trent University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://ontariotechu.ca/"><div class="college-image-wrapper"><img src="https://image.cdn.uscholars.in/media/institutions_banner/vpri-young-university-top-200-thumbnail.jpg" alt="Ontario Tech University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Ontario Tech University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.unbc.ca/"><div class="college-image-wrapper"><img src="https://images.shiksha.com/mediadata/images/1510648314phpuNt6lc.jpeg" alt="University of Northern British Columbia" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Northern British Columbia</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.uwinnipeg.ca/"><div class="college-image-wrapper"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWZ8sdJu7G5iFeKhmwlbxXjy3hUdGOET4iIQ&s" alt="University of Winnipeg" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Winnipeg</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.stfx.ca/"><div class="college-image-wrapper"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/5b/32/ab/photo0jpg.jpg?w=1200&h=1200&s=1" alt="St. Francis Xavier University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">St. Francis Xavier University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.upei.ca/"><div class="college-image-wrapper"><img src="https://www.upei.ca/sites/default/files/styles/front_page_media/public/CF251-12S-MB-628-M.jpg.webp" alt="University of Prince Edward Island" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Prince Edward Island</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www2.acadiau.ca/"><div class="college-image-wrapper"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSagFdDIprZfYvs73GVLwNgYZtyKLB7UcRooA&s" alt="Acadia University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Acadia University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.macewan.ca/"><div class="college-image-wrapper"><img src="https://images-intl.prod.aws.idp-connect.com/commimg/myhotcourses/institution/CH/myhc_321399.jpg" alt="MacEwan University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">MacEwan University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.nipissingu.ca/"><div class="college-image-wrapper"><img src="https://www.nipissingu.ca/sites/default/files/NU-pond_front.jpg" alt="Nipissing University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Nipissing University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.msvu.ca/"><div class="college-image-wrapper"><img src="https://images.shiksha.com/mediadata/images/1658144011php4sXtRk_g.jpg" alt="Mount Saint Vincent University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Mount Saint Vincent University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.cbu.ca/"><div class="college-image-wrapper"><img src="https://studynovascotia.ca/files/images/_1200x675_crop_center-center_none/CBU.jpg" alt="Cape Breton University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Cape Breton University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.royalroads.ca/"><div class="college-image-wrapper"><img src="https://www.royalroads.ca/sites/default/files/inline-images/Castle%20main%20image.jpg" alt="Royal Roads University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Royal Roads University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.ulethbridge.ca/"><div class="college-image-wrapper"><img src="https://images.shiksha.com/mediadata/images/1525413618phpbbrx5D.jpeg" alt="University of Lethbridge" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">University of Lethbridge</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.kpu.ca/"><div class="college-image-wrapper"><img src="https://images.shiksha.com/mediadata/images/1537270502phpH5iw4w.jpeg" alt="Kwantlen Polytechnic University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Kwantlen Polytechnic University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.bcit.ca/"><div class="college-image-wrapper"><img src="https://beyondthestates.com/wp-content/uploads/2025/11/British-Columbia-Institute-of-Technology-Burnaby-Building-July2020.webp" alt="British Columbia Institute of Technology" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">British Columbia Institute of Technology</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.twu.ca/"><div class="college-image-wrapper"><img src="https://leapassets.s3.ap-south-1.amazonaws.com/Trinity_Western_University_0bce4d12a7.png" alt="Trinity Western University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Trinity Western University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+                <div class="college-card-premium" data-aos="fade-up" data-href="https://www.viu.ca/"><div class="college-image-wrapper"><img src="https://images.shiksha.com/mediadata/images/1534157184phpt8csvM.jpeg" alt="Vancouver Island University" class="college-image"></div><div class="college-card-content"><h3 class="serif text-2xl font-black text-navy-900 mb-2">Vancouver Island University</h3><p class="text-navy-900/60 font-bold mb-4"># INTAKE -Jan/May/Sep</p></div></div>
+            </div>
         </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-16 bg-[#040810] text-center mt-auto">
+        <div class="container mx-auto px-6">
+            <img src="logo.png" alt="TEG Logo" class="h-16 mx-auto mb-8 brightness-0 invert opacity-50">
+            <p class="font-medium text-white/40 text-sm tracking-wide">&copy; 2024 The Education Group. Empowering Global Education.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init({ once: true, offset: 50, duration: 800, easing: 'ease-out-cubic' });</script>
+</body>
+</html>
