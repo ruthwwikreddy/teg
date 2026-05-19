@@ -193,8 +193,14 @@ document.addEventListener('DOMContentLoaded', () => {
                             requestAnimationFrame(animation);
                             
                             // Close mobile menu if open
-                            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                                mobileMenu.classList.add('hidden');
+                            const menuOverlay = document.getElementById('mobile-menu-overlay');
+                            const oldMobileMenu = document.getElementById('mobile-menu');
+                            
+                            if (menuOverlay && !menuOverlay.classList.contains('hidden')) {
+                                const closeBtn = document.getElementById('close-menu');
+                                if (closeBtn) closeBtn.click();
+                            } else if (oldMobileMenu && !oldMobileMenu.classList.contains('hidden')) {
+                                oldMobileMenu.classList.add('hidden');
                             }
                         }
                     }

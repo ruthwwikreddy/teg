@@ -593,23 +593,6 @@
             transform: translateY(0);
         }
 
-        /* Premium Mobile Menu Animation */
-        #mobile-menu {
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            transform-origin: top;
-        }
-        
-        #mobile-menu.hidden {
-            opacity: 0;
-            transform: scaleY(0);
-            display: none;
-        }
-        
-        #mobile-menu:not(.hidden) {
-            opacity: 1;
-            transform: scaleY(1);
-            display: block;
-        }
     </style>
 </head>
 <body class="bg-orange-primary/5 overflow-x-hidden">
@@ -642,15 +625,36 @@
                 </button>
             </div>
             
-            <!-- Mobile Menu -->
-            <div class="hidden lg:hidden mt-4 bg-white rounded-3xl p-8 shadow-2xl border border-white/30" id="mobile-menu">
-                <div class="flex flex-col space-y-6 text-center">
-                    <a href="index.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Home</a>
-                    <a href="about.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">About</a>
-                    <a href="services.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Services</a>
-                    <a href="happy-students.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Students</a>
-                    <a href="study-abroad.html" class="text-navy-900 font-black text-lg uppercase tracking-widest">Study Abroad</a>
-                    <a href="contact.html" class="btn-brand w-full !py-4">Free Counselling</a>
+            <!-- Mobile Menu (Best of the Best) -->
+            <div class="fixed inset-0 z-[100] hidden lg:hidden" id="mobile-menu-overlay">
+                <!-- Glassmorphism Backdrop -->
+                <div class="absolute inset-0 bg-white/40 backdrop-blur-3xl" id="menu-backdrop"></div>
+                
+                <!-- Menu Content -->
+                <div class="relative h-full flex flex-col p-8 justify-between z-10 translate-x-full transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]" id="menu-content">
+                    <div class="flex justify-between items-center mb-16">
+                        <img src="logo.png" alt="TEG Logo" class="h-12">
+                        <button class="p-4 bg-black rounded-2xl text-white shadow-premium" id="close-menu">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="flex flex-col space-y-8 items-center text-center">
+                        <a href="index.html" class="text-4xl font-black text-navy-900 tracking-tighter hover:text-orange-primary transition-colors">Home</a>
+                        <a href="about.html" class="text-4xl font-black text-navy-900 tracking-tighter hover:text-orange-primary transition-colors">About</a>
+                        <a href="services.html" class="text-4xl font-black text-navy-900 tracking-tighter hover:text-orange-primary transition-colors">Services</a>
+                        <a href="happy-students.html" class="text-4xl font-black text-navy-900 tracking-tighter hover:text-orange-primary transition-colors">Students</a>
+                        <a href="study-abroad.html" class="text-4xl font-black text-navy-900 tracking-tighter hover:text-orange-primary transition-colors">Study Abroad</a>
+                        <a href="contact.html" class="btn-brand w-full !py-6 !text-lg !rounded-[32px]">Free Counselling</a>
+                    </div>
+                    
+                    <!-- Bottom Info -->
+                    <div class="pt-8 border-t border-black/5 text-center">
+                        <p class="text-[10px] font-black text-black/40 uppercase tracking-[0.2em] mb-4">Get in Touch</p>
+                        <a href="tel:+919700500087" class="text-xl font-black text-navy-900">+91 97005 00087</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -676,10 +680,11 @@
                         Your future isn't defined by boundaries. We bridge the gap between your ambition and the world's most prestigious universities.
                     </p>
                     
-                    <div class="flex flex-col sm:flex-row gap-4 lg:gap-6">
+                    <div class="flex flex-col sm:flex-row gap-4 lg:gap-6 flex-wrap">
                         <a href="#contact" class="btn-brand text-base lg:text-lg">Start Your Journey <i class="fas fa-arrow-right ml-3"></i></a>
-                        <a href="https://wa.me/919700500087" target="_blank" class="btn-outline text-base lg:text-lg flex items-center justify-center">
-                            <i class="fab fa-whatsapp mr-3 text-2xl text-[#25D366]"></i> WhatsApp Us
+                        <a href="study-abroad.html" class="btn-outline text-base lg:text-lg">Our Universities</a>
+                        <a href="https://wa.me/919700500087" target="_blank" class="bg-[#25D366] text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest text-base lg:text-lg flex items-center justify-center hover:scale-105 transition-all shadow-[0_10px_30px_-10px_rgba(37,211,102,0.5)]">
+                            <i class="fab fa-whatsapp mr-3 text-2xl"></i> WhatsApp Us
                         </a>
                     </div>
 
@@ -1170,77 +1175,114 @@
     </section>
 
     <!-- CONTACT SECTION -->
-    <section id="contact" class="py-16 lg:py-24 section-light relative overflow-hidden">
-        <div class="container mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-20">
+    <section id="contact" class="py-20 lg:py-32 bg-white relative overflow-hidden">
+        <!-- Background decorative elements -->
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-orange-primary/5 rounded-full blur-[120px] -mr-40 -mt-40"></div>
+        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-orange-secondary/5 rounded-full blur-[100px] -ml-20 -mb-20"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <!-- Content Side -->
                 <div data-aos="fade-right">
-                    <h2 class="serif text-4xl lg:text-7xl font-black text-navy-900 mb-8 leading-tight">Your Global Future <br><span class="text-gradient">Starts Here.</span></h2>
-                    <p class="text-xl text-navy-700/70 mb-12 max-w-lg">
-                        Take the first step towards an extraordinary career. Our expert consultants are ready to guide you.
+                    <div class="inline-flex items-center space-x-2 px-4 py-2 bg-orange-primary/10 rounded-full mb-8">
+                        <span class="glow-dot"></span>
+                        <span class="text-orange-primary text-[10px] font-black uppercase tracking-widest">Connect With Experts</span>
+                    </div>
+                    
+                    <h2 class="serif text-5xl lg:text-8xl font-black text-navy-900 mb-8 leading-[0.9] tracking-tighter">
+                        Your Global Future <br>
+                        <span class="text-gradient italic font-normal">Starts Here.</span>
+                    </h2>
+                    
+                    <p class="text-xl text-navy-700/60 mb-12 max-w-lg leading-relaxed font-medium">
+                        Take the first step towards an extraordinary career. Our expert consultants are ready to guide you through every milestone.
                     </p>
                     
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-1 gap-6">
-                        <a href="tel:+919700500087" class="group flex items-center p-6 bg-black rounded-[32px] border border-black/10 hover:border-orange-primary/50 transition-all duration-500 shadow-premium">
-                            <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-white shrink-0 group-hover:bg-orange-primary group-hover:scale-110 transition-all">
-                                <i class="fas fa-phone-alt text-2xl"></i>
-                            </div>
-                            <div class="ml-6">
-                                <p class="text-[10px] font-black text-white uppercase tracking-[0.2em] mb-1">Direct Line</p>
-                                <p class="text-xl font-black text-white">+91 97005 00087</p>
+                    <div class="space-y-6 max-w-md">
+                        <!-- Direct Line Card -->
+                        <a href="tel:+919700500087" class="group block p-[1px] bg-black/5 hover:bg-grad-orange rounded-[32px] transition-all duration-500 shadow-sm hover:shadow-orange">
+                            <div class="bg-white rounded-[31px] p-6 flex items-center">
+                                <div class="w-16 h-16 bg-black rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:rotate-12 transition-all">
+                                    <i class="fas fa-phone-alt text-2xl"></i>
+                                </div>
+                                <div class="ml-6">
+                                    <p class="text-[10px] font-black text-black/40 uppercase tracking-[0.2em] mb-1">Direct Line</p>
+                                    <p class="text-xl font-black text-navy-900">+91 97005 00087</p>
+                                </div>
                             </div>
                         </a>
 
-                        <a href="mailto:pritpal@theeducationgroup.net" class="group flex items-center p-6 bg-orange-primary/10 rounded-[32px] border border-orange-primary/20 hover:border-orange-primary/50 transition-all duration-500 shadow-premium">
-                            <div class="w-16 h-16 bg-orange-primary/10 rounded-2xl flex items-center justify-center text-orange-primary shrink-0 group-hover:bg-orange-primary group-hover:text-black group-hover:scale-110 transition-all">
-                                <i class="fas fa-envelope-open text-2xl"></i>
-                            </div>
-                            <div class="ml-6">
-                                <p class="text-[10px] font-black text-black/50 uppercase tracking-[0.2em] mb-1 group-hover:text-orange-primary/70 transition-colors">Official Email</p>
-                                <p class="text-xl font-black text-black group-hover:text-orange-primary transition-colors">pritpal@theeducationgroup.net</p>
+                        <!-- Email Card -->
+                        <a href="mailto:pritpal@theeducationgroup.net" class="group block p-[1px] bg-black/5 hover:bg-black rounded-[32px] transition-all duration-500 shadow-sm">
+                            <div class="bg-white rounded-[31px] p-6 flex items-center">
+                                <div class="w-16 h-16 bg-black rounded-2xl flex items-center justify-center text-white transition-all">
+                                    <i class="fas fa-envelope-open text-2xl"></i>
+                                </div>
+                                <div class="ml-6">
+                                    <p class="text-[10px] font-black text-black/40 uppercase tracking-[0.2em] mb-1">Official Email</p>
+                                    <p class="text-lg font-black text-navy-900 break-all">pritpal@theeducationgroup.net</p>
+                                </div>
                             </div>
                         </a>
                     </div>
                 </div>
                 
+                <!-- Form Side -->
                 <div data-aos="fade-left">
-                    <div class="bg-orange-primary/10 p-10 lg:p-16 rounded-[32px] shadow-premium relative group">
+                    <div class="bg-white rounded-[48px] p-8 lg:p-12 shadow-premium border border-black/5 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-orange-primary/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+                        
                         <div class="inline-flex items-center space-x-2 px-4 py-2 bg-orange-primary/10 rounded-full mb-8">
                             <span class="glow-dot"></span>
-                            <span class="text-orange-primary text-xs font-bold uppercase tracking-widest">Instant Booking</span>
+                            <span class="text-orange-primary text-[10px] font-black uppercase tracking-widest">Instant Booking</span>
                         </div>
-                        <h3 class="text-3xl font-black text-black mb-10">Book Free Counselling</h3>
-                        <form id="contact-form" action="index.html#contact-form" class="space-y-6">
+                        
+                        <h3 class="text-3xl font-black text-black mb-10 tracking-tight">Book Free <span class="text-gradient">Counselling</span></h3>
+                        
+                        <form id="contact-form" class="space-y-6">
                             <div class="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <label class="block text-xs font-bold text-navy-900 uppercase tracking-widest mb-3">Name</label>
-                                    <input type="text" name="name" class="w-full bg-black/5 border-none p-4 rounded-2xl focus:ring-2 focus:ring-orange-primary outline-none transition" placeholder="John Doe" required>
+                                <div class="space-y-2">
+                                    <label class="block text-[10px] font-black text-navy-900/50 uppercase tracking-[0.2em] ml-2">Name</label>
+                                    <input type="text" name="name" class="w-full bg-black/5 border-none p-5 rounded-[24px] outline-none text-navy-900 font-bold placeholder:text-navy-900/20 focus:ring-2 focus:ring-orange-primary transition" placeholder="John Doe" required>
                                 </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-navy-900 uppercase tracking-widest mb-3">Phone</label>
-                                    <input type="tel" name="phone" class="w-full bg-black/5 border-none p-4 rounded-2xl focus:ring-2 focus:ring-orange-primary outline-none transition" placeholder="+91 XXX XXX XXXX" required>
+                                <div class="space-y-2">
+                                    <label class="block text-[10px] font-black text-navy-900/50 uppercase tracking-[0.2em] ml-2">Phone</label>
+                                    <input type="tel" name="phone" class="w-full bg-black/5 border-none p-5 rounded-[24px] outline-none text-navy-900 font-bold placeholder:text-navy-900/20 focus:ring-2 focus:ring-orange-primary transition" placeholder="+91 XXX XXX XXXX" required>
                                 </div>
                             </div>
-                            <div>
-                                <label class="block text-xs font-bold text-navy-900 uppercase tracking-widest mb-3">Target Country</label>
-                                <select name="country" class="w-full bg-black/5 border-none p-4 rounded-2xl focus:ring-2 focus:ring-orange-primary outline-none transition" required>
-                                    <option value="">Select Country</option>
-                                    <option value="United Kingdom">United Kingdom</option>
-                                    <option value="USA">USA</option>
-                                    <option value="Canada">Canada</option>
-                                    <option value="Australia">Australia</option>
-                                    <option value="Ireland">Ireland</option>
-                                    <option value="Germany">Germany</option>
-                                    <option value="Dubai">Dubai</option>
-                                    <option value="Singapore">Singapore</option>
-                                    <option value="Italy">Italy</option>
-                                    <option value="Hungary">Hungary</option>
-                                    <option value="India">India</option>
-                                    <option value="Europe">Europe</option>
-                                </select>
+                            
+                            <div class="space-y-2">
+                                <label class="block text-[10px] font-black text-navy-900/50 uppercase tracking-[0.2em] ml-2">Target Country</label>
+                                <div class="relative">
+                                    <select name="country" class="w-full bg-black/5 border-none p-5 rounded-[24px] outline-none text-navy-900 font-bold appearance-none cursor-pointer focus:ring-2 focus:ring-orange-primary transition" required>
+                                        <option value="" disabled selected>Select Country</option>
+                                        <option value="United Kingdom">United Kingdom</option>
+                                        <option value="USA">USA</option>
+                                        <option value="Canada">Canada</option>
+                                        <option value="Australia">Australia</option>
+                                        <option value="Ireland">Ireland</option>
+                                        <option value="Germany">Germany</option>
+                                        <option value="Dubai">Dubai</option>
+                                        <option value="Singapore">Singapore</option>
+                                        <option value="Italy">Italy</option>
+                                        <option value="Hungary">Hungary</option>
+                                        <option value="India">India</option>
+                                        <option value="Europe">Europe</option>
+                                    </select>
+                                    <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-orange-primary">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <input type="hidden" name="interest" value="">
+                            
+                            <input type="hidden" name="interest" value="General Inquiry">
                             <input type="hidden" name="email" value="inquiry@theeducationgroup.net">
-                            <button type="submit" class="w-full btn-brand py-5 text-lg">Send Request <i class="fas fa-paper-plane ml-3"></i></button>
+                            
+                            <button type="submit" class="w-full btn-brand py-6 text-lg group">
+                                <span class="relative z-10 flex items-center justify-center">
+                                    Send Request <i class="fas fa-paper-plane ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                                </span>
+                            </button>
                         </form>
                     </div>
                 </div>
